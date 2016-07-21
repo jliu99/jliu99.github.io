@@ -15,14 +15,17 @@
 <body>
     <script type="text/javascript">
         var author;
+        var name, id, topics, pubCount;
         d3.json("all_data.json", function (data) {
             author = data[0];
+            name = author.authorName;
+            id = author.ID;
+            topics = author.topics;
+            pubCount = author.pubCount;
+            console.log(name);
+            console.log(topics);
+            
         });
-
-        var name = author("authorName");
-        var id = author("ID");
-        var topics = author("topics");
-        var pubCount = author("pubCount");
 
         var topicNames, topicScores;
     </script>
