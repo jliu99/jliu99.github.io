@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Profile</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/signature-module.js"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        $.getJSON("all_data.json", function(data) {
+            console.log(data[0]);
+        });
+    </script>
+    <main>
+        <section id="profile">
+            <div id="icon">
+                <img src="img/placeholder.png" />
+            </div>
+            <div id="info">
+                <h2>John Doe</h2>
+                <p>Institution: University of Chicago
+                    <br>Email: johndoe@uchicago.edu</p>
+            </div>
+            <div id="numbers">
+                <p>h-Index</p>
+                <a class="tooltip" href="#" title="Index number here">
+                    <div id="index-graph-container">
+                        <svg class="svg" id="index-svg">
+                            <rect x="0" y="0" height="100%" width="60%" fill="#971E1E" />
+                        </svg>
+                    </div>
+                </a>
+                <h2 class="count" id="a-count">49</h2>
+                <p>Articles represented</p>
+            </div>
+        </section>
+        <section id="display-toggles">
+            <ul>
+                <li class="selected">Signature</li>
+                <li>Co-authors</li>
+                <li>Published Works</li>
+            </ul>
+        </section>
+        <section id="display">
+            <svg id="main-svg" class="svg">
+                <script type="text/javascript">
+                    var dataset = [];
+                    for (i = 0; i < 150; i++) {
+                        var data = Math.floor(500 * Math.random());
+                        dataset.push(data);
+                    }
+                    loadData(dataset);
+                    createSignature("main-svg");
+                </script>
+            </svg>
+        </section>
+        <section id="related">
+            <h4>related profiles</h4>
+            <hr />
+            <ul>
+                <li>
+                    <a href="#">
+                        <svg class="svg rel-prof" id="rel1">
+                        </svg>
+                        <p>Jane Doe</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel2"></svg>
+                        <p>Gary Sue</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel3"></svg>
+                        <p>Mary Sue</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel4"></svg>
+                        <p>Bob Jones</p>
+                    </a>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                for (j = 1; j <= 4; j++) {
+                    var dataArray = [];
+                    for (i = 0; i < 150; i++) {
+                        var data = Math.floor(101 * Math.random());
+                        dataArray.push(data);
+                    }
+                    loadData(dataArray);
+                    createStagnantSignature("rel" + j);
+                }
+            </script>
+        </section>
+    </main>
+    <script type="text/javascript">
+        jQuery.fn.sbTooltip = function () {
+
+            // For each instance of this element
+            return this.each(function () {
+
+                // Add the new attribute with title's current value and then remove the title attribute
+                jQuery(this).attr({
+                    'data-sbtooltip': jQuery(this).attr("title")
+                }).removeAttr("title");
+
+            });
+
+        };
+
+        $(document).ready(function () {
+            $(".tooltip").sbTooltip();
+        });
+
+        var h = d3.select("#a-count");
+        h.attr("style", "opacity:0;");
+        h.transition()
+            .duration(1000)
+            .attr("style", "opacity:1");
+
+        $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+
+        d3.select("#numbers").selectAll("p").style("opacity", "0.5");
+        d3.select("#numbers").selectAll("p").transition()
+            .duration(250)
+            .style("opacity", "1");
+        d3.select("#index-graph-container").style("opacity", "0.5");
+        d3.select("#index-graph-container").transition()
+            .duration(2000)
+            .style("opacity", "1");
+
+        var r = d3.select("#index-svg").select("rect");
+        var w = r.attr("width");
+        r.attr("width", "0")
+            .attr("opacity", "0.6");
+        r.transition()
+            .duration(1250)
+            .attr("width", w)
+            .attr("opacity", "1");
+
+        d3.select("#info").select("p").transition()
+            .duration(800)
+            .style("opacity", "1");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,270 @@
+/* ---- FONTS ---- */
+
+@font-face {
+    font-family: 'unna';
+    src: url('font/unna.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'neris';
+    src: url('font/neris-sb.otf') format('opentype');
+}
+
+
+/* ---- BEGIN CSS ---- */
+
+main {
+    width: 90%;
+    margin: auto;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.svg {
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+}
+
+a:hover {
+    pointer-events: none;
+}
+
+
+/* PROFILE */
+
+#profile {
+    box-sizing: border-box;
+    width: 70%;
+    height: 150px;
+    margin: auto;
+    margin-top: 25px;
+    display: block;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-bottom: 4px solid maroon;
+}
+
+#profile h2 {
+    color: maroon;
+}
+
+#profile #icon {
+    height: 100%;
+    float: left;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid rgba(128, 0, 0, 0.1);
+    border-top: none;
+    border-left-color: #eee;
+    border-bottom-color: #ccc;
+}
+
+#profile #icon img {
+    height: 100%;
+    box-sizing: border-box;
+    width: inherit;
+    border: 3px solid #fff;
+}
+
+#profile #info {
+    width: 60%;
+    height: 100%;
+    padding-top: 10px;
+    display: inline-block;
+}
+
+#profile #info h2 {
+    padding: 0 10px;
+    margin-bottom: 8px;
+    font-size: 4em;
+    font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+}
+
+#profile #info p {
+    padding-left: 15px;
+    font-size: .8em;
+    line-height: 1.5em;
+    opacity: 0;
+}
+
+#numbers {
+    box-sizing: border-box;
+    width: 22%;
+    min-width: 150px;
+    max-width: 225px;
+    height: 145px;
+    padding-top: 10px;
+    float: right;
+    display: inline-block;
+    text-align: center;
+    border-left: 1px solid #ccc;
+    font-size: .9em;
+}
+
+#numbers h2 {
+    font-size: 3.7em;
+    font-family: 'Maven Pro', 'neris';
+    margin-bottom: 2px;
+}
+
+#numbers #index-graph-container {
+    width: 65%;
+    height: 20px;
+    border: 1px solid rgba(100, 100, 100, 0.7);
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+#numbers .svg {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+#numbers .tooltip:hover {
+    position: relative;
+    z-index: 100;
+}
+
+#numbers .tooltip:before {
+    background-color: #444;
+    color: #fff;
+    border-radius: 2px;
+    content: attr(data-sbtooltip);
+    display: none;
+    padding: 4px 10px;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    box-shadow: 0px 0px 4 #999;
+    -moz-box-shadow: 0px 0px 4 #999;
+    -webkit-box-shadow: 0px 0px 4 #999;
+    height: 30px;
+    font-size: 10px;
+}
+
+#numbers .tooltip:after {
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent #444 transparent transparent;
+    content: "";
+    display: none;
+    height: 1px;
+    width: 2px;
+    position: absolute;
+    top: -23px;
+    left: 80px;
+}
+
+#numbers .tooltip:hover:after,
+#numbers .tooltip:hover:before {
+    display: block;
+}
+
+
+/* Tabs (to toggle the display) */
+
+#display-toggles {
+    display: block;
+    margin-top: 20px;
+}
+
+#display-toggles ul,
+#related ul {
+    list-style-type: none;
+    margin: auto;
+}
+
+#display-toggles ul {
+    width: 70%;
+    min-width: 650px;
+}
+
+#display-toggles ul li,
+#related ul li {
+    display: inline-block;
+    text-align: center;
+}
+
+#display-toggles ul li {
+    background-color: rgb(235, 235, 235);
+    height: 20px;
+    padding: 10px;
+    padding-top: 15px;
+    border: 1px solid #ddd;
+    min-width: 75px;
+    margin-left: -1px;
+}
+
+#display-toggles ul li.selected {
+    background-color: #fff;
+    color: maroon;
+    z-index: 1000;
+}
+
+#display-toggles ul li:hover {
+    color: maroon;
+}
+
+
+/* Main Display */
+
+#display {
+    width: 70%;
+    height: 70vh;
+    margin: auto;
+    margin-top: -2px;
+    min-width: 650px;
+    min-height: 500px;
+    border: 1px solid #ccc;
+}
+
+
+/* Related */
+
+#related {
+    width: 70%;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgb(250, 250, 250);
+    border: 1px solid #ddd;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+#related hr {
+    border-color: #971E1E;
+    border-style: solid;
+    width: 90px;
+    border-width: 1px;
+    margin-top: 1px;
+}
+
+#related ul {
+    margin-top: 17px;
+}
+
+#related ul li {
+    width: 20%;
+}
+
+#related ul li svg {
+    border: 1px solid #ddd;
+    width: 80%;
+    margin-bottom: 10px;
+}
+
+#related ul li a:hover > svg {
+    box-shadow: 0px 0px 3px 0px rgb(150, 20, 20);
+}
+
+#related ul li a {
+    color: #000;
+    text-decoration: none;
+}
+
+#related ul li:hover {
+    text-decoration: underline;
+    text-decoration-color: maroon;
+}

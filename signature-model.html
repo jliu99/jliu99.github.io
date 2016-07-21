@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Data Graph</title>
+    <style type="text/css">
+        body {
+            font-family: 'Verdana', 'Trebuchet';
+            font-size: 10pt;
+            margin-left: 100px;
+        }
+        
+        h1 {
+            font-size: 20pt;
+        }
+        
+        #container {
+            display: inline-block;
+            width: 500px;
+            height: 50%;
+            max-height: 500px;
+            overflow: auto;
+            float: right;
+        }
+        
+        svg {
+            margin-left: 0;
+        }
+        
+    </style>
+    <script type="text/javascript" src="d3/d3.js"></script>
+</head>
+
+<body>
+    <h1>SAMPLE</h1>
+    <script type="text/javascript">
+        
+        /* The following values are either randomly generated or arbitrarily chosen. They are to be replaced by actual data. */
+        
+        /* ---VARIABLES---- */
+
+        var topicNames = ["Some Topic", "Topic 2", "Really Long Topic Title", "Example", "This Is A Topic", "Topic Name", "Topic 7", "A Great Deal Of Words", "Name Title", "Topic Title", "Filler Topic Name", "Example Topic", "Label Title", "Sample Label Name", "Interesting Topic", "Topic Whatever", "Filler Words", "That's A Great Topic Name", "Name", "Random Topic", "This Is A Topic", "Nice Name", "Insert Title Here", "Boring Topic", "Some Other Boring Topic", "Nice Example Topic", "Words Words Words", "Example Name", "Filler Example", "Topic Name", "Somewhat Long Name", "Example Label", "There Is No Topic Here", "Another Topic", "Cool Name", "Nice Topic", "Label", "Great Topic Name", "Some Topic", "Uninteresting Topic"];
+
+        //stores the abbreviated versions of the names for ease of access
+        var abbNames = [];
+
+        for (i = 0; i < topicNames.length; i++) {
+            if (topicNames[i].length > 8) {
+                abbNames.push(topicNames[i].substr(0, 6) + "...");
+            } else {
+                abbNames.push(topicNames[i]);
+            }
+        }
+
+        //Creates the SVG canvas
+        var svgW = 850;
+        var svgH = 600;
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", svgW)
+            .attr("height", svgH);
+
+        //To ensure the text and graph don't leave the canvas or overlap in a confusing manner.
+        var padding = svgW / 17;
+        
+        //var barN = Math.floor(50 * Math.random() + 10);
+        var barN = topicNames.length;
+
+        //Maximum possible radius of the bars; ensures they do not go over the canvas.
+        var maxRadius = 3 * svgW / 8 - 2.2 * padding;
+        
+        //Arbitrary value.
+        var minRadius = 25;
+        
+        var angle = (2 * Math.PI) / barN;
+        var barPadAngle = angle / 12;
+
+        //Takes the values of the dataset and scales them to the boundaries of the radii values
+        var scale = d3.scale.linear()
+            .domain([0, 100])
+            .range([minRadius, maxRadius])
+            .nice()
+            .clamp(true);
+
+        var labelTextSize = 1 / 65 * svgW;
+        var displayType = 1;
+
+        if (barN < 50) {
+            var barTextSize = 15;
+        } else {
+            var barTextSize = 12;
+
+        }
+
+        //Arrays
+        var dataValues = [];
+        var radiiValues = [];
+
+        //Randomize values.
+
+        for (i = 0; i < barN; i++) {
+            var data = Math.floor(101 * Math.random());
+            dataValues.push(data);
+            var radius = scale(data);
+            radiiValues.push(radius);
+        }
+
+        var textRadius = d3.max(radiiValues) + padding;
+        var minTextRadius = maxRadius / 2;
+        var topResults = 5;
+        var topValues = radiiValues.concat().sort(function (a, b) {
+            return a - b;
+        }).reverse().slice(0, topResults);
+
+        //To make the bars different colors depending on their data value.
+        var colorScale = d3.scale.linear()
+            .domain([0, d3.max(radiiValues)])
+            .range([0, 200])
+            .nice();
+        //var color = "rgb(200, 200, 100)";
+
+
+        //CONSTRUCTION
+
+        for (i = 0; i < barN; i++) {
+
+            // Variables
+            var color = "rgb(" + Math.floor(colorScale(radiiValues[i])) + ", " + Math.floor(colorScale(radiiValues[i] + 80)) + ", 240)";
+            //Random color: var color = "rgb(" + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ")";
+
+            //creates the invisible strip
+            var arc = d3.svg.arc()
+                .innerRadius(0)
+                .outerRadius(maxRadius - 1.75 * padding)
+                .startAngle(i * angle + barPadAngle)
+                .endAngle((i + 1) * angle - barPadAngle);
+
+            svg.append("a")
+                .attr("xlink:href", "http://lmgtfy.com/?q=" + topicNames[i])
+                .attr("target", "_blank")
+                .append("g")
+                .attr("id", "gp" + (i + 1))
+                .attr("onmouseover", "selectBar(d3.select(this))")
+                .attr("onmouseout", "resetBars()");
+
+            var current = d3.select("#gp" + (i + 1));
+
+            current.append("path")
+                .attr("d", arc)
+                .attr("fill", "rgba(0, 0, 0, 0)")
+                .attr("id", "space" + (i + 1))
+                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")");
+
+            //adjusts for visible strip
+            arc.outerRadius(radiiValues[i]);
+
+            current.append("path")
+                .attr("d", arc)
+                .attr("fill", color)
+                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")")
+                .attr("opacity", "0.7")
+                .attr("id", "bar" + (i + 1));
+
+            //CALCULATED TEXT RADIUS
+            var calcTextRadius = radiiValues[i] + padding;
+            if (textRadius < minTextRadius) {
+                textRadius = minTextRadius;
+            }
+
+            //NOT the actual angle; calculated based on a scale where 0 is east and angles are measured counter-clockwise
+            var calcAngle = Math.PI / 2 - (angle * i + angle / 2) - barPadAngle;
+
+            var textX = Math.cos(calcAngle + barPadAngle) * calcTextRadius;
+            var textY = Math.sin(calcAngle + barPadAngle) * calcTextRadius;
+
+            //Topic labels
+            var t = current.append("text")
+                .text(abbNames[i])
+                .attr("fill", "black")
+                .attr("text-anchor", "middle")
+                .attr("font-family", "Arial")
+                .attr("font-size", labelTextSize)
+                .attr("x", svgW / 2 + textX)
+                .attr("y", svgH / 2 - textY)
+                .attr("opacity", "0")
+                .attr("id", "label" + (i + 1));
+
+            /*if(i == barN/2){
+                t.attr("text-anchor", "middle");
+            } else if(i < barN/2){
+                t.attr("text-anchor", "start");
+            } else{
+                t.attr("text-anchor", "end");
+            }
+            */
+
+            for (k = 0; k < topResults; k++) {
+                if (topValues[k] == radiiValues[i]) {
+                    t.attr("opacity", "1");
+                    break;
+                }
+            }
+
+            current.append("text")
+                .text(dataValues[i])
+                .attr("id", "barText" + (i + 1))
+                .attr("font-size", barTextSize)
+                .attr("font-family", "Arial")
+                .attr("fill", "white")
+                .attr("text-anchor", "middle")
+                .attr("opacity", 0);
+
+        }
+
+        //Creates text to go at the bottom / top.
+
+        svg.append("text")
+            .attr("id", "singleLabel")
+            .attr("font-size", 16 / 11 * barTextSize)
+            .attr("font-family", "Arial")
+            .attr("fill", "black")
+            .attr("text-anchor", "middle")
+            .attr("opacity", 0);
+
+        // HOVER EFFECTS
+
+        function selectBar(selection) {
+
+            //Calculates new angles
+
+            var largeAngle = (4 * Math.PI) / (barN - 1); //ANGLE OF ENLARGED BAR
+            var largeAngleDifference = largeAngle - angle;
+            var smallAngle = ((2 * Math.PI) - largeAngle) / (barN - 1); //ANGLE OF SHRUNKEN BARS
+            var smallAngleDifference = angle - smallAngle;
+            var smallAnglePad = smallAngle / 12;
+
+            var id = selection.attr("id");
+            id = parseInt(id.replace('gp', ''));
+            var index = id - 1;
+
+            //Finds the hovered arc; adjusts it
+
+            var largeSAngle, largeEAngle;
+
+            //Finds the selected bar; calculates its new angles.
+            for (i = 0; i < barN; i++) {
+                if (i == index) {
+                    largeSAngle = (i * angle) - (largeAngleDifference / 2);
+                    largeEAngle = largeSAngle + largeAngle;
+                    arc = d3.svg.arc()
+                        .innerRadius(0)
+                        .outerRadius(radiiValues[i])
+                        .startAngle(largeSAngle)
+                        .endAngle(largeEAngle);
+
+                    calcAngle = Math.PI / 2 - (largeSAngle + largeAngle / 2);
+
+                    if (i < barN / 2) {
+                        calcAngle -= smallAnglePad;
+                    } else if (i > barN / 2) {
+                        calcAngle += smallAnglePad;
+                    }
+
+                    textX = Math.cos(calcAngle) * (textRadius);
+                    textY = Math.sin(calcAngle) * (textRadius);
+
+                    var barText = d3.select("#barText" + id);
+
+                    if (radiiValues[i] < textRadius / 2 || Math.floor(dataValues[i]) >= 75) {
+                        barText.attr("fill", "black");
+                    }
+
+                    if (radiiValues[i] < textRadius / 2) {
+                        var barTextX = Math.cos(calcAngle) * (radiiValues[i] + padding);
+                        var barTextY = Math.sin(calcAngle) * (radiiValues[i] + padding);
+                    } else {
+                        var barTextX = Math.cos(calcAngle) * (radiiValues[i] - padding);
+                        var barTextY = Math.sin(calcAngle) * (radiiValues[i] - padding);
+                    }
+
+                    barText.attr("visibility", "visible")
+                        .transition()
+                        .duration(200)
+                        .attr("opacity", 1)
+                        .attr("x", svgW / 2 + barTextX)
+                        .attr("y", svgH / 2 - barTextY);
+
+                    if (displayType != 1) {
+                        d3.select("#singleLabel")
+                            .attr("x", svgW / 2)
+                            .transition()
+                            .attr("visibility", "visible")
+                            .attr("opacity", "1")
+                            .text(topicNames[i]);
+                        if (displayType == 2.1) {
+                            d3.select("#singleLabel")
+                                .attr("y", svgH - 1.2 * labelTextSize);
+                        } else if (i <= barN / 4 || i >= barN * .75) {
+                            d3.select("#singleLabel").attr("y", 2.25 * labelTextSize)
+                        } else {
+                            d3.select("#singleLabel").attr("y", svgH - 1.2 * labelTextSize);
+                        }
+
+                    } else {
+                        d3.select("#label" + id).transition()
+                            .text(topicNames[i])
+                            .attr("x", svgW / 2 + textX)
+                            .attr("y", svgH / 2 - textY)
+                            .attr("font-size", labelTextSize * 15 / 11)
+                            .attr("visibility", "visible")
+                            .attr("opacity", "1");
+                    }
+                    /*if(i < barN/2){
+                        d3.select("#label" + id).attr("text-anchor", "end");
+                    } else if(i > barN/2){
+                        d3.select("#label" + id).attr("text-anchor", "start")
+                    }*/
+
+                    d3.select("#bar" + id).transition()
+                        .duration(200)
+                        .attr("d", arc)
+                        .attr("opacity", ".9")
+                        .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(1.05)");
+
+                    d3.select("#space" + id).transition()
+                        .duration(50)
+                        .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
+
+                    break;
+                }
+
+            }
+
+            //Adjusts other bars based on the new angle of the selected one.
+
+            for (i = 0; i < barN; i++) {
+                arc = d3.svg.arc()
+                    .innerRadius(0)
+                    .outerRadius(radiiValues[i]);
+
+                if (i < id) {
+                    var tempS = largeSAngle - ((index - i) * smallAngle);
+                    var tempE = largeSAngle - ((index - i - 1) * smallAngle);
+                    arc.startAngle(2 * Math.PI + tempS + smallAnglePad)
+                        .endAngle(2 * Math.PI + tempE - smallAnglePad);
+                    calcAngle = Math.PI / 2 - (2 * Math.PI + largeSAngle - ((index - i) * smallAngle) + smallAngle / 2);
+
+                } else if (i > index) {
+                    arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle) + smallAnglePad)
+                        .endAngle(largeEAngle + ((i - index) * smallAngle) - smallAnglePad);
+                    calcAngle = Math.PI / 2 - (largeEAngle + ((i - index - 1) * smallAngle) + smallAngle / 2);
+                }
+
+                if (i != index) {
+                    d3.select("#bar" + (i + 1)).transition()
+                        .duration(200)
+                        .attr("opacity", "0.3")
+
+                    .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")")
+                        .attr("d", arc);
+
+                    d3.select("#barText" + (i + 1))
+                        .attr("opacity", "0")
+                        .attr("visibility", "hidden");
+
+                    calcTextRadius = radiiValues[i] + 1.4 * padding;
+
+                    textX = Math.cos(calcAngle) * calcTextRadius;
+                    textY = Math.sin(calcAngle) * calcTextRadius;
+
+                    if (displayType == 1) {
+                        //clears the text on both sides of the selected bar, too
+                        for (k = 0; k < topResults; k++) {
+                            if (topValues[k] == radiiValues[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
+
+                                d3.select("#label" + (i + 1)).transition()
+                                    .text(abbNames[i])
+                                    .attr("x", svgW / 2 + textX)
+                                    .attr("y", svgH / 2 - textY)
+                                    .attr("font-size", labelTextSize)
+                                    .attr("visibility", "visible")
+                                    .attr("opacity", ".4");
+                                break;
+
+                            } else {
+                                d3.select("#label" + (i + 1)).transition()
+                                    .text(abbNames[i])
+                                    .attr("x", svgW / 2 + textX)
+                                    .attr("y", svgH / 2 - textY)
+                                    .attr("font-size", labelTextSize)
+                                    .attr("visibility", "hidden")
+                                    .attr("opacity", "0");
+                            }
+                        }
+
+                    }
+                }
+
+            }
+        }
+
+        function resetBars() {
+            for (i = 0; i < barN; i++) {
+                calcTextRadius = radiiValues[i] + padding;
+                var arc = d3.svg.arc()
+                    .innerRadius(0)
+                    .outerRadius(radiiValues[i])
+                    .startAngle(i * angle + barPadAngle)
+                    .endAngle((i + 1) * angle - barPadAngle);
+
+                d3.select("#bar" + (i + 1)).transition()
+                    .duration(200)
+                    .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(1)")
+                    .attr("opacity", "0.7")
+                    .attr("d", arc);
+
+                var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
+
+                d3.select("#barText" + (i + 1))
+                    .attr("visibility", "hidden")
+                    .attr("opacity", "0");
+
+                d3.select("#space" + (i + 1)).transition()
+                    .duration(200)
+                    .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(1)");
+
+                d3.select("#singleLabel").transition()
+                    .attr("visibility", "hidden")
+                    .attr("opacity", "0");
+
+                if (displayType == 1) {
+                    var textX = Math.cos(calcAngle) * calcTextRadius;
+                    var textY = Math.sin(calcAngle) * calcTextRadius;
+
+                    for (k = 0; k < topResults; k++) {
+                        if (topValues[k] == radiiValues[i]) {
+                            d3.select("#label" + (i + 1)).transition()
+                                .text(abbNames[i])
+                                .attr("x", svgW / 2 + textX)
+                                .attr("y", svgH / 2 - textY)
+                                .attr("font-size", labelTextSize)
+                                .attr("visibility", "visible")
+                                .attr("opacity", "1");
+                            break;
+
+                        } else {
+                            d3.select("#label" + (i + 1)).transition()
+                                .text(abbNames[i])
+                                .attr("x", svgW / 2 + textX)
+                                .attr("y", svgH / 2 - textY)
+                                .attr("font-size", labelTextSize)
+                                .attr("opacity", "0")
+                                .attr("visibility", "hidden");
+                        }
+                    }
+                }
+            }
+
+        }
+
+        function changeDisplay() {
+            //Display 1: default; displays top five and expands text upon bar selection
+            //Display 2: hides all labels; only shows that of the one hovered over at a fixed spot at the bottom/top of the page.
+            if (document.getElementById("d1").checked) {
+                displayType = 1;
+                for (i = 0; i < barN; i++) {
+                    for (k = 0; k < topResults; k++) {
+                        if (topValues[k] == radiiValues[i]) {
+                            d3.select("#label" + (i + 1))
+                                .attr("visibility", "visible")
+                                .attr("opacity", "1");
+                            break;
+                        } else {
+                            d3.select("#label" + (i + 1))
+                                .attr("opacity", "0")
+                                .attr("visibility", "hidden");
+                        }
+                    }
+
+                }
+            } else if (document.getElementById("d2").checked || document.getElementById("d3").checked) {
+                for (i = 0; i < barN; i++) {
+                    d3.select("#label" + (i + 1))
+                        .attr("visibility", "hidden")
+                        .attr("opacity", "0");
+                }
+                if (document.getElementById("d2").checked) {
+                    displayType = 2.1;
+                } else {
+                    displayType = 2.2;
+                }
+            } else {
+                console.log("something's wrong");
+            }
+
+        }
+    </script>
+    <p>Clicking on any one of these bars will open a new tab with its respective link.</p>
+    <input type="radio" id="d1" name="display" onclick="changeDisplay()" checked="true"> Label Display 1
+    <br />
+    <input type="radio" id="d2" name="display" onclick="changeDisplay()"> Label Display 2.1 (bottom only)
+    <br />
+    <input type="radio" id="d3" name="display" onclick="changeDisplay()"> Label Display 2.2 (top and bottom)
+
+</body>
+
+</html>
