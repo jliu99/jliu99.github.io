@@ -126,7 +126,8 @@
             });
             
             for(j = 0; j < topics.length; j++){
-                topicScores.push(topics[j].score);
+                var s = topics['"' + j + '"'].score;
+                topicScores.push(s);
             }
             console.log(topicScores[0]);
             
