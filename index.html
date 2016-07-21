@@ -125,15 +125,12 @@
                 });
             });
             
-            for(j = 0; j < topics.length; j++){
-                var s = topics['"' + j + '"'].score;
-                topicScores.push(s);
+            for each (object in topics){
+                topicScores.push(object.score);
+                topicNames.push(object.names);
             }
-            console.log(topicScores[0]);
             
-            for(k = 0; k < topics.length; k++){
-                topicNames.push(topics[k].names);
-            }
+            console.log(topicScores[0]);
             console.log(topicNames[0]);
             
         });
