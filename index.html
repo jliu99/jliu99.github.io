@@ -98,7 +98,8 @@
         var author;
         var name, id, topics, pubCount;
         var topicNames = [],
-            topicScores = [];
+            topicScores = [],
+            topicsList = [];
         
         //Load in JSON and initialize variables + page content
         d3.json("all_data.json", function (data) {
@@ -125,12 +126,8 @@
                 });
             });
             
-            for (object in topics){
-                var topic = topics['"' + object + '"'];
-                console.log(topic);
-                topicScores.push(topic.score);
-                topicNames.push(topic.names);
-            }
+            var getter = "4";
+            console.log(topics[getter]);
             
         });
     </script>
