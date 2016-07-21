@@ -86,7 +86,7 @@
         var topicNames = [],
             topicScores = [];
         d3.json("all_data.json", function (data) {
-            var r = Math.random() * data.length;
+            var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = author.authorName;
             id = author.ID;
