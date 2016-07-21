@@ -10,6 +10,20 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript">
+        var words = ["of", "in"
+            "the", "and"];
+
+        function capitalizeLetters(string) {
+            var str = string.split(" ");
+            for (var x = 0; x < str.length; x++) {
+                str[x] = str[x].split('');
+                str[x][0] = str[x][0].toUpperCase();
+                str[x] = str[x].join('');
+            }
+            return str.join(" ");
+        }
+    </script>
 </head>
 
 <body>
@@ -88,24 +102,24 @@
         d3.json("all_data.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
-            name = author.authorName;
+            name = capitalizeLetters(author.authorName);
             id = author.ID;
             topics = author.topics;
             pubCount = author.pubCount;
-            
-            //Capitalize names.
-            var str = name.split(" ");
-            for(var x = 0; x < str.length; x++){
-                str[x] = str[x].split('');
-                str[x][0] = str[x][0].toUpperCase();
-                str[x] = str[x].join('');
-            }
-            name = str.join(" ");
-            
             document.getElementById("name").innerHTML = name;
             console.log(pubCount);
             document.getElementById("a-count").innerHTML = pubCount;
-            
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
         });
     </script>
     <script type="text/javascript">
@@ -133,18 +147,6 @@
             .duration(1000)
             .attr("style", "opacity:1");
 
-        $('.count').each(function () {
-            $(this).prop('Counter', 0).animate({
-                Counter: $(this).text()
-            }, {
-                duration: 2000,
-                easing: 'swing',
-                step: function (now) {
-                    $(this).text(Math.ceil(now));
-                }
-            });
-        });
-
         d3.select("#numbers").selectAll("p").style("opacity", "0.5");
         d3.select("#numbers").selectAll("p").transition()
             .duration(250)
@@ -168,25 +170,25 @@
             .style("opacity", "1");
     </script>
     <script type="text/javascript">
-                    var dataset = [];
-                    for (i = 0; i < 150; i++) {
-                        var data = Math.floor(500 * Math.random());
-                        dataset.push(data);
-                    }
-                    loadData(dataset);
-                    createSignature("main-svg");
-                </script>
+        var dataset = [];
+        for (i = 0; i < 150; i++) {
+            var data = Math.floor(500 * Math.random());
+            dataset.push(data);
+        }
+        loadData(dataset);
+        createSignature("main-svg");
+    </script>
     <script type="text/javascript">
-                for (j = 1; j <= 4; j++) {
-                    var dataArray = [];
-                    for (i = 0; i < 150; i++) {
-                        var data = Math.floor(101 * Math.random());
-                        dataArray.push(data);
-                    }
-                    loadData(dataArray);
-                    createStagnantSignature("rel" + j);
-                }
-            </script>
+        for (j = 1; j <= 4; j++) {
+            var dataArray = [];
+            for (i = 0; i < 150; i++) {
+                var data = Math.floor(101 * Math.random());
+                dataArray.push(data);
+            }
+            loadData(dataArray);
+            createStagnantSignature("rel" + j);
+        }
+    </script>
 </body>
 
 </html>
