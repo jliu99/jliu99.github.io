@@ -11,7 +11,7 @@
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
     <script type="text/javascript">
-        var words = ["of", "in"
+        var words = ["of", "in",
             "the", "and"];
 
         function capitalizeLetters(string) {
@@ -27,7 +27,6 @@
 </head>
 
 <body>
-
     <main>
         <section id="profile">
             <div id="icon">
@@ -95,10 +94,13 @@
         </section>
     </main>
     <script type="text/javascript">
+        //Variables
         var author;
         var name, id, topics, pubCount;
         var topicNames = [],
             topicScores = [];
+        
+        //Load in JSON and initialize variables + page content
         d3.json("all_data.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
@@ -109,6 +111,8 @@
             document.getElementById("name").innerHTML = name;
             console.log(pubCount);
             document.getElementById("a-count").innerHTML = pubCount;
+            
+            //Animates the article count numbers
             $('.count').each(function () {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
@@ -120,6 +124,17 @@
                     }
                 });
             });
+            
+            for(j = 0; j < topics.length; j++){
+                topicScores.push(topics[j].score);
+            }
+            console.log(topicScores[0]);
+            
+            for(k = 0; k < topics.length; k++){
+                topicNames.push(topics[k].names);
+            }
+            console.log(topicNames[0]);
+            
         });
     </script>
     <script type="text/javascript">
