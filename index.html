@@ -14,9 +14,17 @@
 
 <body>
     <script type="text/javascript">
-        $.getJSON("all_data.json", function(data) {
-            console.log(data[0]);
+        var author;
+        $.getJSON("all_data.json", function (data) {
+            author = data[0];
         });
+
+        var name = author.authorName;
+        var id = author.ID;
+        var topics = author.topics;
+        var pubCount = author.pubCount;
+
+        var topicNames, topicScores;
     </script>
     <main>
         <section id="profile">
@@ -24,7 +32,7 @@
                 <img src="img/placeholder.png" />
             </div>
             <div id="info">
-                <h2>John Doe</h2>
+                <h2 id="name">John Doe</h2>
                 <p>Institution: University of Chicago
                     <br>Email: johndoe@uchicago.edu</p>
             </div>
@@ -37,10 +45,14 @@
                         </svg>
                     </div>
                 </a>
-                <h2 class="count" id="a-count">49</h2>
+                <h2 class="count" id="a-count"></h2>
                 <p>Articles represented</p>
             </div>
         </section>
+        <script type="text/javascript">
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("a-count").innerHTML = pubCount;
+        </script>
         <section id="display-toggles">
             <ul>
                 <li class="selected">Signature</li>
