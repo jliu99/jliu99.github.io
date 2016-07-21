@@ -95,7 +95,7 @@
     </main>
     <script type="text/javascript">
         //Variables
-        var author;
+        var author, numTopics;
         var name, id, topics, pubCount;
         var topicNames = [],
             topicScores = [],
@@ -108,6 +108,7 @@
             name = capitalizeLetters(author.authorName);
             id = author.ID;
             topics = author.topics;
+            console.log(topics);
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
             console.log(pubCount);
@@ -125,7 +126,7 @@
                     }
                 });
             });
-            
+        
             var getter = "4";
             console.log(topics[getter]);
             
