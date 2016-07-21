@@ -126,9 +126,10 @@
             });
             
             for (object in topics){
-                console.log(object);
-                topicScores.push(object.score);
-                topicNames.push(object.names);
+                var topic = topics['"' + object + '"'];
+                console.log(topic);
+                topicScores.push(topic.score);
+                topicNames.push(topic.names);
             }
             
         });

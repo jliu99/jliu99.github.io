@@ -76,7 +76,7 @@ a:hover {
 #profile #info h2 {
     padding: 0 10px;
     margin-bottom: 8px;
-    font-size: 4em;
+    font-size: 3.75em;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
 }
 
@@ -267,4 +267,11 @@ a:hover {
 #related ul li:hover {
     text-decoration: underline;
     text-decoration-color: maroon;
+}
+
+
+@media screen and (min-width: 480px) {
+    #profile #info h2 {
+        font-size:3em;
+    }
 }
