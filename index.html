@@ -13,22 +13,7 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-        var author;
-        var name, id, topics, pubCount;
-        d3.json("all_data.json", function (data) {
-            author = data[0];
-            name = author.authorName;
-            id = author.ID;
-            topics = author.topics;
-            pubCount = author.pubCount;
-            console.log(name);
-            console.log(topics);
-            
-        });
-
-        var topicNames, topicScores;
-    </script>
+    
     <main>
         <section id="profile">
             <div id="icon">
@@ -52,10 +37,6 @@
                 <p>Articles represented</p>
             </div>
         </section>
-        <script type="text/javascript">
-            document.getElementById("name").innerHTML = name;
-            document.getElementById("a-count").innerHTML = pubCount;
-        </script>
         <section id="display-toggles">
             <ul>
                 <li class="selected">Signature</li>
@@ -120,6 +101,26 @@
         </section>
     </main>
     <script type="text/javascript">
+        var author;
+        var name, id, topics, pubCount;
+        d3.json("all_data.json", function (data) {
+            author = data[0];
+            name = author.authorName;
+            id = author.ID;
+            topics = author.topics;
+            pubCount = author.pubCount;
+            console.log(name);
+            console.log(topics);
+
+        });
+
+
+        document.getElementById("name").innerHTML = name;
+        document.getElementById("a-count").innerHTML = pubCount;
+        
+        var topicNames, topicScores;
+    </script>
+    <!--script type="text/javascript">
         jQuery.fn.sbTooltip = function () {
 
             // For each instance of this element
@@ -177,7 +178,7 @@
         d3.select("#info").select("p").transition()
             .duration(800)
             .style("opacity", "1");
-    </script>
+    </script-->
 </body>
 
 </html>
