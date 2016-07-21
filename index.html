@@ -108,7 +108,8 @@
             name = capitalizeLetters(author.authorName);
             id = author.ID;
             topics = author.topics;
-            console.log(topics);
+            numTopics = Object.keys(topics).length;
+            console.log(numTopics);
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
             console.log(pubCount);
