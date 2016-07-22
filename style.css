@@ -277,7 +277,7 @@ a:hover {
 @keyframes float {
     0% {margin-top: 40vh;}
     50% {margin-top: 60vh;}
-    100% {margin-top: 405vh;}
+    100% {margin-top: 40vh;}
 }
 
 #loading {

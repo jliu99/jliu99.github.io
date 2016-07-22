@@ -154,6 +154,7 @@ function createSignature(selectedsvgid) {
     }).reverse().slice(0, topResultsNumber);
 
     for (num in topValues) {
+        console.log(num);
         if (num == 0) {
             var ind = topValues.indexOf(num);
             topValues.splice(ind, 1);
@@ -161,7 +162,8 @@ function createSignature(selectedsvgid) {
     }
 
     topResults = topValues;
-
+    console.log(topResults);
+    
     //To make the bars different colors depending on their data value.
     colorScale.domain([0, d3.max(rvalues)]);
 
