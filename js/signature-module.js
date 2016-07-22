@@ -153,9 +153,8 @@ function createSignature(selectedsvgid) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
-    for (num in topValues) {
-        console.log(num);
-        if (num == 0) {
+    for(i = 0; i < topResultsNumber; i++) {
+        if (topValues[i] == 0) {
             var ind = topValues.indexOf(num);
             topValues.splice(ind, 1);
         }
