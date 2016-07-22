@@ -275,9 +275,9 @@ a:hover {
 /* Loading */
 
 @keyframes float {
-    0% {margin-top: 40vh;}
-    50% {margin-top: 60vh;}
-    100% {margin-top: 40vh;}
+    0% {margin-top: 35vh;}
+    50% {margin-top: 55vh;}
+    100% {margin-top: 35vh;}
 }
 
 #loading {

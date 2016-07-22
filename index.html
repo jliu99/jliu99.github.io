@@ -15,13 +15,13 @@
             "the", "and"];
 
         function capitalizeLetters(string) {
-            var str = string.split(" ");
+            var str = string.split(/[\s-]+/);
             for (var x = 0; x < str.length; x++) {
                 str[x] = str[x].split('');
                 str[x][0] = str[x][0].toUpperCase();
                 str[x] = str[x].join('');
             }
-            return str.join(" ");
+            return str.join(/[\s-]+/);
         }
     </script>
 </head>
@@ -130,7 +130,7 @@
             });
 
             for (i = 0; i < numTopics; i++) {
-                topicNames.push(topics[i][1]["names"]);
+                topicNames.push(capitalizeLetters(topics[i][1]["names"]));
                 topicScores.push(topics[i][1]["score"]);
             }
             loadData(topicScores);
@@ -140,7 +140,7 @@
             loadDiv.style.display = "none";
             loadDiv.style.transition = "left 400ms";
             loadDiv.style.transition = "display 400ms 4ms";
-            
+
             createSignature("main-svg");
         });
     </script>
