@@ -16,18 +16,23 @@
 
         function capitalizeLetters(string) {
             var str = string.split(" ");
+            var finalString;
             for (var x = 0; x < str.length; x++) {
                 str[x] = str[x].split('');
                 str[x][0] = str[x][0].toUpperCase();
                 str[x] = str[x].join('');
             }
-            var strn = str.join(" ").split("-");
-            for (var x = 0; x < str.length; x++) {
-                strn[x] = strn[x].split('');
-                strn[x][0] = strn[x][0].toUpperCase();
-                strn[x] = strn[x].join('');
+            finalString = str.join(" ");
+            if (strn.indexOf("-") > -1) {
+                var strn = finalString.split("-");
+                for (var x = 0; x < str.length; x++) {
+                    strn[x] = strn[x].split('');
+                    strn[x][0] = strn[x][0].toUpperCase();
+                    strn[x] = strn[x].join('');
+                }
+                finalString = strn.join("-");
             }
-            return strn.join("-");
+            return finalstring;
         }
     </script>
 </head>
