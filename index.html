@@ -33,7 +33,7 @@
             }
             finalString = str.join(" ");
             
-            if (finalString.indexOf("-") > -1) {
+            /*if (finalString.indexOf("-") > -1) {
                 var strn = finalString.split("-");
                 for (x = 0; x < strn.length; x++) {
                     strn[x] = strn[x].split('');
@@ -41,7 +41,8 @@
                     strn[x] = strn[x].join('');
                 }
                 finalString = strn.join("-");
-            }
+            }*/
+            
             return finalString;
         }
     </script>
@@ -160,8 +161,8 @@
             var loadDiv = document.getElementById("loading");
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
-            loadDiv.style.transition = "left 400ms";
-            loadDiv.style.transition = "display 400ms 4ms";
+            loadDiv.style.transition = "left 1000ms";
+            loadDiv.style.transition = "display 1000ms 4ms";
 
             createSignature("main-svg");
         });
