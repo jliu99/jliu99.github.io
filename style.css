@@ -41,29 +41,33 @@ a:hover {
     0% {
         margin-top: 0;
     }
-    12.5% {
+    11.11% {
         margin-top: -15vh;
     }
-    25% {
+    22.22% {
         margin-top: -30vh;
     }
-    37.5% {
+    33.3% {
         margin-top: -45vh;
     }
-    50% {
+    44.4% {
         margin-top: -60vh;
     }
-    62.5% {
+    55.5% {
         margin-top: -75vh;
     }
-    75% {
+    66.6% {
         margin-top: -90vh;
     }
-    87.5% {
+    77.7% {
         margin-top: -105vh;
     }
-    100% {
+    88.9% {
         margin-top: -120vh;
+    }
+    
+    100% {
+        margin-top: 0;
     }
 }
 
@@ -89,7 +93,7 @@ header #title-display {
     margin-top: 0;
     display: inline-block;
     text-align: center;
-    animation: scroll 48s infinite;
+    animation: scroll 54s infinite;
 }
 
 .title {
@@ -99,7 +103,7 @@ header #title-display {
 }
 
 .title h2 {
-    font-size: 3.25em;
+    font-size: 3em;
     margin-bottom: 6px;
 }
 

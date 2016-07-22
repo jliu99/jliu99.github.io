@@ -16,15 +16,13 @@
 
         function capitalizeLetters(string) {
             var str = string.split(" ");
-            var finalString;
             for (var x = 0; x < str.length; x++) {
                 str[x] = str[x].split('');
                 str[x][0] = str[x][0].toUpperCase();
                 str[x] = str[x].join('');
-
             }
 
-            finalString = str.join(" ");
+            return str.join(" ");
 
             /*if (finalString.indexOf("-") > -1) {
                 var strn = finalString.split("-");
@@ -35,8 +33,7 @@
                 }
                 finalString = strn.join("-");
             }*/
-
-            return finalString;
+            
         }
     </script>
 </head>

@@ -373,7 +373,7 @@ function selectBar(selection) {
                 .attr("y", svgH / 2 - barTextY);
 
             d3.select("#label" + id).transition()
-                .text(topicnames[i][0])
+                .text(topicnames[i])
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
                 .attr("font-size", labelTextSize * 15 / 11)
