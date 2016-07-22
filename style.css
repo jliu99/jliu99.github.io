@@ -58,12 +58,16 @@ header #title-display {
     text-align:center;
 }
 
+.title {
+    height: 15vh;
+}
+
 .title h2 {
-    font-size: 60%;
+    font-size: 3em;
 }
 
 .title h4 {
-    font-size:35%;
+    font-size:2em;
 }
 
 /* Home Page */
