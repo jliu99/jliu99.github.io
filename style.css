@@ -275,8 +275,9 @@ a:hover {
 /* Loading */
 
 @keyframes float {
-    from {margin-top: 40%;}
-    to {margin-top: 60%;}
+    0% {margin-top: 25vh;}
+    50% {margin-top: 45vh;}
+    100% {margin-top: 25vh;}
 }
 
 #loading {
@@ -295,7 +296,7 @@ a:hover {
     height:100%;
     margin:auto;
     margin-top:40%;
-    animation: float 1s infinite;   
+    animation-name: float 2s infinite;
 }
 
 @media screen and (min-width: 480px) {
