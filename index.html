@@ -28,7 +28,7 @@
 
 <body>
     <div id="loading">
-        <h3>Loading...</h3>
+        <h3>loading...</h3>
     </div>
     <main>
         <section id="profile">
@@ -136,7 +136,7 @@
             loadData(topicScores);
             loadNames(topicNames);
             var loadDiv = document.getElementById("loading");
-            loadDiv.style.left = -100%;
+            loadDiv.style.left = "-100vh";
             loadDiv.style.display = "none";
             loadDiv.style.transition = left 400ms;
             loadDiv.style.transition = display 400ms 4ms;
