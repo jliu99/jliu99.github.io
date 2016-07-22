@@ -41,9 +41,9 @@ function createStagnantSignature(selectedsvgid) {
         svgW = $(id).width(),
         svgH = $(id).height();
 
-    var padding = svgW / 16.5;
+    var padding = svgH / 16.5;
     var minRadius = holeWidth;
-    var maxRadius = 3 * svgW / 7;
+    var maxRadius = 3 * svgH / 7;
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];

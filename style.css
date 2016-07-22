@@ -17,35 +17,11 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-header {
-    width: 100vw;
-    height: 15vh;
-    background-color:maroon;
-    color:#000;
-    padding:20px;
-    overflow:hidden;
-}
-
-header img {
-    width:14%;
-}
-
-header #title-display {
-    width: 71%;
-    height: 100%;
-}
-
-.title h2 {
-    
-}
-
-.title h4 {
-    
-}
-
 main {
     width: 90%;
-    margin: 25px auto;
+    margin: auto;
+    margin-bottom: 25px;
+    margin-top: 25px;
 }
 
 
@@ -60,12 +36,44 @@ a:hover {
     pointer-events: none;
 }
 
+/* Header */
+
+header {
+    width: 100vw;
+    height: 15vh;
+    background-color:maroon;
+    color:#fff;
+    padding:20px;
+    overflow:hidden;
+}
+
+header img {
+    display:inline-block;
+    width:14%;
+}
+
+header #title-display {
+    width: 70%;
+    display:inline-block;
+    text-align:center;
+}
+
+.title h2 {
+    font-size: 60%;
+}
+
+.title h4 {
+    font-size:35%;
+}
+
+/* Home Page */
+
 #searchbar {
-    margin:auto;
+    margin-bottom:25px;
 }
 
 #home-svg-container {
-    width:90vw;
+    width:75vw;
 }
 
 /* PROFILE */
