@@ -25,7 +25,7 @@ function loadData(dataValues) {
 }
 
 function loadNames(nameValues) {
-    topicNames = nameValues;
+    topicnames = nameValues;
 }
 
 // Stationary Signature; for related profile displays. No labels and no animation.
@@ -101,29 +101,19 @@ function createSignature(selectedsvgid) {
 
     padding = svgW / 16.5;
 
-    /* The following values are either randomly generated or arbitrarily chosen. They are to be replaced by actual data. */
-    var topicNames = [];
-    for (i = 1; i <= 150; i++) {
-        var str = "Topic " + i;
-        topicNames.push(str);
-    }
-
-    topicnames = topicNames;
-
     //stores the abbreviated versions of the names for ease of access
     var abbNames = [];
 
-    for (i = 0; i < topicNames.length; i++) {
-        if (topicNames[i].length > 8) {
-            abbNames.push(topicNames[i].substr(0, 5) + "...");
+    for (i = 0; i < topicnames.length; i++) {
+        if (topicnames[i][0].length > 8) {
+            abbNames.push(topicnames[i][0].substr(0, 5) + "...");
         } else {
-            abbNames.push(topicNames[i]);
+            abbNames.push(topicnames[i][0]);
         }
     }
 
     abbrNames = abbNames;
 
-    var barN = topicNames.length;
     var maxRadius = 3 * svgW / 8 - 1.5 * padding;
     var minRadius = 30;
     angle = (2 * Math.PI) / barN;
@@ -229,7 +219,7 @@ function createSignature(selectedsvgid) {
 
         //Topic labels
         var t = current.append("text")
-            .text(abbNames[i])
+            .text(abbrNames[i])
             .attr("fill", "black")
             .attr("text-anchor", "middle")
             .attr("font-family", "Arial")
@@ -372,7 +362,7 @@ function selectBar(selection) {
                 .attr("y", svgH / 2 - barTextY);
 
             d3.select("#label" + id).transition()
-                .text(topicnames[i])
+                .text(topicnames[i][0])
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
                 .attr("font-size", labelTextSize * 15 / 11)

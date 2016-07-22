@@ -133,8 +133,9 @@
                 topicNames.push(topics[i][1]["names"]);
                 topicScores.push(topics[i][1]["score"]);
             }
-            console.log(topicNames);
-            console.log(topicScores);
+            loadData(topicScores);
+            loadNames(topicNames);
+            createSignature("main-svg");
         });
     </script>
     <script type="text/javascript">
@@ -183,15 +184,6 @@
         d3.select("#info").select("p").transition()
             .duration(800)
             .style("opacity", "1");
-    </script>
-    <script type="text/javascript">
-        var dataset = [];
-        for (i = 0; i < 150; i++) {
-            var data = Math.floor(500 * Math.random());
-            dataset.push(data);
-        }
-        loadData(dataset);
-        createSignature("main-svg");
     </script>
     <script type="text/javascript">
         for (j = 1; j <= 4; j++) {

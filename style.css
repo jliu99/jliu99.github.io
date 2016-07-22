@@ -276,7 +276,7 @@ a:hover {
     color:#ccc;
     font-size:4em;
     text-align:center;
-    opacity: 0;
+    display:none;
 }
 
 #loading h3 {
