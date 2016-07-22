@@ -252,7 +252,7 @@ function createSignature(selectedsvgid) {
         }
 
         current.append("text")
-            .text("score: " arraydata[i])
+            .text("score: " + arraydata[i])
             .attr("id", "barText" + (i + 1))
             .attr("font-size", barTextSize)
             .attr("font-family", "Arial")
