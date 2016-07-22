@@ -102,13 +102,13 @@
             topicsList = [];
         
         //Load in JSON and initialize variables + page content
-        d3.json("all_data.json", function (data) {
+        d3.json("all_data_new.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = capitalizeLetters(author.authorName);
             id = author.ID;
             topics = author.topics;
-            numTopics = Object.keys(topics).length;
+            numTopics = topics.length;
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
             document.getElementById("a-count").innerHTML = pubCount;
@@ -126,16 +126,12 @@
                 });
             });
 
-            
             for(i = 0; i < numTopics; i++){
-                var getter = '"' + i + '"';
-                console.log(getter);
-                topicNames.push(topics[getter].names);
-                topicScores.push(topic[getter].score);
+                topicNames.push(topics[i][1]["names"]);
+                topicScores.push(topics[i][1]["score"]));
             }
             console.log(topicNames);
             console.log(topicScores);
-            
         });
     </script>
     <script type="text/javascript">
