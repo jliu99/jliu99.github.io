@@ -79,11 +79,14 @@ header {
 
 header img {
     display: inline-block;
+    background-color:#fff;
     width: 14%;
+    padding:5px;
+    box-sizing:border-box;
 }
 
 header #title-display {
-    width: 70%;
+    width: 67.5%;
     margin-top: 0;
     display: inline-block;
     text-align: center;
@@ -93,16 +96,16 @@ header #title-display {
 .title {
     box-sizing:border-box;
     height: 15vh;
-    padding-top: 2%;
+    padding: 1.5% 0;
 }
 
 .title h2 {
-    font-size: 4em;
+    font-size: 3.5em;
     margin-bottom: 6px;
 }
 
 .title h4 {
-    font-size: 2em;
+    font-size: 1.8em;
 }
 
 
