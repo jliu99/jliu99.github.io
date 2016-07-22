@@ -215,17 +215,17 @@ function createSignature(selectedsvgid) {
                 .attr("opacity", "0.7");
         }
 
-        //CALCULATED TEXT RADIUS
+        /*CALCULATED TEXT RADIUS
         var calcTextRadius = radiiValues[i] + padding;
-        if (textRadius < minTextRadius) {
-            textRadius = minTextRadius;
-        }
+        if (calcTextRadius < minTextRadius) {
+            calcTextRadius = minTextRadius;
+        }*/
 
         //NOT the actual angle; calculated based on a scale where 0 is east and angles are measured counter-clockwise
         var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
 
-        var textX = Math.cos(calcAngle) * calcTextRadius;
-        var textY = Math.sin(calcAngle) * calcTextRadius;
+        var textX = Math.cos(calcAngle) * textRadius;
+        var textY = Math.sin(calcAngle) * textRadius;
 
         //Topic labels
         var t = current.append("text")
@@ -265,7 +265,7 @@ function createSignature(selectedsvgid) {
 
 function resetBars() {
     for (i = 0; i < barN; i++) {
-        var calcTextRadius = radiiValues[i] + padding;
+        //var calcTextRadius = radiiValues[i] + padding;
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
             .outerRadius(radiiValues[i])

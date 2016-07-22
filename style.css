@@ -18,7 +18,7 @@ body {
 }
 
 main {
-    width: 90%;
+    width: 100%;
     margin: auto;
 }
 
@@ -70,7 +70,6 @@ a:hover {
 }
 
 #profile #info {
-    width: 60%;
     height: 100%;
     padding-top: 10px;
     display: inline-block;
@@ -219,6 +218,7 @@ a:hover {
     min-width: 650px;
     min-height: 500px;
     border: 1px solid #ccc;
+    overflow:hidden;
 }
 
 
