@@ -125,9 +125,10 @@
                     }
                 });
             });
-        
+
+            
             for(i = 0; i < numTopics; i++){
-                var getter = '"' + toString(i) + '"';
+                var getter = '"' + i + '"';
                 console.log(getter);
                 topicNames.push(topics[getter].names);
                 topicScores.push(topic[getter].score);
