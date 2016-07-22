@@ -110,16 +110,16 @@ function createSignature(selectedsvgid) {
     var abbNames = [];
 
     for (i = 0; i < topicnames.length; i++) {
-        if (topicnames[i][0].length > 8) {
-            abbNames.push(topicnames[i][0].substr(0, 5) + "...");
+        if (topicnames[i].length > 8) {
+            abbNames.push(topicnames[i].substr(0, 5) + "...");
         } else {
-            abbNames.push(topicnames[i][0]);
+            abbNames.push(topicnames[i]);
         }
     }
 
     abbrNames = abbNames;
 
-    var maxRadius = 3 * svgW / 8 - 1.5 * padding;
+    var maxRadius = 3 * svgH / 8 - 1.5 * padding;
     var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
 
