@@ -27,6 +27,9 @@
 </head>
 
 <body>
+    <div id = "loading">
+        <h3>Loading...</h3>
+    </div>
     <main>
         <section id="profile">
             <div id="icon">
@@ -128,7 +131,7 @@
 
             for(i = 0; i < numTopics; i++){
                 topicNames.push(topics[i][1]["names"]);
-                topicScores.push(topics[i][1]["score"]));
+                topicScores.push(topics[i][1]["score"]);
             }
             console.log(topicNames);
             console.log(topicScores);

@@ -269,6 +269,23 @@ a:hover {
     text-decoration-color: maroon;
 }
 
+#loading {
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(255, 255, 255, 0.9);
+    color:#ccc;
+    font-size:4em;
+    text-align:center;
+    opacity: 0;
+}
+
+#loading h3 {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+}
 
 @media screen and (min-width: 480px) {
     #profile #info h2 {
