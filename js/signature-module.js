@@ -203,7 +203,7 @@ function createSignature(selectedsvgid) {
 
         arc.outerRadius(rvalues[i]);
 
-        if (arraydata[i] != 0) {
+        if (arraydata[i] == 0) {
             gp.attr("visibility", "hidden");;
             cbar.attr("visibility", "hidden");
         } else {
