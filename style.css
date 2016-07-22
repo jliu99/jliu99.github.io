@@ -276,7 +276,9 @@ a:hover {
     color:#ccc;
     font-size:4em;
     text-align:center;
-    display:none;
+    position:fixed;
+    top:0;
+    left:0;
 }
 
 #loading h3 {

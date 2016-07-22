@@ -27,7 +27,7 @@
 </head>
 
 <body>
-    <div id = "loading">
+    <div id="loading">
         <h3>Loading...</h3>
     </div>
     <main>
@@ -103,7 +103,7 @@
         var topicNames = [],
             topicScores = [],
             topicsList = [];
-        
+
         //Load in JSON and initialize variables + page content
         d3.json("all_data_new.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
@@ -115,7 +115,7 @@
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
             document.getElementById("a-count").innerHTML = pubCount;
-            
+
             //Animates the article count numbers
             $('.count').each(function () {
                 $(this).prop('Counter', 0).animate({
@@ -129,12 +129,18 @@
                 });
             });
 
-            for(i = 0; i < numTopics; i++){
+            for (i = 0; i < numTopics; i++) {
                 topicNames.push(topics[i][1]["names"]);
                 topicScores.push(topics[i][1]["score"]);
             }
             loadData(topicScores);
             loadNames(topicNames);
+            var loadDiv = document.getElementById("loading");
+            loadDiv.style.left = -100vw;
+            loadDiv.style.display = "none";
+            loadDiv.style.transition = left 400ms;
+            loadDiv.style.transition = display 400ms 4ms;
+            
             createSignature("main-svg");
         });
     </script>

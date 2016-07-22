@@ -7,6 +7,7 @@ var barN;
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
 var svgW, svgH, padding, angle, textRadius, labelTextSize;
+var maxScore;
 
 // Scales
 var scale = d3.scale.linear()
@@ -28,6 +29,10 @@ function loadNames(nameValues) {
     topicnames = nameValues;
 }
 
+function setMax(number) {
+    maxScore = number;
+}
+
 // Stationary Signature; for related profile displays. No labels and no animation.
 
 function createStagnantSignature(selectedsvgid) {
@@ -37,13 +42,13 @@ function createStagnantSignature(selectedsvgid) {
         svgH = $(id).height();
 
     var padding = svgW / 16.5;
-    var minRadius = 3 / 65 * svgW;
-    var maxRadius = 2 * svgW / 5;
+    var minRadius = holeWidth;
+    var maxRadius = 3.3 * svgW / 7;
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
 
-    scale.domain([0, d3.max(arraydata)])
+    scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
 
     for (i = 0; i < barN; i++) {
@@ -143,10 +148,17 @@ function createSignature(selectedsvgid) {
 
     textRadius = d3.max(rvalues) + padding;
     var minTextRadius = maxRadius / 2;
-    var topResultsNumber = 5;
+    var topResultsNumber = 10;
     var topValues = rvalues.concat().sort(function (a, b) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
+
+    for (num in topValues) {
+        if (num == 0) {
+            var ind = array.indexOf(num);
+            array.splice(index, 1);
+        }
+    }
 
     topResults = topValues;
 
@@ -155,17 +167,9 @@ function createSignature(selectedsvgid) {
 
     //CONSTRUCTION
 
-    for (i = 0; i < barN; i++) {
-        var color = "rgb(160, 20, 20)";
-        /*
-        if (i % 2 == 0) {
-            color = "rgb(220, 125, 100)";
-        } else {
-            color = "rgb(160, 20, 20)";
-        }*/
+    var color = "rgb(160, 20, 20)";
 
-        //var color = "rgb(160, " + Math.floor(colorScale(rvalues[i])) + ", " + Math.floor(colorScale(rvalues[i])) + ")";
-        //Random color: var color = "rgb(" + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ")";
+    for (i = 0; i < barN; i++) {
 
         //creates the invisible strip
         var arc = d3.svg.arc()
@@ -174,7 +178,7 @@ function createSignature(selectedsvgid) {
             .startAngle(i * angle)
             .endAngle((i + 1) * angle);
 
-        svg.append("g")
+        var gp = svg.append("g")
             .attr("id", "gp" + (i + 1))
             .attr("onmouseover", "selectBar(d3.select(this))")
             .attr("onmouseout", "resetBars()");
@@ -199,11 +203,16 @@ function createSignature(selectedsvgid) {
 
         arc.outerRadius(rvalues[i]);
 
-        cbar.transition()
-            .duration(450)
-            .delay(350 + i * 15)
-            .attr("d", arc)
-            .attr("opacity", "0.7");
+        if (arraydata[i] != 0) {
+            gp.attr("visibility", "hidden");;
+            cbar.attr("visibility", "hidden");
+        } else {
+            cbar.transition()
+                .duration(450)
+                .delay(350 + i * 15)
+                .attr("d", arc)
+                .attr("opacity", "0.7");
+        }
 
         //CALCULATED TEXT RADIUS
         var calcTextRadius = radiiValues[i] + padding;
@@ -280,7 +289,7 @@ function resetBars() {
 
         var textX = Math.cos(calcAngle) * calcTextRadius;
         var textY = Math.sin(calcAngle) * calcTextRadius;
-        
+
         for (k = 0; k < topResults.length; k++) {
             if (topResults[k] == radiiValues[i]) {
                 d3.select("#label" + (i + 1)).transition()
@@ -326,7 +335,8 @@ function selectBar(selection) {
 
     //Finds the selected bar; calculates its new angles.
     for (i = 0; i < barN; i++) {
-        if (i == index) {
+        if (i == index && arraydata[i] != 0) {
+
             largeSAngle = (i * angle) - (largeAngleDifference / 2);
             largeEAngle = largeSAngle + largeAngle;
             var arc = d3.svg.arc()
@@ -403,7 +413,8 @@ function selectBar(selection) {
             calcAngle = Math.PI / 2 - (largeEAngle + ((i - index - 1) * smallAngle) + smallAngle / 2);
         }
 
-        if (i != index) {
+        if (i != index && arraydata[i] != 0) {
+
             d3.select("#bar" + (i + 1)).transition()
                 .duration(200)
                 .attr("opacity", "0.3")
@@ -441,6 +452,6 @@ function selectBar(selection) {
                 }
             }
 
-        }    
+        }
     }
 }
