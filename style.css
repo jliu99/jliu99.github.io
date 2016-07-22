@@ -24,7 +24,6 @@ main {
     margin-top: 25px;
 }
 
-
 .svg {
     width: 100%;
     height: 100%;
@@ -36,31 +35,64 @@ a:hover {
     pointer-events: none;
 }
 
+
 /* Header */
+
+@keyframes scroll {
+    0% {
+        margin-top: 0;
+    }
+    12.5% {
+        margin-top: -15vh;
+    }
+    25% {
+        margin-top: -30vh;
+    }
+    37.5% {
+        margin-top: -45vh;
+    }
+    50% {
+        margin-top: -60vh;
+    }
+    62.5% {
+        margin-top: -75vh;
+    }
+    75% {
+        margin-top: -90vh;
+    }
+    87.5% {
+        margin-top: -105vh;
+    }
+    100% {
+        margin-top: -120vh;
+    }
+}
 
 header {
     width: 100vw;
     height: 15vh;
-    background-color:maroon;
-    color:#fff;
-    padding:20px;
-    overflow:hidden;
+    background-color: maroon;
+    color: #fff;
+    padding: 20px;
+    overflow: hidden;
 }
 
 header img {
-    display:inline-block;
-    width:14%;
+    display: inline-block;
+    width: 14%;
 }
 
 header #title-display {
     width: 70%;
-    display:inline-block;
-    text-align:center;
+    margin-top: 0;
+    display: inline-block;
+    text-align: center;
+    animation: scroll 32s infinite;
 }
 
 .title {
     height: 15vh;
-    padding-top:18%;
+    padding-top: 2%;
 }
 
 .title h2 {
@@ -69,18 +101,20 @@ header #title-display {
 }
 
 .title h4 {
-    font-size:2em;
+    font-size: 2em;
 }
+
 
 /* Home Page */
 
 #searchbar {
-    margin-bottom:25px;
+    margin-bottom: 25px;
 }
 
 #home-svg-container {
-    width:75vw;
+    width: 75vw;
 }
+
 
 /* PROFILE */
 
@@ -266,7 +300,7 @@ header #title-display {
     min-width: 650px;
     min-height: 500px;
     border: 1px solid #ccc;
-    overflow:hidden;
+    overflow: hidden;
 }
 
 
@@ -319,35 +353,42 @@ header #title-display {
     text-decoration-color: maroon;
 }
 
+
 /* Loading */
 
 @keyframes float {
-    0% {margin-top: 42vh;}
-    50% {margin-top: 48vh;}
-    100% {margin-top: 42vh;}
+    0% {
+        margin-top: 42vh;
+    }
+    50% {
+        margin-top: 48vh;
+    }
+    100% {
+        margin-top: 42vh;
+    }
 }
 
 #loading {
     width: 100vw;
     height: 100vh;
-    background-color:rgba(255, 255, 255, 0.9);
-    color:#ccc;
-    font-size:4em;
-    text-align:center;
-    position:fixed;
-    top:0;
-    left:0;
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #ccc;
+    font-size: 4em;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
 #loading h3 {
-    height:100%;
-    margin:auto;
-    margin-top:42vh;
+    height: 100%;
+    margin: auto;
+    margin-top: 42vh;
     animation: float 2s infinite;
 }
 
 @media screen and (min-width: 480px) {
     #profile #info h2 {
-        font-size:3em;
+        font-size: 3em;
     }
 }
