@@ -136,10 +136,10 @@
             loadData(topicScores);
             loadNames(topicNames);
             var loadDiv = document.getElementById("loading");
-            loadDiv.style.left = "-100vh";
+            loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
-            loadDiv.style.transition = left 400ms;
-            loadDiv.style.transition = display 400ms 4ms;
+            loadDiv.style.transition = "left 400ms";
+            loadDiv.style.transition = "display 400ms 4ms";
             
             createSignature("main-svg");
         });

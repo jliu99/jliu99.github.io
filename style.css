@@ -275,8 +275,8 @@ a:hover {
 /* Loading */
 
 @keyframes float {
-    from {margin-top: 47.5%;}
-    to {margin-top: 50%;}
+    from {margin-top: 40%;}
+    to {margin-top: 60%;}
 }
 
 #loading {
@@ -294,8 +294,9 @@ a:hover {
 #loading h3 {
     height:100%;
     margin:auto;
-    margin-top:47.5%;
+    margin-top:40%;
     animation-name: float;
+    animation-duration: infinite;
     
 }
 
