@@ -42,23 +42,20 @@ a:hover {
     0% {
         margin-top: 0;
     }
-    14.285% {
+    16.666% {
         margin-top: -15vh;
     }
-    28.57% {
+    33.333% {
         margin-top: -30vh;
     }
-    42.86% {
+    50% {
         margin-top: -45vh;
     }
-    57.14% {
+    66.666% {
         margin-top: -60vh;
     }
-    71.43% {
+    83.333% {
         margin-top: -75vh;
-    }
-    85.71% {
-        margin-top: -90vh;
     }
     100% {
         margin-top: 0;
@@ -79,6 +76,7 @@ header img {
     padding: 5px;
     margin:0;
     box-sizing: border-box;
+    float:left;
     position:absolute;
     top:0;
     left:0;
@@ -89,7 +87,7 @@ header #title-display {
     color: #fff;
     background-color: maroon;
     width: 70%;
-    margin:0;
+    margin:auto;
     display: inline-block;
     text-align: center;
     animation: scroll 63s infinite;
