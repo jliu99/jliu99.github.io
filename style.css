@@ -17,8 +17,13 @@ body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-main {
+header {
     width: 100%;
+    background-color:maroon;
+}
+
+main {
+    width: 90%;
     margin: auto;
 }
 

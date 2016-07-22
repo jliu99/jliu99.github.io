@@ -142,7 +142,9 @@
 
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i][1]["names"][0];
-                topicNames.push(capitalizeLetters(n));
+                console.log(n);
+                console.log(capitalizeLetters(n));
+                topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
             }
             loadData(topicScores);
