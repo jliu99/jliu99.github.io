@@ -288,8 +288,8 @@ function resetBars() {
             .duration(200)
             .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(1)");
 
-        var textX = Math.cos(calcAngle) * calcTextRadius;
-        var textY = Math.sin(calcAngle) * calcTextRadius;
+        var textX = Math.cos(calcAngle) * textRadius;
+        var textY = Math.sin(calcAngle) * textRadius;
 
         for (k = 0; k < topResults.length; k++) {
             if (topResults[k] == arraydata[i]) {
