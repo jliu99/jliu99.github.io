@@ -13,10 +13,13 @@
 
 /* ---- BEGIN CSS ---- */
 
+body {
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
 main {
     width: 90%;
     margin: auto;
-    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 .svg {
@@ -282,11 +285,9 @@ a:hover {
 }
 
 #loading h3 {
+    margin:auto;
     position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
-    bottom: 0;
+    right: 0; left: 0; top: 0; bottom: 0;
 }
 
 @media screen and (min-width: 480px) {
