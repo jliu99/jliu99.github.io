@@ -437,7 +437,7 @@ function selectBar(selection) {
                         .text(abbNames[i])
                         .attr("x", svgW / 2 + textX)
                         .attr("y", svgH / 2 - textY)
-                        .attr("transform", "none");
+                        .attr("transform", "none")
                         .attr("visibility", "visible")
                         .attr("opacity", ".4");
                     break;

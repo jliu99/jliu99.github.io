@@ -73,20 +73,18 @@ header img {
     display: inline-block;
     background-color: #fff;
     width: 15%;
-    padding: 5px;
+    padding: 15px;
     margin:0;
     box-sizing: border-box;
     position:absolute;
-    top:0;
-    left:0;
-    right:0;
+    top: 10%;
 }
 
 header #title-display {
     color: #fff;
     background-color: maroon;
     width: 70%;
-    margin:auto;
+    margin:15%;
     display: inline-block;
     text-align: center;
     animation: scroll 63s infinite;
