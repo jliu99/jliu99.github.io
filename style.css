@@ -74,10 +74,9 @@ a:hover {
 header {
     width: 100vw;
     height: 15vh;
-    background-color: maroon;
-    color: #fff;
-    padding: 20px;
+    padding: 30Spx;
     overflow: hidden;
+    border-bottom: 3px solid #eee;
 }
 
 header img {
@@ -89,6 +88,8 @@ header img {
 }
 
 header #title-display {
+    color: #fff;
+    background-color: maroon;
     width: 67.5%;
     margin-top: 0;
     display: inline-block;
