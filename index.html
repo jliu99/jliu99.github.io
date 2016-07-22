@@ -141,7 +141,10 @@
             });
 
             for (i = 0; i < numTopics; i++) {
-                topicNames.push(capitalizeLetters(topics[i][1]["names"]));
+                var n = topics[i][1]["names"];
+                console.log(n);
+                console.log(capitalizeLetters(n));
+                topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
             }
             loadData(topicScores);
