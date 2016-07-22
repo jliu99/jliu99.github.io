@@ -120,7 +120,7 @@ function createSignature(selectedsvgid) {
     abbrNames = abbNames;
 
     var maxRadius = 3 * svgW / 8 - 1.5 * padding;
-    var minRadius = 30;
+    var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
@@ -149,7 +149,7 @@ function createSignature(selectedsvgid) {
     textRadius = d3.max(rvalues) + padding;
     var minTextRadius = maxRadius / 2;
     var topResultsNumber = 10;
-    var topValues = rvalues.concat().sort(function (a, b) {
+    var topValues = arraydata.concat().sort(function (a, b) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
@@ -240,7 +240,7 @@ function createSignature(selectedsvgid) {
             .attr("id", "label" + (i + 1));
 
         for (k = 0; k < topResultsNumber; k++) {
-            if (topResults[k] == radiiValues[i]) {
+            if (topResults[k] == arraydata[i]) {
                 t.attr("visibility", "visible")
                     .transition()
                     .duration(450)
@@ -291,7 +291,7 @@ function resetBars() {
         var textY = Math.sin(calcAngle) * calcTextRadius;
 
         for (k = 0; k < topResults.length; k++) {
-            if (topResults[k] == radiiValues[i]) {
+            if (topResults[k] == arraydata[i]) {
                 d3.select("#label" + (i + 1)).transition()
                     .text(abbrNames[i])
                     .attr("x", svgW / 2 + textX)
@@ -431,7 +431,7 @@ function selectBar(selection) {
             textX = Math.cos(calcAngle) * calcTextRadius;
             textY = Math.sin(calcAngle) * calcTextRadius;
             for (k = 0; k < topResults; k++) {
-                if (topResults[k] == radiiValues[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
+                if (topResults[k] == arraydata[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
                     d3.select("#label" + (i + 1)).transition()
                         .text(abbNames[i])
                         .attr("x", svgW / 2 + textX)
