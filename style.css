@@ -43,7 +43,7 @@ header #title-display {
 
 main {
     width: 90%;
-    margin: auto;
+    margin: 25px auto;
 }
 
 
@@ -58,13 +58,13 @@ a:hover {
     pointer-events: none;
 }
 
+#searchbar {
+    margin:auto;
+}
 
-
-
-
-
-
-
+#home-svg-container {
+    width:90vw;
+}
 
 /* PROFILE */
 
@@ -73,7 +73,6 @@ a:hover {
     width: 70%;
     height: 150px;
     margin: auto;
-    margin-top: 25px;
     display: block;
     background-color: #eee;
     border: 1px solid #ccc;

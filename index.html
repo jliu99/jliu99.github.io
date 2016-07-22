@@ -16,7 +16,8 @@
 
         function capitalizeLetters(string) {
             var str = string.split(" ");
-            var finalString, keyWord;
+            var finalString;
+            var keyWord = true;
             for (var x = 0; x < str.length; x++) {
                 for (i = 0; i < words.length; i++) {
                     if (str[x] == words[i]) {
@@ -151,7 +152,6 @@
 
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i][1]["names"][0];
-                console.log(n);
                 console.log(capitalizeLetters(n));
                 topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
