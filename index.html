@@ -15,13 +15,19 @@
             "the", "and"];
 
         function capitalizeLetters(string) {
-            var str = string.split(/[\s-]+/);
+            var str = string.split(" ");
             for (var x = 0; x < str.length; x++) {
                 str[x] = str[x].split('');
                 str[x][0] = str[x][0].toUpperCase();
                 str[x] = str[x].join('');
             }
-            return str.join(/[\s-]+/);
+            var strn = str.join(" ").split("-");
+            for (var x = 0; x < str.length; x++) {
+                strn[x] = strn[x].split('');
+                strn[x][0] = strn[x][0].toUpperCase();
+                strn[x] = strn[x].join('');
+            }
+            return strn.join("-");
         }
     </script>
 </head>
