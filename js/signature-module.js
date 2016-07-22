@@ -137,7 +137,7 @@ function createSignature(selectedsvgid) {
 
     radiiValues = rvalues;
 
-    labelTextSize = 1 / 65 * svgH;
+    labelTextSize = 12 + "px";
 
     if (barN < 50) {
         var barTextSize = 15;
@@ -252,7 +252,7 @@ function createSignature(selectedsvgid) {
         }
 
         current.append("text")
-            .text(arraydata[i])
+            .text("score: " arraydata[i])
             .attr("id", "barText" + (i + 1))
             .attr("font-size", barTextSize)
             .attr("font-family", "Arial")
