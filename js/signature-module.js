@@ -297,7 +297,7 @@ function resetBars() {
                     .text(abbrNames[i])
                     .attr("x", svgW / 2 + textX)
                     .attr("y", svgH / 2 - textY)
-                    .attr("font-size", labelTextSize)
+                    .attr("transform", "none")
                     .attr("visibility", "visible")
                     .attr("opacity", "1");
                 break;
@@ -307,7 +307,7 @@ function resetBars() {
                     .text(abbrNames[i])
                     .attr("x", svgW / 2 + textX)
                     .attr("y", svgH / 2 - textY)
-                    .attr("font-size", labelTextSize)
+                    .attr("transform", "none")
                     .attr("opacity", "0")
                     .attr("visibility", "hidden");
             }
@@ -376,7 +376,7 @@ function selectBar(selection) {
                 .text(topicnames[i])
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
-                .attr("font-size", labelTextSize * 15 / 11)
+                .attr("transform", "scale(1.25)")
                 .attr("visibility", "visible")
                 .attr("opacity", "1");
 
@@ -437,7 +437,7 @@ function selectBar(selection) {
                         .text(abbNames[i])
                         .attr("x", svgW / 2 + textX)
                         .attr("y", svgH / 2 - textY)
-                        .attr("font-size", labelTextSize)
+                        .attr("transform", "none");
                         .attr("visibility", "visible")
                         .attr("opacity", ".4");
                     break;
@@ -447,7 +447,7 @@ function selectBar(selection) {
                         .text(abbNames[i])
                         .attr("x", svgW / 2 + textX)
                         .attr("y", svgH / 2 - textY)
-                        .attr("font-size", labelTextSize)
+                        .attr("transform", "none")
                         .attr("visibility", "hidden")
                         .attr("opacity", "0");
                 }
