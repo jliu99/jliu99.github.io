@@ -60,10 +60,12 @@ header #title-display {
 
 .title {
     height: 15vh;
+    padding-top:18%;
 }
 
 .title h2 {
-    font-size: 3em;
+    font-size: 4em;
+    margin-bottom: 6px;
 }
 
 .title h4 {
