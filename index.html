@@ -199,6 +199,7 @@
                 dataArray.push(data);
             }
             loadData(dataArray);
+            setMax(d3.max(dataArray));
             createStagnantSignature("rel" + j);
         }
     </script>
