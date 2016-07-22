@@ -155,8 +155,8 @@ function createSignature(selectedsvgid) {
 
     for (num in topValues) {
         if (num == 0) {
-            var ind = array.indexOf(num);
-            array.splice(index, 1);
+            var ind = topValues.indexOf(num);
+            topValues.splice(index, 1);
         }
     }
 

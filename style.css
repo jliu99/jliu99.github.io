@@ -295,9 +295,7 @@ a:hover {
     height:100%;
     margin:auto;
     margin-top:40%;
-    animation-name: float;
-    animation-duration: infinite;
-    
+    animation: float 1s infinite;   
 }
 
 @media screen and (min-width: 480px) {

@@ -105,7 +105,7 @@
             topicsList = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("all_data_new.json", function (data) {
+        d3.json("/data/all_data_new.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = capitalizeLetters(author.authorName);
