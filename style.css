@@ -87,10 +87,11 @@ header #title-display {
     margin-top: 0;
     display: inline-block;
     text-align: center;
-    animation: scroll 32s infinite;
+    animation: scroll 48s infinite;
 }
 
 .title {
+    box-sizing:border-box;
     height: 15vh;
     padding-top: 2%;
 }
