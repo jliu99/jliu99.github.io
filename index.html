@@ -22,9 +22,9 @@
                 for (i = 0; i < words.length; i++) {
                     if (str[x] == words[i]) {
                         keyWord = false;
-                        break;
                     }
                 }
+                
                 if (keyWord) {
                     str[x] = str[x].split('');
                     str[x][0] = str[x][0].toUpperCase();
