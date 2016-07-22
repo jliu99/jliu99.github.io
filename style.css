@@ -35,7 +35,6 @@ a:hover {
     pointer-events: none;
 }
 
-
 /* Header */
 
 @keyframes scroll {
@@ -96,16 +95,16 @@ header #title-display {
 .title {
     box-sizing:border-box;
     height: 15vh;
-    padding: 1.5% 0;
+    padding: 1.25% 0;
 }
 
 .title h2 {
-    font-size: 3.5em;
+    font-size: 3.25em;
     margin-bottom: 6px;
 }
 
 .title h4 {
-    font-size: 1.8em;
+    font-size: 1.6em;
 }
 
 

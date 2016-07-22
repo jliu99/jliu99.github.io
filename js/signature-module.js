@@ -153,15 +153,15 @@ function createSignature(selectedsvgid) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
+    var refinedValues = [];
+    
     for(i = 0; i < topResultsNumber; i++) {
-        if (topValues[i] == 0) {
-            var ind = topValues.indexOf(num);
-            topValues.splice(ind, 1);
+        if (topValues[i] != 0) {
+            refinedValues.push(topValues[i]);
         }
     }
 
-    topResults = topValues;
-    console.log(topResults);
+    topResults = refinedValues;
     
     //To make the bars different colors depending on their data value.
     colorScale.domain([0, d3.max(rvalues)]);
