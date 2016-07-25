@@ -2,12 +2,12 @@
 
 @font-face {
     font-family: 'unna';
-    src: url('font/unna.otf') format('opentype');
+    src: url('../font/unna.otf') format('opentype');
 }
 
 @font-face {
     font-family: 'neris';
-    src: url('font/neris-sb.otf') format('opentype');
+    src: url('../font/neris-sb.otf') format('opentype');
 }
 
 
@@ -127,18 +127,31 @@ footer {
 
 /* Home Page */
 
-#home-svg-container {
-    width: 50vw;
-    height:70vh;
-    margin: auto;
+#visual-content {
+    width:75%;
+    margin:auto;
 }
 
+#home-svg-container {
+    width: 70%;
+    height:70vh;
+    display:inline-block;
+}
+
+#top-authors {
+    width:25%;
+    height:50vh;
+    background-color:#eee;
+    float:right;
+}
 
 /* Search */
 
 #searchbar {
     margin-bottom:15px;
+    text-align:center;
 }
+
 #searchbar input {
     width: 70%;
     box-sizing:border-box;
@@ -150,14 +163,14 @@ footer {
 }
 
 #searchbar button {
-    width:55px;
+    width:65px;
     height:40px;
     background-color: maroon;
     color: #fff;
     border: 2px solid #500000;
     display:inline-block;
     position:relative;
-    left:-6px;
+    left:-5px;
     top:6px;
 }
 

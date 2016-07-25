@@ -6,8 +6,7 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
@@ -42,16 +41,26 @@
             </div-->
     </header>
     <main>
-        <div id="searchbar">
+        <section id="searchbar">
             <form>
                 <input type="text" name="query" id="query" placeholder="Enter name here" required />
                 <button type='submit'><i class="material-icons">search</i></button>
             </form>
-        </div>
-        <div id="home-svg-container">
-            <svg class="svg" id="home-svg">
-            </svg>
-        </div>
+        </section>
+        <section id="visual-content">
+            <div id="home-svg-container">
+                <svg class="svg" id="home-svg">
+                </svg>
+            </div>
+
+            <div id="top-authors">
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </section>
     </main>
     <footer>
         <div class="footer-img"><img src="img/University_of_Chicago_logo.png" /></div>
