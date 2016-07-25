@@ -81,7 +81,7 @@
         //Variables
         var numTopics, topics;
         var numTopTopics = 50;
-        var topicNames, topicScores;
+        var topicNames = [], topicScores = [];
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago_array.json", function (data) {
