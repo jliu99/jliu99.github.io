@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Profile</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript">
+        var words = ["of", "in",
+            "the", "and"];
+
+        function capitalizeLetters(string) {
+            var str = string.split(" ");
+            for (var x = 0; x < str.length; x++) {
+                str[x] = str[x].split('');
+                str[x][0] = str[x][0].toUpperCase();
+                str[x] = str[x].join('');
+            }
+
+            return str.join(" ");
+
+            /*if (finalString.indexOf("-") > -1) {
+                var strn = finalString.split("-");
+                for (x = 0; x < strn.length; x++) {
+                    strn[x] = strn[x].split('');
+                    strn[x][0] = strn[x][0].toUpperCase();
+                    strn[x] = strn[x].join('');
+                }
+                finalString = strn.join("-");
+            }*/
+            
+        }
+    </script>
+</head>
+
+<body>
+    <div id="loading">
+        <h3>loading...</h3>
+    </div>
+    <main>
+        <section id="profile">
+            <div id="icon">
+                <img src="img/placeholder.png" />
+            </div>
+            <div id="info">
+                <h2 id="name"></h2>
+                <p>Institution: University of Chicago
+                    <br>Email: johndoe@uchicago.edu</p>
+            </div>
+            <div id="numbers">
+                <p>h-Index</p>
+                <a class="tooltip" href="#" title="Index number here">
+                    <div id="index-graph-container">
+                        <svg class="svg" id="index-svg">
+                            <rect x="0" y="0" height="100%" width="60%" fill="#971E1E" />
+                        </svg>
+                    </div>
+                </a>
+                <h2 class="count" id="a-count"></h2>
+                <p>Articles represented</p>
+            </div>
+        </section>
+        <section id="display-toggles">
+            <ul>
+                <li class="selected">Signature</li>
+                <li>Co-authors</li>
+                <li>Published Works</li>
+            </ul>
+        </section>
+        <section id="display">
+            <svg id="main-svg" class="svg">
+            </svg>
+        </section>
+        <section id="related">
+            <h4>related profiles</h4>
+            <hr />
+            <ul>
+                <li>
+                    <a href="#">
+                        <svg class="svg rel-prof" id="rel1">
+                        </svg>
+                        <p>Jane Doe</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel2"></svg>
+                        <p>Gary Sue</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel3"></svg>
+                        <p>Mary Sue</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel4"></svg>
+                        <p>Bob Jones</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <script type="text/javascript">
+        //Variables
+        var author, numTopics;
+        var name, id, topics, pubCount;
+        var topicNames = [],
+            topicScores = [],
+            topicsList = [];
+
+        //Load in JSON and initialize variables + page content
+        d3.json("/data/all_data_new.json", function (data) {
+            var r = Math.floor(Math.random() * data.length);
+            author = data[r];
+            name = capitalizeLetters(author.authorName);
+            id = author.ID;
+            topics = author.topics;
+            numTopics = topics.length;
+            pubCount = author.pubCount;
+            document.getElementById("name").innerHTML = name;
+            document.getElementById("a-count").innerHTML = pubCount;
+
+            //Animates the article count numbers
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                    duration: 2000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(Math.ceil(now));
+                    }
+                });
+            });
+
+            for (i = 0; i < numTopics; i++) {
+                var n = topics[i][1]["names"][0];
+                topicNames.push(capitalizeLetters(n));
+                topicScores.push(topics[i][1]["score"]);
+            }
+            loadData(topicScores);
+            loadNames(topicNames);
+            var loadDiv = document.getElementById("loading");
+            loadDiv.style.left = "-100vw";
+            loadDiv.style.display = "none";
+            loadDiv.style.transition = "left 1000ms";
+            loadDiv.style.transition = "display 1000ms 4ms";
+
+            createSignature("main-svg");
+        });
+    </script>
+    <script type="text/javascript">
+        jQuery.fn.sbTooltip = function () {
+
+            // For each instance of this element
+            return this.each(function () {
+
+                // Add the new attribute with title's current value and then remove the title attribute
+                jQuery(this).attr({
+                    'data-sbtooltip': jQuery(this).attr("title")
+                }).removeAttr("title");
+
+            });
+
+        };
+
+        $(document).ready(function () {
+            $(".tooltip").sbTooltip();
+        });
+
+        var h = d3.select("#a-count");
+        h.attr("style", "opacity:0;");
+        h.transition()
+            .duration(1000)
+            .attr("style", "opacity:1");
+
+        d3.select("#numbers").selectAll("p").style("opacity", "0.5");
+        d3.select("#numbers").selectAll("p").transition()
+            .duration(250)
+            .style("opacity", "1");
+        d3.select("#index-graph-container").style("opacity", "0.5");
+        d3.select("#index-graph-container").transition()
+            .duration(2000)
+            .style("opacity", "1");
+
+        var r = d3.select("#index-svg").select("rect");
+        var w = r.attr("width");
+        r.attr("width", "0")
+            .attr("opacity", "0.6");
+        r.transition()
+            .duration(1250)
+            .attr("width", w)
+            .attr("opacity", "1");
+
+        d3.select("#info").select("p").transition()
+            .duration(800)
+            .style("opacity", "1");
+    </script>
+    <script type="text/javascript">
+        for (j = 1; j <= 4; j++) {
+            var dataArray = [];
+            for (i = 0; i < 150; i++) {
+                var data = Math.floor(101 * Math.random());
+                dataArray.push(data);
+            }
+            loadData(dataArray);
+            setMax(d3.max(dataArray));
+            createStagnantSignature("rel" + j);
+        }
+    </script>
+</body>
+
+</html>
