@@ -85,6 +85,10 @@ footer {
     border-top: 1px solid #eee;
 }
 
+#footer-wrapper {
+    margin:auto;
+}
+
 .footer-img {
     display: inline-block;
     background-color: #fff;
@@ -143,6 +147,10 @@ footer {
     height:50vh;
     background-color:#eee;
     float:right;
+}
+
+#top-authors ul {
+    list-style-type:none;
 }
 
 /* Search */
