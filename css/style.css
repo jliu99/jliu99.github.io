@@ -142,18 +142,32 @@ footer {
     display:inline-block;
 }
 
+#home-svg-container h3 {
+    font-size:2em;
+    color:maroon;
+    font-family: ;
+    
+}
+
 #top-authors {
     width:25%;
-    height:50vh;
-    background-color:#eee;
+    height:45vh;
     float:right;
 }
 
+#top-authors select {
+    width:100%;
+}
+
 #top-authors ul {
+    height:90%;
+    background-color:#eee;
     list-style-type:none;
 }
 
 #top-authors ul li {
+    box-sizing:border-box;
+    padding:15px;
     height:25%;
     border-top:1px solid #bbb;
 }
