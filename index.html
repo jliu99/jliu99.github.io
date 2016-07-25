@@ -81,9 +81,7 @@
         //Variables
         var numTopics, topics;
         var numTopTopics = 50;
-        var topicMaps = {},
-            topicNames = [],
-            topicScores = [];
+        var topicNames, topicScores;
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago_array.json", function (data) {
@@ -91,15 +89,11 @@
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"][0];
-                n = capitalizeLetters(n);
-                var s = topics[i]["score"];
-                topicMaps[n] = s;
+                topicNames.push(capitalizeLetters(n));
+                topicScores(topics[i]["score"]);
             }
-            
-            
-    
-            console.log(topicMaps);
-
+            setMax(d3.max(topicScores));
+            setTopResultsNumber(numTopTopics);
             loadData(topicScores);
             loadNames(topicNames);
             createSignature("home-svg");

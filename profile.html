@@ -122,6 +122,8 @@
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i][1]["score"]);
             }
+            setMax(d3.max(topicScores));
+            setTopResultsNumber(10);
             loadData(topicScores);
             loadNames(topicNames);
             var loadDiv = document.getElementById("loading");

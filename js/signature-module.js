@@ -32,6 +32,10 @@ function setMax(value){
     max = value;
 }
 
+function setTopResultsNumber(value){
+    topResultsNumber = value;
+}
+
 
 // Stationary Signature; for related profile displays. No labels and no animation.
 
@@ -148,7 +152,6 @@ function createSignature(selectedsvgid) {
 
     textRadius = d3.max(rvalues) + padding;
     var minTextRadius = maxRadius / 2;
-    var topResultsNumber = 5;
     var topValues = rvalues.concat().sort(function (a, b) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
