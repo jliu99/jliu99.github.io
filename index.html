@@ -68,21 +68,14 @@
         d3.json("/data/uchicago_array.json", function (data) {
             topics = data[0]["topics"];
             numTopics = topics.length;
-            console.log(topics);
-            /*for (i = 0; i < numTopics; i++) {
-                var n = topics[i][1]["names"][0];
+            for (i = 0; i < numTopics; i++) {
+                var n = topics[i]["names"][0];
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i][1]["score"]);
             }
             loadData(topicScores);
             loadNames(topicNames);
-            var loadDiv = document.getElementById("loading");
-            loadDiv.style.left = "-100vw";
-            loadDiv.style.display = "none";
-            loadDiv.style.transition = "left 1000ms";
-            loadDiv.style.transition = "display 1000ms 4ms";
-
-            createSignature("main-svg");*/
+            createSignature("home-svg");
         });
     </script>
 </body>
