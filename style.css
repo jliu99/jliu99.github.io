@@ -77,7 +77,7 @@ header {
     margin:0;
     box-sizing: border-box;
     position:absolute;
-    top: 1%;
+    top:125px;
     border-bottom: 1px solid #eee;
 }
 
@@ -115,7 +115,7 @@ header #title-display {
 /* Home Page */
 
 #home-svg-container {
-    width: 75vw;
+    width: 70vw;
     margin: auto;
 }
 
@@ -127,14 +127,14 @@ form #searchbar {
     margin:auto;
 }
 
-.search {
+#searchbar input {
     width:80%;
     padding:8px; 15px;
     background-color:rgba(50, 50, 50, 0.6);
     border: 1px solid #bbb;
 }
 
-.button {
+#searchbar button {
     padding: 6px 15px;
     background-color:maroon;
     color:#fff;
