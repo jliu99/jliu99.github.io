@@ -57,5 +57,33 @@
         <div class="footer-img"><img src="img/University_of_Chicago_logo.png" /></div>
         <div class="footer-img"><img src="img/KnowledgeLab.Main.Black.png" /></div>
     </footer>
+    <script type="text/javascript">
+        //Variables
+        var numTopics, topics;
+        var topicNames = [],
+            topicScores = [],
+            topicsList = [];
+
+        //Load in JSON and initialize variables + page content
+        d3.json("/data/uchicago_array.json", function (data) {
+            topics = data[0]["topics"];
+            numTopics = topics.length;
+            console.log(topics);
+            /*for (i = 0; i < numTopics; i++) {
+                var n = topics[i][1]["names"][0];
+                topicNames.push(capitalizeLetters(n));
+                topicScores.push(topics[i][1]["score"]);
+            }
+            loadData(topicScores);
+            loadNames(topicNames);
+            var loadDiv = document.getElementById("loading");
+            loadDiv.style.left = "-100vw";
+            loadDiv.style.display = "none";
+            loadDiv.style.transition = "left 1000ms";
+            loadDiv.style.transition = "display 1000ms 4ms";
+
+            createSignature("main-svg");*/
+        });
+    </script>
 </body>
 </html
