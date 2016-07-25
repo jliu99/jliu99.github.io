@@ -6,7 +6,7 @@ var barN;
 // Intended for animated module only.
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
-var svgW, svgH, padding, angle, textRadius, labelTextSize;
+var svgW, svgH, padding, angle, textRadius, labelTextSize, max;
 
 // Scales
 var scale = d3.scale.linear()
@@ -28,6 +28,11 @@ function loadNames(nameValues) {
     topicnames = nameValues;
 }
 
+function setMax(value){
+    max = value;
+}
+
+
 // Stationary Signature; for related profile displays. No labels and no animation.
 
 function createStagnantSignature(selectedsvgid) {
@@ -43,7 +48,7 @@ function createStagnantSignature(selectedsvgid) {
 
     var rvalues = [];
 
-    scale.domain([0, d3.max(arraydata)])
+    scale.domain([0, max])
         .range([minRadius, maxRadius]);
 
     for (i = 0; i < barN; i++) {
@@ -122,7 +127,7 @@ function createSignature(selectedsvgid) {
 
     //Takes the values of the dataset and scales them to the boundaries of the radii values
 
-    scale.domain([0, d3.max(arraydata)])
+    scale.domain([0, d3.max])
         .range([minRadius, maxRadius]);
 
     for (i = 0; i < barN; i++) {
