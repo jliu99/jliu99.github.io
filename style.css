@@ -68,16 +68,22 @@ header {
     overflow: hidden;
 }
 
-header img {
+.header-img {
     display: inline-block;
     background-color: #fff;
     width: 15%;
+    height:125px;
     padding: 15px;
     margin:0;
     box-sizing: border-box;
     position:absolute;
     top: 1%;
     border-bottom: 1px solid #eee;
+}
+
+.header-img img {
+    width:100%;
+    vertical-align:middle;
 }
 
 header #title-display {
@@ -108,12 +114,30 @@ header #title-display {
 
 /* Home Page */
 
-#searchbar {
-    margin-bottom: 25px;
-}
-
 #home-svg-container {
     width: 75vw;
+    margin: auto;
+}
+
+/* Search */
+
+form #searchbar {
+    width:100%;
+    margin-bottom: 25px;
+    margin:auto;
+}
+
+.search {
+    width:80%;
+    padding:8px; 15px;
+    background-color:rgba(50, 50, 50, 0.6);
+    border: 1px solid #bbb;
+}
+
+.button {
+    padding: 6px 15px;
+    background-color:maroon;
+    color:#fff;
 }
 
 /* PROFILE */

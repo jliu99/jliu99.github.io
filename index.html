@@ -12,7 +12,8 @@
 </head>
 
 <body>
-    <header><img src="img/University_of_Chicago_logo.png" style="left: 0; border-right: 3px solid #eee;" />
+    <header>
+        <div class="header-img"><img src="img/University_of_Chicago_logo.png" style="left: 0; border-right: 3px solid #eee;" /></div>
         <div id="title-display">
             <div class="title">
                 <h2>Research Analytics Team Search</h2>
@@ -31,23 +32,23 @@
                 <h4>(RE-Search)</h4>
             </div>
             <div class="title">
-                <h2 style="font-size: 2.5em">Research Extraordinary Search Extra And Research Company Headquarters</h2>
-                <h4 style="font-size: 1.3em">(RESEARCH)</h4>
+                <h2 style="font-size: 2.3em">Research Extraordinary Search Extra And Research Company Headquarters</h2>
+                <h4 style="font-size: 1.2em">(RESEARCH)</h4>
             </div>
             <div class="title">
                 <h2>Research University Match Base Lookup Engine</h2>
                 <h4>(RUMBLE)</h4>
             </div>
         </div>
-        <img src="img/KnowledgeLab.Main.Black.png" style="right:0;
-    border-left: 3px solid #eee;" /></header>
+        <div class="header-img"><img src="img/KnowledgeLab.Main.Black.png" style="right:0;
+    border-left: 3px solid #eee;" /></div>
+    </header>
     <main>
-        <div id="searchbar">
-            <input type="text" name="query" id="query" />
+        <form id="searchbar">
             <label for="query">Search</label>
-
+            <input type="text" name="query" id="query" placeholder="Enter name here" required />
             <button type='submit'>Search</button>
-        </div>
+        </form>
         <div id="home-svg-container">
             <svg class="svg" id="home-svg">
             </svg>
