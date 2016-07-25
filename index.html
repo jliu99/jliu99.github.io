@@ -83,7 +83,7 @@
         var numTopTopics = 50;
         var topicNames = [],
             topicScores = [],
-            topicMaps = [],
+            topicMaps = {},
             topTopicNames = [],
             topTopicsScores = [];
 
@@ -97,11 +97,9 @@
                 var s = topics[i]["score"];
                 topicNames.push(n);
                 topicScores.push(s);
-                var map = {};
-                map[n] = s;
-                topicMaps.push(map);
+                topicMaps[n] = s;
             }
-            
+    
             console.log(topicMaps);
 
             loadData(topicScores);
