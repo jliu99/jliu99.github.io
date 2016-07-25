@@ -71,7 +71,7 @@
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"][0];
                 topicNames.push(capitalizeLetters(n));
-                topicScores.push(topics[i][1]["score"]);
+                topicScores.push(topics[i]["score"]);
             }
             loadData(topicScores);
             loadNames(topicNames);
