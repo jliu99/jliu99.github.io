@@ -153,6 +153,12 @@ function createSignature(selectedsvgid) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
+    for(i = 0; i < topResultsNumber; i++){
+        if(topValues[i] == 0){
+            topValues.splice(i, 1);   
+        }
+    }
+    
     topResults = topValues;
 
     //To make the bars different colors depending on their data value.
