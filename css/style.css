@@ -81,11 +81,11 @@ header h2 {
 footer {
     box-sizing:border-box;
     width:100%;
-    height:100px;
+    height:75px;
     border-top: 1px solid #eee;
 }
 
-#footer-wrapper {
+#footer-img-wrapper {
     margin:auto;
 }
 
@@ -151,6 +151,11 @@ footer {
 
 #top-authors ul {
     list-style-type:none;
+}
+
+#top-authors ul li {
+    height:25%;
+    border-top:1px solid #bbb;
 }
 
 /* Search */
