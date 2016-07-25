@@ -38,7 +38,7 @@ a:hover {
 
 /* Header */
 
-@keyframes scroll {
+/*@keyframes scroll {
     0% {
         margin-top: 0;
     }
@@ -60,7 +60,7 @@ a:hover {
     100% {
         margin-top: 0;
     }
-}
+}*/
 
 header {
     width: 100vw;
@@ -72,25 +72,25 @@ header {
     display: inline-block;
     background-color: #fff;
     width: 15%;
-    height:125px;
+    height: 125px;
     padding: 15px;
-    margin:0;
+    margin: 0;
     box-sizing: border-box;
-    position:absolute;
-    top:125px;
+    position: absolute;
+    top: 0;
     border-bottom: 1px solid #eee;
 }
 
 .header-img img {
-    width:100%;
-    vertical-align:middle;
+    width: 100%;
+    vertical-align: middle;
 }
 
 header #title-display {
     color: #fff;
     background-color: maroon;
-    width:70%;
-    margin:15%;
+    width: 70%;
+    margin: 15%;
     display: inline-block;
     text-align: center;
     animation: scroll 63s infinite;
@@ -119,26 +119,24 @@ header #title-display {
     margin: auto;
 }
 
+
 /* Search */
 
-form #searchbar {
-    width:100%;
-    margin-bottom: 25px;
-    margin:auto;
-}
-
 #searchbar input {
-    width:80%;
-    padding:8px; 15px;
-    background-color:rgba(50, 50, 50, 0.6);
+    width: 70%;
+    padding: 8px 15px;
+    background-color: rgb(230, 230, 230);
     border: 1px solid #bbb;
+    margin-bottom: 15px;
 }
 
 #searchbar button {
     padding: 6px 15px;
-    background-color:maroon;
-    color:#fff;
+    background-color: maroon;
+    color: #fff;
+    border: 2px solid #500000;
 }
+
 
 /* PROFILE */
 

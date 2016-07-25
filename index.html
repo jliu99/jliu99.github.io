@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link rel="stylesheet" href="reset.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
@@ -13,9 +13,10 @@
 
 <body>
     <header>
-        <div class="header-img"><img src="img/University_of_Chicago_logo.png" style="left: 0;" /></div>
+        <div class="header-img" style="left: 0;"><img src="img/University_of_Chicago_logo.png" /></div>
         <div id="title-display">
-            <div class="title">
+            <h2>Research Analytics Institutional Lookup</h2>
+            <!--div class="title">
                 <h2>Research Analytics Team Search</h2>
                 <h4>(RATS)</h4>
             </div>
@@ -38,16 +39,18 @@
             <div class="title">
                 <h2>Research University Match Base Lookup Engine</h2>
                 <h4>(RUMBLE)</h4>
-            </div>
+            </div-->
         </div>
-        <div class="header-img"><img src="img/KnowledgeLab.Main.Black.png" style="right:0;" /></div>
+        <div class="header-img" style="right:0"><img src="img/KnowledgeLab.Main.Black.png" /></div>
     </header>
     <main>
-        <form id="searchbar">
-            <label for="query">Search</label>
-            <input type="text" name="query" id="query" placeholder="Enter name here" required />
-            <button type='submit'>Search</button>
-        </form>
+        <div id="searchbar">
+            <form>
+                <label for="query">Search</label>
+                <input type="text" name="query" id="query" placeholder="Enter name here" required />
+                <button type='submit'>Search</button>
+            </form>
+        </div>
         <div id="home-svg-container">
             <svg class="svg" id="home-svg">
             </svg>
