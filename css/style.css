@@ -63,12 +63,28 @@ a:hover {
 }*/
 
 header {
+    box-sizing:border-box;
     width: 100vw;
-    height: 125px;
+    height: 90px;
     overflow: hidden;
+    text-align:center;
+    padding:10px;
+    padding-top:20px;
+    background-color:maroon;
+    color:#fff;
 }
 
-.header-img {
+header h2 {
+    font-size:3.4em;
+}
+
+footer {
+    width: 100vw;
+    height:125px;
+    border-top: 1px solid #eee;
+}
+
+.footer-img {
     display: inline-block;
     background-color: #fff;
     width: 15%;
@@ -76,12 +92,9 @@ header {
     padding: 15px;
     margin: 0;
     box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    border-bottom: 1px solid #eee;
 }
 
-.header-img img {
+.footer-img img {
     width: 100%;
     vertical-align: middle;
 }
@@ -128,6 +141,7 @@ header {
     background-color: rgb(230, 230, 230);
     border: 1px solid #bbb;
     margin-bottom: 15px;
+    display:inline-block;
 }
 
 #searchbar button {
@@ -135,6 +149,7 @@ header {
     background-color: maroon;
     color: #fff;
     border: 2px solid #500000;
+    display:inline-block;
 }
 
 
