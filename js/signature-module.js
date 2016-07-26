@@ -6,7 +6,7 @@ var barN;
 // Intended for animated module only.
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
-var svgW, svgH, padding, angle, textRadius, labelTextSize, maxScore, topResultsNumber = 10;
+var svgW, svgH, padding, angle, textRadius, labelTextSize, maxScore, topResultsNumber;
 
 // Scales
 var scale = d3.scale.linear()
@@ -184,9 +184,9 @@ function createSignature(selectedsvgid) {
             .endAngle((i + 1) * angle);
 
         var gp = svg.append("g")
-            .attr("id", "gp" + (i + 1));
-            /*.attr("onmouseover", "selectBar(d3.select(this))")
-            .attr("onmouseout", "resetBars()");*/
+            .attr("id", "gp" + (i + 1))
+            .attr("onmouseover", "selectBar(d3.select(this))")
+            .attr("onmouseout", "resetBars()");
 
         var current = d3.select("#gp" + (i + 1));
 
