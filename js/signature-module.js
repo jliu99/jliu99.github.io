@@ -149,7 +149,8 @@ function createSignature(selectedsvgid) {
 
     }
 
-    textRadius = d3.max(rvalues) + padding;
+    textRadius = d3.max(radiiValues) + padding;
+    console.log(textRadius);
     var minTextRadius = maxRadius / 2;
 
     var topValues = rvalues.concat().sort(function (a, b) {
@@ -224,12 +225,11 @@ function createSignature(selectedsvgid) {
         }*/
 
         //NOT the actual angle; calculated based on a scale where 0 is east and angles are measured counter-clockwise
+        console.log(calcAngle);
         var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
 
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
-
-        console.log(svgW + ", " + svgH + ", " + textX + ", " + textY);
         
         //Topic labels
         var t = current.append("text")
