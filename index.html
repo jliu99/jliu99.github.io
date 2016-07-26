@@ -92,9 +92,9 @@
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i]["score"]);
             }
-            setMax(d3.max(topicScores));
             setTopResultsNumber(numTopTopics);
             loadData(topicScores);
+            setMax(d3.max(topicScores));
             loadNames(topicNames);
             createSignature("home-svg");
         });
