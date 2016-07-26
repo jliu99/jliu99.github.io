@@ -332,7 +332,7 @@ function selectBar(selection) {
                 .startAngle(largeSAngle)
                 .endAngle(largeEAngle);
 
-            var calcAngle = Math.PI / 2 - (largeSAngle + largeAngle / 2);
+            var calcAngle = (largeSAngle + largeAngle / 2);
 
             var textX = Math.cos(calcAngle) * (textRadius);
             var textY = Math.sin(calcAngle) * (textRadius);
@@ -412,7 +412,7 @@ function selectBar(selection) {
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
 
-            calcTextRadius = textRadius + padding;
+            calcTextRadius = textRadius + 1.1 * padding;
 
             textX = Math.cos(calcAngle) * calcTextRadius;
             textY = Math.sin(calcAngle) * calcTextRadius;
