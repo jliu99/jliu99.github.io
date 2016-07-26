@@ -7,7 +7,7 @@ var barN;
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
 var svgW, svgH, padding, angle, textRadius, maxScore;
-var topResultsNumber = 10, labelTextSize = 12 + "px"; 
+var topResultsNumber = 10, labelTextSize = 12; 
 
 // Scales
 var scale = d3.scale.linear()
@@ -47,7 +47,7 @@ function createStagnantSignature(selectedsvgid) {
         svgW = $(id).width(),
         svgH = $(id).height();
 
-    var padding = svgH / 16.5;
+    var padding = svgH / 18;
     var minRadius = holeWidth;
     var maxRadius = 3.1 * svgH / 7
     var angle = (2 * Math.PI) / barN;
@@ -284,7 +284,7 @@ function resetBars() {
                     .text(abbrNames[i])
                     .attr("x", svgW / 2 + textX)
                     .attr("y", svgH / 2 - textY)
-                    .attr("transform", "scale(1)")
+                    .attr("font-size", labelTextSize)
                     .attr("visibility", "visible")
                     .attr("opacity", "1");
                 break;
@@ -356,7 +356,7 @@ function selectBar(selection) {
                 var barTextY = Math.sin(calcAngle) * (radiiValues[i] - padding);
             }
 
-            barText.attr("visibility", "visible")
+            barText.attr("visibility", "hidden")
                 .transition()
                 .duration(200)
                 .attr("opacity", 1)
@@ -365,7 +365,7 @@ function selectBar(selection) {
 
             d3.select("#label" + id).transition()
                 .text(topicnames[i])
-                .attr("transform", "scale(1.25)")
+                .attr("font-size", labelTextSize * 11 / 8)
                 .attr("visibility", "visible")
                 .attr("opacity", "1");
 
@@ -420,7 +420,7 @@ function selectBar(selection) {
                 if (topResults[k] == arraydata[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
                     d3.select("#label" + (i + 1)).transition()
                         .text(abbNames[i])
-                        .attr("transform", "scale(1)")
+                        .attr("font-size", labelTextSize)
                         .attr("visibility", "visible")
                         .attr("opacity", ".4");
                     break;
@@ -428,7 +428,7 @@ function selectBar(selection) {
                 } else {
                     d3.select("#label" + (i + 1)).transition()
                         .text(abbNames[i])
-                        .attr("transform", "scale(1)")
+                        .attr("font-size", labelTextSize)
                         .attr("visibility", "hidden")
                         .attr("opacity", "0");
                 }
