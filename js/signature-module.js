@@ -1,7 +1,5 @@
 // Data
-var arraydata;
-var topicnames;
-var barN;
+var arraydata, topicnames, barN;
 
 // Intended for animated module only.
 var holeWidth = 15;
@@ -99,8 +97,6 @@ function createStagnantSignature(selectedsvgid) {
 
 
 function createSignature(selectedsvgid) {
-    //Generates signature with random data.
-
     var id = "#" + selectedsvgid;
     var svg = d3.select(id);
     svgW = $(id).width();

@@ -17,7 +17,14 @@
         <h3>loading...</h3>
     </div>
     <header>
-        <h2>Research Analytics Institutional Lookup</h2></header>
+        <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
+        <div id="searchbar-wrapper">
+            <form id="searchbar">
+                <input type="text" name="query" id="query" placeholder="Search for..." required />
+                <button type='submit'><i class="material-icons">search</i></button>
+            </form>
+        </div>
+    </header>
     <main>
         <section id="profile">
             <div id="icon">
@@ -84,6 +91,16 @@
             </ul>
         </section>
     </main>
+    <footer>
+        <div id="footer-img-wrapper">
+            <div class="footer-img">
+                <a href="http://www.uchicago.edu/"><img src="img/University_of_Chicago_logo.png" /></a>
+            </div>
+            <div class="footer-img">
+                <a href="http://www.knowledgelab.org/"><img src="img/KnowledgeLab.Main.Black.png" /></a>
+            </div>
+        </div>
+    </footer>
     <script type="text/javascript">
         //Variables
         var author, numTopics;
@@ -194,12 +211,6 @@
             createStagnantSignature("rel" + j);
         }
     </script>
-    <footer>
-        <div id="footer-img-wrapper">
-            <div class="footer-img"><img src="img/University_of_Chicago_logo.png" /></div>
-            <div class="footer-img"><img src="img/KnowledgeLab.Main.Black.png" /></div>
-        </div>
-    </footer>
 </body>
 
 </html>

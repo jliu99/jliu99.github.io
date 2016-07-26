@@ -59,6 +59,8 @@
                     <option value="all">All Topics</option>
                     <option>Topic 1</option>
                     <option>Topic 2</option>
+                    <option>Topic 3</option>
+                    <option>Topic 4</option>
                 </select>
                 <ul>
                     <li>
@@ -79,8 +81,12 @@
     </main>
     <footer>
         <div id="footer-img-wrapper">
-            <div class="footer-img"><img src="img/University_of_Chicago_logo.png" /></div>
-            <div class="footer-img"><img src="img/KnowledgeLab.Main.Black.png" /></div>
+            <div class="footer-img">
+                <a href="http://www.uchicago.edu/"><img src="img/University_of_Chicago_logo.png" /></a>
+            </div>
+            <div class="footer-img">
+                <a href="http://www.knowledgelab.org/"><img src="img/KnowledgeLab.Main.Black.png" /></a>
+            </div>
         </div>
     </footer>
     <script type="text/javascript">
@@ -99,6 +105,7 @@
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i]["score"]);
             }
+
             setTopResultsNumber(numTopTopics);
             loadData(topicScores);
             setMax(d3.max(topicScores));
