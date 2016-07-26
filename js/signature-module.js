@@ -117,7 +117,7 @@ function createSignature(selectedsvgid) {
 
     abbrNames = abbNames;
 
-    var maxRadius = 2.5 * svgH / 8;
+    var maxRadius = 3 * svgH / 8;
     var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
 
@@ -237,7 +237,8 @@ function createSignature(selectedsvgid) {
             .attr("opacity", "0")
             .attr("visibility", "hidden")
             .attr("id", "label" + (i + 1));
-
+        
+        console.log(isTopResult);
         if (isTopResult) {
             t.attr("visibility", "visible")
                 .transition()
