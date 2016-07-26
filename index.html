@@ -90,7 +90,7 @@
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"][0];
                 topicNames.push(capitalizeLetters(n));
-                topicScores(topics[i]["score"]);
+                topicScores.push(topics[i]["score"]);
             }
             setMax(d3.max(topicScores));
             setTopResultsNumber(numTopTopics);
