@@ -147,10 +147,11 @@ function createSignature(selectedsvgid) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
+    
     var refinedValues = [];
 
     for (i = 0; i < topResultsNumber; i++) {
-        if (topValues[i] == 0) {
+        if (topValues[i] != 0) {
             refinedValues.push(topValues[i]);
         }
     }
@@ -207,12 +208,6 @@ function createSignature(selectedsvgid) {
                 .attr("d", arc)
                 .attr("opacity", "0.7");
         }
-
-        /*CALCULATED TEXT RADIUS
-        var calcTextRadius = radiiValues[i] + padding;
-        if (calcTextRadius < minTextRadius) {
-            calcTextRadius = minTextRadius;
-        }*/
 
         //NOT the actual angle; calculated based on a scale where 0 is east and angles are measured counter-clockwise
         var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
@@ -418,7 +413,7 @@ function selectBar(selection) {
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
 
-            calcTextRadius = radiiValues[i] + 1.4 * padding;
+            calcTextRadius = textRadius + 1.4 * padding;
 
             textX = Math.cos(calcAngle) * calcTextRadius;
             textY = Math.sin(calcAngle) * calcTextRadius;
