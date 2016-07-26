@@ -6,7 +6,8 @@ var barN;
 // Intended for animated module only.
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
-var svgW, svgH, padding, angle, textRadius, labelTextSize, maxScore, topResultsNumber;
+var svgW, svgH, padding, angle, textRadius, maxScore;
+var topResultsNumber = 10, labelTextSize = 12 + "px"; 
 
 // Scales
 var scale = d3.scale.linear()
@@ -141,8 +142,6 @@ function createSignature(selectedsvgid) {
 
     radiiValues = rvalues;
 
-    labelTextSize = 12;
-
     if (barN < 50) {
         var barTextSize = 15;
     } else {
@@ -171,7 +170,6 @@ function createSignature(selectedsvgid) {
     colorScale.domain([0, d3.max(rvalues)]);
 
     //CONSTRUCTION
-
 
     var color = "rgb(160, 20, 20)";
 
@@ -231,6 +229,8 @@ function createSignature(selectedsvgid) {
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
 
+        console.log(svgW + ", " + svgH + ", " + textX + ", " + textY);
+        
         //Topic labels
         var t = current.append("text")
             .text(abbrNames[i])
