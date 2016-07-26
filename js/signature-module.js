@@ -229,6 +229,7 @@ function createSignature(selectedsvgid) {
             .attr("id", "label" + (i + 1));
 
         for (k = 0; k < topResultsNumber; k++) {
+            console.log(topResults[k] + ", " + arraydata[i]);
             if (topResults[k] == arraydata[i]) {
                 t.attr("visibility", "visible")
                     .transition()
