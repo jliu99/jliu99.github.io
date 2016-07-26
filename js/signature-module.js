@@ -177,7 +177,7 @@ function createSignature(selectedsvgid) {
     var color = "rgb(160, 20, 20)";
 
     for (i = 0; i < barN; i++) {
-        if (arraydatay[i] != 0) {
+        if (arraydata[i] != 0) {
             //creates the invisible strip
             var arc = d3.svg.arc()
                 .innerRadius(holeWidth)
