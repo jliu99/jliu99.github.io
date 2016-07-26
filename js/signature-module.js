@@ -333,9 +333,14 @@ function selectBar(selection) {
                 .endAngle(largeEAngle);
 
             var calcAngle = (largeSAngle + largeAngle / 2);
-
+            
+            console.log(largeSAngle);
+            console.log(calcAngle);
+            
             var textX = Math.cos(calcAngle) * (textRadius);
+            console.log(textX);
             var textY = Math.sin(calcAngle) * (textRadius);
+            console.log(textY);
 
             var barText = d3.select("#barText" + id);
 
@@ -360,8 +365,6 @@ function selectBar(selection) {
 
             d3.select("#label" + id).transition()
                 .text(topicnames[i])
-                .attr("x", svgW / 2 + textX)
-                .attr("y", svgH / 2 - textY)
                 .attr("transform", "scale(1.25)")
                 .attr("visibility", "visible")
                 .attr("opacity", "1");
@@ -416,6 +419,7 @@ function selectBar(selection) {
 
             textX = Math.cos(calcAngle) * calcTextRadius;
             textY = Math.sin(calcAngle) * calcTextRadius;
+            
             for (k = 0; k < topResults; k++) {
 
                 if (topResults[k] == arraydata[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
