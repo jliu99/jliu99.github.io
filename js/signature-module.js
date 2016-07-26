@@ -7,7 +7,9 @@ var barN;
 var holeWidth = 15;
 var radiiValues, topResults, abbrNames;
 var svgW, svgH, padding, angle, textRadius, maxScore;
-var topResultsNumber = 10, labelTextSize = 12; 
+var topResultsNumber = 10,
+    labelTextSize = 12,
+    onlyShowTop = false;
 
 // Scales
 var scale = d3.scale.linear()
@@ -36,6 +38,10 @@ function setMax(value) {
 
 function setTopResultsNumber(value) {
     topResultsNumber = value;
+}
+
+function setShowTopOnly(value) {
+    onlyShowTop = value;
 }
 
 
@@ -147,7 +153,7 @@ function createSignature(selectedsvgid) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
-    
+
     var refinedValues = [];
 
     for (i = 0; i < topResultsNumber; i++) {
@@ -166,6 +172,14 @@ function createSignature(selectedsvgid) {
     var color = "rgb(160, 20, 20)";
 
     for (i = 0; i < barN; i++) {
+        var isTopResult = false;
+        for (k = 0; k < topResultsNumber; k++) {
+            if (topResults[k] == arraydata[i]) {
+                isTopResult = true;
+                break;
+            }
+        }
+
         //creates the invisible strip
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
@@ -198,7 +212,7 @@ function createSignature(selectedsvgid) {
 
         arc.outerRadius(rvalues[i]);
 
-        if (arraydata[i] == 0) {
+        if (arraydata[i] == 0 || (onlyShowTop && !isTopResult)) {
             gp.attr("visibility", "hidden");
             current.attr("visibility", "hidden");
         } else {
@@ -214,7 +228,7 @@ function createSignature(selectedsvgid) {
 
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
-        
+
         //Topic labels
         var t = current.append("text")
             .text(abbrNames[i])
@@ -228,15 +242,13 @@ function createSignature(selectedsvgid) {
             .attr("visibility", "hidden")
             .attr("id", "label" + (i + 1));
 
-        for (k = 0; k < topResultsNumber; k++) {
-            if (topResults[k] == arraydata[i]) {
-                t.attr("visibility", "visible")
-                    .transition()
-                    .duration(450)
-                    .delay(350 + i * 15)
-                    .attr("opacity", "1");
-                break;
-            }
+        if (isTopResult) {
+            t.attr("visibility", "visible")
+                .transition()
+                .duration(450)
+                .delay(350 + i * 15)
+                .attr("opacity", "1");
+            break;
         }
 
         current.append("text")
@@ -248,6 +260,7 @@ function createSignature(selectedsvgid) {
             .attr("text-anchor", "middle")
             .attr("opacity", 0)
             .attr("visibility", "hidden");
+
     }
 }
 
@@ -333,10 +346,10 @@ function selectBar(selection) {
                 .endAngle(largeEAngle);
 
             var calcAngle = (largeSAngle + largeAngle / 2);
-            
+
             console.log(largeSAngle);
             console.log(calcAngle);
-            
+
             var textX = Math.cos(calcAngle) * (textRadius);
             console.log(textX);
             var textY = Math.sin(calcAngle) * (textRadius);
@@ -386,6 +399,15 @@ function selectBar(selection) {
     //Adjusts other bars based on the new angle of the selected one.
 
     for (i = 0; i < barN; i++) {
+        var isTopResult;
+
+        for (k = 0; k < topResultsNumber; k++) {
+            if (topResults[k] == arraydata[i]) {
+                isTopResult = true;
+                break;
+            }
+        }
+
         arc = d3.svg.arc()
             .innerRadius(holeWidth)
             .outerRadius(radiiValues[i]);
@@ -414,26 +436,22 @@ function selectBar(selection) {
             d3.select("#barText" + (i + 1))
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
-            
-            for (k = 0; k < topResults; k++) {
 
-                if (topResults[k] == arraydata[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
-                    d3.select("#label" + (i + 1)).transition()
-                        .text(abbNames[i])
-                        .attr("font-size", labelTextSize)
-                        .attr("visibility", "visible")
-                        .attr("opacity", ".4");
-                    break;
+            if (isTopResult && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
+                d3.select("#label" + (i + 1)).transition()
+                    .text(abbNames[i])
+                    .attr("font-size", labelTextSize)
+                    .attr("visibility", "visible")
+                    .attr("opacity", ".4");
+                
+            } else {
+                d3.select("#label" + (i + 1)).transition()
+                    .text(abbNames[i])
+                    .attr("font-size", labelTextSize)
+                    .attr("visibility", "hidden")
+                    .attr("opacity", "0");
 
-                } else {
-                    d3.select("#label" + (i + 1)).transition()
-                        .text(abbNames[i])
-                        .attr("font-size", labelTextSize)
-                        .attr("visibility", "hidden")
-                        .attr("opacity", "0");
-                }
             }
-
         }
     }
 }
