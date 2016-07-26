@@ -252,7 +252,7 @@ function createSignature(selectedsvgid) {
 }
 
 function resetBars() {
-    for (i = 0; i < barN; i++) {=
+    for (i = 0; i < barN; i++) {
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
             .outerRadius(radiiValues[i])
