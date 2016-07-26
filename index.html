@@ -15,9 +15,9 @@
 <body>
     <header id="home">
         <div id="header-content">
-            <h2>Research Analytics Institutional Lookup</h2>
+            <h2>Research Analytics<br/>Institutional Lookup</h2>
             <form id="searchbar">
-                <input type="text" name="query" id="query" placeholder="Enter name here" required />
+                <input type="text" name="query" id="query" placeholder="Search for..." required />
                 <button type='submit'><i class="material-icons">search</i></button>
             </form>
             <!--div class="title">
@@ -62,11 +62,17 @@
                 </select>
                 <ul>
                     <li>
-                        <h4>Name</h4></li>
+                        <svg class="svg-icon"></svg>
+                        <h4>Name</h4>
+                    </li>
                     <li>
-                        <h4>Name</h4></li>
+                        <svg class="svg-icon"></svg>
+                        <h4>Name</h4>
+                    </li>
                     <li>
-                        <h4>Name</h4></li>
+                        <svg class="svg-icon"></svg>
+                        <h4>Name</h4>
+                    </li>
                 </ul>
             </div>
         </section>
@@ -81,7 +87,8 @@
         //Variables
         var numTopics, topics;
         var numTopTopics = 50;
-        var topicNames = [], topicScores = [];
+        var topicNames = [],
+            topicScores = [];
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago_array.json", function (data) {

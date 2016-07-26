@@ -5,8 +5,8 @@ var barN;
 
 // Intended for animated module only.
 var holeWidth = 15;
-var radiiValues, topResults, abbrNames;
 var svgW, svgH, padding, angle, textRadius, maxScore;
+var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 12,
     onlyShowTop = false;
@@ -20,7 +20,7 @@ var colorScale = d3.scale.linear()
     .range([0, 50])
     .nice();
 
-// MUST DO THIS FIRST.
+// SET PARAMETERS BEFORE CONSTRUCTION.
 
 function loadData(dataValues) {
     arraydata = dataValues;
@@ -53,8 +53,8 @@ function createStagnantSignature(selectedsvgid) {
         svgW = $(id).width(),
         svgH = $(id).height();
 
-    var padding = svgH / 18;
-    var minRadius = holeWidth;
+    var padding = svgH / 16.5;
+    var minRadius = holeWidth/3;
     var maxRadius = 3.1 * svgH / 7
     var angle = (2 * Math.PI) / barN;
 
@@ -106,7 +106,7 @@ function createSignature(selectedsvgid) {
     svgW = $(id).width();
     svgH = $(id).height();
 
-    padding = svgW / 16.5;
+    padding = svgW / 17.5;
 
     //stores the abbreviated versions of the names for ease of access
     var abbNames = [];
@@ -347,13 +347,8 @@ function selectBar(selection) {
 
             var calcAngle = (largeSAngle + largeAngle / 2);
 
-            console.log(largeSAngle);
-            console.log(calcAngle);
-
             var textX = Math.cos(calcAngle) * (textRadius);
-            console.log(textX);
             var textY = Math.sin(calcAngle) * (textRadius);
-            console.log(textY);
 
             var barText = d3.select("#barText" + id);
 
@@ -439,14 +434,14 @@ function selectBar(selection) {
 
             if (isTopResult && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
                 d3.select("#label" + (i + 1)).transition()
-                    .text(abbNames[i])
+                    .text(abbrNames[i])
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "visible")
                     .attr("opacity", ".4");
-                
+
             } else {
                 d3.select("#label" + (i + 1)).transition()
-                    .text(abbNames[i])
+                    .text(abbrNames[i])
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "hidden")
                     .attr("opacity", "0");
