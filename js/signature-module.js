@@ -66,17 +66,8 @@ function createStagnantSignature(selectedsvgid) {
     colorScale.domain([0, d3.max(rvalues)]);
 
     for (i = 0; i < barN; i++) {
-        //var color = "rgb(160, " + Math.floor(colorScale(rvalues[i])) + ", " + Math.floor(colorScale(rvalues[i])) + ")";
-
-        //random color var color = "rgb(" + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ", " + Math.floor(Math.random() * 200) + ")";
-
-        if (rvalues[i] > maxRadius / 3) {
+        if (rvalues[i] > maxRadius / 2.5) {
             var color = "rgb(160, 20, 20)";
-            /*if (i % 2 == 0) {
-                color = "rgb(230, 170, 170)";
-            } else {
-                color = "rgb(160, 20, 20)";
-            }*/
             var arc = d3.svg.arc()
                 .innerRadius(3)
                 .outerRadius(minRadius)
@@ -182,9 +173,9 @@ function createSignature(selectedsvgid) {
             .endAngle((i + 1) * angle);
 
         var gp = svg.append("g")
-            .attr("id", "gp" + (i + 1));/*
+            .attr("id", "gp" + (i + 1))
             .attr("onmouseover", "selectBar(d3.select(this))")
-            .attr("onmouseout", "resetBars()");*/
+            .attr("onmouseout", "resetBars()");
 
         var current = d3.select("#gp" + (i + 1));
 
@@ -264,7 +255,7 @@ function createSignature(selectedsvgid) {
             .attr("visibility", "hidden");
     }
 }
-/*
+
 function resetBars() {
     for (i = 0; i < barN; i++) {
         //var calcTextRadius = radiiValues[i] + padding;
@@ -456,7 +447,7 @@ function selectBar(selection) {
 
         }
     }
-}*/
+}
 
 var words = ["of", "in",
             "the", "and"];
