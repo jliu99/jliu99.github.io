@@ -132,7 +132,7 @@ function createSignature(selectedsvgid) {
 
     //Takes the values of the dataset and scales them to the boundaries of the radii values
 
-    scale.domain([0, d3.max])
+    scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
 
     for (i = 0; i < barN; i++) {
@@ -150,7 +150,6 @@ function createSignature(selectedsvgid) {
     }
 
     textRadius = d3.max(radiiValues) + padding;
-    console.log(textRadius);
     var minTextRadius = maxRadius / 2;
 
     var topValues = rvalues.concat().sort(function (a, b) {
@@ -225,7 +224,6 @@ function createSignature(selectedsvgid) {
         }*/
 
         //NOT the actual angle; calculated based on a scale where 0 is east and angles are measured counter-clockwise
-        console.log(calcAngle);
         var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
 
         var textX = Math.cos(calcAngle) * textRadius;
