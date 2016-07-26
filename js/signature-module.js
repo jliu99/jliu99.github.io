@@ -115,7 +115,7 @@ function createSignature(selectedsvgid) {
 
     abbrNames = abbNames;
 
-    var maxRadius = 3 * svgW / 8 - 1.5 * padding;
+    var maxRadius = 2.5 * svgH / 8;
     var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
 
@@ -229,7 +229,6 @@ function createSignature(selectedsvgid) {
             .attr("id", "label" + (i + 1));
 
         for (k = 0; k < topResultsNumber; k++) {
-            console.log(topResults[k] + ", " + arraydata[i]);
             if (topResults[k] == arraydata[i]) {
                 t.attr("visibility", "visible")
                     .transition()
@@ -253,8 +252,7 @@ function createSignature(selectedsvgid) {
 }
 
 function resetBars() {
-    for (i = 0; i < barN; i++) {
-        //var calcTextRadius = radiiValues[i] + padding;
+    for (i = 0; i < barN; i++) {=
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
             .outerRadius(radiiValues[i])
@@ -280,7 +278,7 @@ function resetBars() {
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
 
-        for (k = 0; k < topResults.length; k++) {
+        for (k = 0; k < topResultsNumber; k++) {
             if (topResults[k] == arraydata[i]) {
                 d3.select("#label" + (i + 1)).transition()
                     .text(abbrNames[i])
