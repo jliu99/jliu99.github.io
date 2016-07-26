@@ -60,7 +60,7 @@ header#home {
     height: 350px;
     padding-top:25px;
     background-image: url(../img/home.jpg);
-    background-position: center;
+    background-position: bottom;
     text-align:center;
 }
 

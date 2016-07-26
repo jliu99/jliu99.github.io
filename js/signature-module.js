@@ -159,9 +159,8 @@ function createSignature(selectedsvgid) {
     }
 
     topResults = refinedValues;
-
-    //To make the bars different colors depending on their data value.
-    colorScale.domain([0, d3.max(rvalues)]);
+    
+    console.log(refinedValues);
 
     //CONSTRUCTION
 
@@ -170,6 +169,7 @@ function createSignature(selectedsvgid) {
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
+            console.log(topResults[k] + ", " + arraydata[i]);
             if (topResults[k] == arraydata[i]) {
                 isTopResult = true;
                 break;
@@ -236,7 +236,7 @@ function createSignature(selectedsvgid) {
             .attr("y", svgH / 2 - textY)
             .attr("opacity", "0")
             .attr("visibility", "hidden")
-            .attr("id", "label" + (i + 1));
+            .attr("id", "label" + (i + 1));dee
         
         console.log(isTopResult);
         if (isTopResult) {
