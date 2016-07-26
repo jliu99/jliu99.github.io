@@ -93,7 +93,6 @@
                 topicScores.push(topics[i]["score"]);
             }
             setTopResultsNumber(numTopTopics);
-            setShowTopOnly(true);
             loadData(topicScores);
             setMax(d3.max(topicScores));
             loadNames(topicNames);
