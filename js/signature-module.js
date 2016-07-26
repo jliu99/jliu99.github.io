@@ -414,19 +414,12 @@ function selectBar(selection) {
             d3.select("#barText" + (i + 1))
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
-
-            calcTextRadius = textRadius + 1.1 * padding;
-
-            textX = Math.cos(calcAngle) * calcTextRadius;
-            textY = Math.sin(calcAngle) * calcTextRadius;
             
             for (k = 0; k < topResults; k++) {
 
                 if (topResults[k] == arraydata[i] && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
                     d3.select("#label" + (i + 1)).transition()
                         .text(abbNames[i])
-                        .attr("x", svgW / 2 + textX)
-                        .attr("y", svgH / 2 - textY)
                         .attr("transform", "scale(1)")
                         .attr("visibility", "visible")
                         .attr("opacity", ".4");
@@ -435,8 +428,6 @@ function selectBar(selection) {
                 } else {
                     d3.select("#label" + (i + 1)).transition()
                         .text(abbNames[i])
-                        .attr("x", svgW / 2 + textX)
-                        .attr("y", svgH / 2 - textY)
                         .attr("transform", "scale(1)")
                         .attr("visibility", "hidden")
                         .attr("opacity", "0");
