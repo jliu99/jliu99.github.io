@@ -81,21 +81,21 @@ header h2 {
 }
 
 header#home {
-    height: 400px;
-    padding-top:50px;
+    height: 350px;
+    padding-top:25px;
     color:maroon;
     background-image: url(../img/home.jpg);
-    background-position: bottom;
+    background-position: center;
 }
 
 #header-content {
     box-sizing:border-box;
     background-color:rgba(245, 245, 245, 0.95);
     width:75%;
-    height:300px;
+    height:275px;
     margin:auto;
     padding:20px;
-    padding-top:80px;
+    padding-top:65px;
 }
 
 footer {
@@ -172,6 +172,7 @@ footer {
     color: maroon;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     margin-bottom: 15px;
+    text-align:center;
 }
 
 #top-authors {
@@ -195,6 +196,12 @@ footer {
     padding: 15px;
     height: 25%;
     border-top: 1px solid #bbb;
+}
+
+.top-authors-svg {
+    width:90px;
+    height:90px;
+    float:left;
 }
 
 
@@ -223,7 +230,7 @@ footer {
     border: 2px solid #500000;
     display: inline-block;
     position: relative;
-    left: -5px;
+    left: -8px;
     top: 6px;
 }
 
