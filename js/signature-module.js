@@ -3,7 +3,7 @@ var arraydata, topicnames, barN;
 
 // Intended for animated module only.
 var holeWidth = 15;
-var svgW, svgH, padding, angle, textRadius, maxScore;
+var svg, svgW, svgH, padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 10,
@@ -43,9 +43,9 @@ function setShowTopOnly(value) {
 
 function createStagnantSignature(selectedsvgid) {
     var id = "#" + selectedsvgid;
-    var svg = d3.select(id),
-        svgW = $(id).width(),
-        svgH = $(id).height();
+    svg = d3.select(id);
+    svgW = $(id).width();
+    svgH = $(id).height();
 
     var padding = svgH / 16.5;
     var minRadius = holeWidth / 3;
@@ -91,7 +91,7 @@ function createStagnantSignature(selectedsvgid) {
 
 function createSignature(selectedsvgid) {
     var id = "#" + selectedsvgid;
-    var svg = d3.select(id);
+    svg = d3.select(id);
     svgW = $(id).width();
     svgH = $(id).height();
 
@@ -256,7 +256,7 @@ function createSignature(selectedsvgid) {
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
         .attr("visibility", "hidden");
-    
+
     var dimensions = document.getElementById("fixed").getBBox();
     var r = svg.append("rect")
         .attr("id", "white-rect")
@@ -266,12 +266,15 @@ function createSignature(selectedsvgid) {
         .attr("height", dimensions.height)
         .attr("fill", "white")
         .attr("opacity", "0");
-    
+
     document.getElementById(id).insertBefore(r, fixedtxt);
-    
+
 }
 
 function resetBars() {
+    svgW = svg.width();
+    svgH = svg.height();
+
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
@@ -404,7 +407,7 @@ function selectBar(selection) {
             d3.select("#white-rect").transition()
                 .duration(200)
                 .attr("opacity", "1");
-            
+
             d3.select("#fixed")
                 .text(topicnames[i])
                 .attr("visibility", "visible")
@@ -456,7 +459,7 @@ function selectBar(selection) {
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
 
-            if (isTopResult && i != index && Math.abs(i - index) % barN >= 4) {
+            if (isTopResult && i != index && Math.abs(i - index) % barN >= 2) {
                 d3.select("#label" + (i + 1)).transition()
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "visible")
@@ -471,6 +474,14 @@ function selectBar(selection) {
         }
     }
 }
+
+/* general functionality */
+
+var resizeTimer;
+$(window).resize(function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(resetBars, 100);
+});
 
 var words = ["of", "in",
             "the", "and"];
