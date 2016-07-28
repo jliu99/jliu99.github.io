@@ -236,7 +236,7 @@ function createSignature(selectedsvgid) {
             .attr("y", svgH / 2 - textY)
             .attr("opacity", "0")
             .attr("visibility", "hidden")
-            .attr("id", "label" + (i + 1));dee
+            .attr("id", "label" + (i + 1));
         
         console.log(isTopResult);
         if (isTopResult) {
