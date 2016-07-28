@@ -402,7 +402,7 @@ function selectBar(selection) {
 
             d3.select("#space" + id).transition()
                 .duration(50)
-                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2.2)");
+                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
 
             d3.select("#white-rect").transition()
                 .duration(200)
