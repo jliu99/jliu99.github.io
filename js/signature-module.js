@@ -14,10 +14,6 @@ var scale = d3.scale.linear()
     .clamp(true)
     .nice();
 
-var colorScale = d3.scale.linear()
-    .range([0, 50])
-    .nice();
-
 // SET PARAMETERS BEFORE CONSTRUCTION.
 
 function loadData(dataValues) {
@@ -65,9 +61,6 @@ function createStagnantSignature(selectedsvgid) {
         var radius = scale(arraydata[i]);
         rvalues.push(radius);
     }
-
-    //To make the bars different colors depending on their data value.
-    colorScale.domain([0, d3.max(rvalues)]);
 
     for (i = 0; i < barN; i++) {
         if (rvalues[i] > maxRadius / 2.5) {

@@ -109,6 +109,7 @@
             setTopResultsNumber(numTopTopics);
             loadData(topicScores);
             setMax(d3.max(topicScores));
+            setShowTopOnly(true);
             loadNames(topicNames);
             createSignature("home-svg");
         });
