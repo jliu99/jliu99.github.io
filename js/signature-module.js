@@ -145,7 +145,7 @@ function createSignature(selectedsvgid) {
     textRadius = d3.max(radiiValues) + padding;
     var minTextRadius = maxRadius / 2;
 
-    var topValues = rvalues.concat().sort(function (a, b) {
+    var topValues = arraydata.concat().sort(function (a, b) {
         return a - b;
     }).reverse().slice(0, topResultsNumber);
 
@@ -160,7 +160,6 @@ function createSignature(selectedsvgid) {
 
     topResults = refinedValues;
     
-    console.log(refinedValues);
 
     //CONSTRUCTION
 
@@ -169,7 +168,6 @@ function createSignature(selectedsvgid) {
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
-            console.log(topResults[k] + ", " + arraydata[i]);
             if (topResults[k] == arraydata[i]) {
                 isTopResult = true;
                 break;
@@ -238,7 +236,6 @@ function createSignature(selectedsvgid) {
             .attr("visibility", "hidden")
             .attr("id", "label" + (i + 1));
         
-        console.log(isTopResult);
         if (isTopResult) {
             t.attr("visibility", "visible")
                 .transition()
