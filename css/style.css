@@ -51,8 +51,9 @@ header {
 
 header h2, header h2 a {
     display:inline-block;
-    font:1.1em;
+    font:2em;
     margin-bottom:30px;
+    text-decoration:none;
     color: #fff;
 }
 
@@ -78,6 +79,41 @@ header#home h2 {
     margin:auto;
     padding:20px;
     padding-top:65px;
+}
+
+/* Search */
+
+#searchbar-wrapper {
+    display:inline-block;
+    width: 40%;
+    min-width:500px;
+}
+
+#searchbar {
+    margin-bottom: 75px;
+    text-align: center;
+}
+
+#searchbar input {
+    width: 70%;
+    box-sizing: border-box;
+    height: 40px;
+    padding: 8px 15px;
+    background-color: rgb(230, 230, 230);
+    border: 1px solid #bbb;
+    display: inline-block;
+}
+
+#searchbar button {
+    width: 65px;
+    height: 40px;
+    background-color: maroon;
+    color: #fff;
+    border: 2px solid #500000;
+    display: inline-block;
+    position: relative;
+    left: -8px;
+    top: 6px;
 }
 
 footer {
@@ -167,41 +203,6 @@ footer {
     width:90px;
     height:90px;
     float:left;
-}
-
-
-/* Search */
-
-#searchbar-wrapper {
-    width: 40%;
-    min-width:500px;
-}
-
-#searchbar {
-    margin-bottom: 75px;
-    text-align: center;
-}
-
-#searchbar input {
-    width: 70%;
-    box-sizing: border-box;
-    height: 40px;
-    padding: 8px 15px;
-    background-color: rgb(230, 230, 230);
-    border: 1px solid #bbb;
-    display: inline-block;
-}
-
-#searchbar button {
-    width: 65px;
-    height: 40px;
-    background-color: maroon;
-    color: #fff;
-    border: 2px solid #500000;
-    display: inline-block;
-    position: relative;
-    left: -8px;
-    top: 6px;
 }
 
 

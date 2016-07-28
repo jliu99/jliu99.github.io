@@ -153,13 +153,13 @@ function createSignature(selectedsvgid) {
     var refinedValues = [];
 
     for (i = 0; i < topResultsNumber; i++) {
-        console.log(topValues[i]);
         if (topValues[i] != 0) {
             refinedValues.push(topValues[i]);
         }
     }
 
     topResults = refinedValues;
+    console.log(topResults);
     
     //CONSTRUCTION
 
@@ -174,6 +174,8 @@ function createSignature(selectedsvgid) {
             }
         }
 
+        console.log("loop was not broken!");
+        
         //creates the invisible strip
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
