@@ -257,23 +257,20 @@ function createSignature(selectedsvgid) {
         .attr("opacity", 0)
         .attr("visibility", "hidden");
 
-    var dimensions = document.getElementById("fixed").getBBox();
     var r = svg.append("rect")
         .attr("id", "white-rect")
-        .attr("x", dimensions.x)
-        .attr("y", dimensions.y)
-        .attr("width", dimensions.width)
-        .attr("height", dimensions.height)
+        .attr("x", svgW / 2)
+        .attr("y", svg H - 2.05 * labelTextSize)
+        .attr("width", svgW)
+        .attr("height", 2.05 * labelTextSize)
         .attr("fill", "white")
         .attr("opacity", "0");
-
-    document.getElementById(id).insertBefore(r, fixedtxt);
 
 }
 
 function resetBars() {
-    svgW = svg.width();
-    svgH = svg.height();
+    svgW = svg.attr("width");
+    svgH = svg.attr("height");
 
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
