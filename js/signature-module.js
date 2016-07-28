@@ -135,7 +135,7 @@ function createSignature(selectedsvgid) {
 
     }
 
-    textRadius = d3.max(radiiValues) + 1.1 * padding;
+    textRadius = d3.max(radiiValues) + 1.2 * padding;
     var minTextRadius = maxRadius / 2;
 
     var topValues = arraydata.concat().sort(function (a, b) {
@@ -251,7 +251,7 @@ function createSignature(selectedsvgid) {
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
         .attr("x", svgW / 2)
-        .attr("y", svgH - 2.5 * labelTextSize)
+        .attr("y", svgH - 2.05 * labelTextSize)
         .attr("fill", "black")
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
@@ -388,7 +388,7 @@ function selectBar(selection) {
 
             d3.select("#fixed")
                 .text(topicnames[i])
-                .attr("visibility", "hidden")
+                .attr("visibility", "visible")
                 .transition()
                 .duration(200)
                 .attr("opacity", "1");
