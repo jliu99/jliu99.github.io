@@ -6,7 +6,7 @@ var holeWidth = 15;
 var svgW, svgH, padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
-    labelTextSize = 12,
+    labelTextSize = 14,
     onlyShowTop = false;
 
 // Scales
@@ -250,8 +250,8 @@ function createSignature(selectedsvgid) {
     current.append("text")
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
-        .attr("x", svgW / 2);
-    .attr("y", svgH / 2 - 2 * labelTextSize)
+        .attr("x", svgW / 2)
+        .attr("y", svgH / 2 - 2 * labelTextSize)
         .attr("fill", "black")
         .attr("opacity", 0)
         .attr("visibility", "hidden");

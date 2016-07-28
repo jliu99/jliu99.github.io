@@ -44,9 +44,9 @@
         </section>
         <section id="display-toggles">
             <ul>
-                <li class="selected">Signature</li>
-                <li>Co-authors</li>
-                <li>Published Works</li>
+                <li class="selected" onclick="handleTabs(this)">Signature</li>
+                <li onclick="handleTabs(this)">Co-authors</li>
+                <li onclick="handleTabs(this)">Published Works</li>
             </ul>
         </section>
         <section id="display">
@@ -204,6 +204,14 @@
             loadData(dataArray);
             setMax(d3.max(dataArray));
             createStagnantSignature("rel" + j);
+        }
+    </script>
+    <script type="text/javascript">
+        function clearSVG(){
+            d3.select("#main-svg").selectAll("*").remove();
+        }
+        function handleTabs(){
+            clearSVG();
         }
     </script>
 </body>
