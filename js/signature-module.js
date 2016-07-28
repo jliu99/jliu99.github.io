@@ -216,7 +216,7 @@ function createSignature(selectedsvgid) {
 
         //Topic labels
         var t = current.append("text")
-            .text(abbrNames[i])
+            .text(i + 1)
             .attr("fill", "black")
             .attr("text-anchor", "middle")
             .attr("font-family", "Arial")
@@ -246,6 +246,15 @@ function createSignature(selectedsvgid) {
             .attr("visibility", "hidden");
 
     }
+
+    current.append("text")
+        .attr("id", "fixed")
+        .attr("font-size", 2 * labelTextSize)
+        .attr("x", svgW / 2);
+    .attr("y", svgH / 2 - 2 * labelTextSize)
+        .attr("fill", "black")
+        .attr("opacity", 0)
+        .attr("visibility", "hidden");
 }
 
 function resetBars() {
@@ -283,7 +292,6 @@ function resetBars() {
 
         if (isTopResult) {
             d3.select("#label" + (i + 1)).transition()
-                .text(abbrNames[i])
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
                 .attr("font-size", labelTextSize)
@@ -292,7 +300,6 @@ function resetBars() {
 
         } else {
             d3.select("#label" + (i + 1)).transition()
-                .text(abbrNames[i])
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
                 .attr("font-size", labelTextSize)
@@ -300,6 +307,10 @@ function resetBars() {
                 .attr("visibility", "hidden");
 
         }
+
+        d3.select("#fixed").transition()
+            .attr("opacity", "0")
+            .attr("visibility", "hidden");
     }
 }
 
@@ -375,6 +386,12 @@ function selectBar(selection) {
                 .duration(50)
                 .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
 
+            d3.select("#fixed").text(topicnames[i])
+                .attr("visibility", "hidden")
+                .transition()
+                .duration(200)
+                .attr("opacity", "1");
+
             break;
         }
     }
@@ -421,13 +438,11 @@ function selectBar(selection) {
 
             if (isTopResult && i != index && Math.abs(i - index) % barN >= 4) {
                 d3.select("#label" + (i + 1)).transition()
-                    .text(abbrNames[i])
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "visible")
                     .attr("opacity", ".4");
             } else {
                 d3.select("#label" + (i + 1)).transition()
-                    .text(abbrNames[i])
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "hidden")
                     .attr("opacity", "0");
