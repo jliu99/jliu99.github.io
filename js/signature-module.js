@@ -390,7 +390,7 @@ function selectBar(selection) {
     //Adjusts other bars based on the new angle of the selected one.
 
     for (i = 0; i < barN; i++) {
-        var isTopResult;
+        var isTopResult = false;
 
         for (k = 0; k < topResultsNumber; k++) {
             if (topResults[k] == arraydata[i]) {
@@ -433,7 +433,6 @@ function selectBar(selection) {
                     .attr("font-size", labelTextSize)
                     .attr("visibility", "visible")
                     .attr("opacity", ".4");
-
             } else {
                 d3.select("#label" + (i + 1)).transition()
                     .text(abbrNames[i])

@@ -51,8 +51,9 @@ header {
 
 header h2, header h2 a {
     display:inline-block;
-    font:2em;
+    font:2.5em;
     margin-bottom:30px;
+    margin-left:35px;
     text-decoration:none;
     color: #fff;
 }
@@ -63,6 +64,7 @@ header#home {
     background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align:center;
+    margin-left:0;
 }
 
 header#home h2 {
