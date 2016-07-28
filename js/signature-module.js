@@ -159,7 +159,6 @@ function createSignature(selectedsvgid) {
     }
 
     topResults = refinedValues;
-    console.log(topResults);
 
     //CONSTRUCTION
 
@@ -396,7 +395,6 @@ function selectBar(selection) {
         for (k = 0; k < topResultsNumber; k++) {
             if (topResults[k] == arraydata[i]) {
                 isTopResult = true;
-                break;
             }
         }
 
@@ -459,9 +457,9 @@ function capitalizeLetters(string) {
         str[x] = str[x].join('');
     }
 
-    return str.join(" ");
+    var finalString = str.join(" ");
 
-    /*if (finalString.indexOf("-") > -1) {
+    if (finalString.indexOf("-") > -1) {
         var strn = finalString.split("-");
         for (x = 0; x < strn.length; x++) {
             strn[x] = strn[x].split('');
@@ -469,6 +467,8 @@ function capitalizeLetters(string) {
             strn[x] = strn[x].join('');
         }
         finalString = strn.join("-");
-    }*/
+    }
+    
+    return finalString;
 
 }
