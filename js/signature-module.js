@@ -6,7 +6,7 @@ var holeWidth = 15;
 var svgW, svgH, padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
-    labelTextSize = 11,
+    labelTextSize = 10,
     onlyShowTop = false;
 
 // Scales
@@ -247,7 +247,7 @@ function createSignature(selectedsvgid) {
 
     }
 
-    svg.append("text")
+    var fixedtxt = svg.append("text")
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
         .attr("x", svgW / 2)
@@ -256,6 +256,19 @@ function createSignature(selectedsvgid) {
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
         .attr("visibility", "hidden");
+    
+    var dimensions = document.getElementById("fixed").getBBox();
+    var r = svg.append("rect")
+        .attr("id", "white-rect")
+        .attr("x", dimensions.x)
+        .attr("y", dimensions.y)
+        .attr("width", dimensions.width)
+        .attr("height", dimensions.height)
+        .attr("fill", "white")
+        .attr("opacity", "0");
+    
+    document.getElementById(id).insertBefore(r, fixedtxt);
+    
 }
 
 function resetBars() {
@@ -313,6 +326,8 @@ function resetBars() {
     d3.select("#fixed").transition()
         .attr("opacity", "0")
         .attr("visibility", "hidden");
+    d3.select("#white-rect").transition()
+        .attry("opacity", "0");
 }
 
 // HOVER EFFECTS
@@ -384,8 +399,12 @@ function selectBar(selection) {
 
             d3.select("#space" + id).transition()
                 .duration(50)
-                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
+                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2.2)");
 
+            d3.select("#white-rect").transition()
+                .duration(200)
+                .attr("opacity", "1");
+            
             d3.select("#fixed")
                 .text(topicnames[i])
                 .attr("visibility", "visible")
