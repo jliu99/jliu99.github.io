@@ -6,7 +6,7 @@ var holeWidth = 15;
 var svgW, svgH, padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
-    labelTextSize = 14,
+    labelTextSize = 11,
     onlyShowTop = false;
 
 // Scales
@@ -49,7 +49,7 @@ function createStagnantSignature(selectedsvgid) {
 
     var padding = svgH / 16.5;
     var minRadius = holeWidth / 3;
-    var maxRadius = 3.1 * svgH / 7
+    var maxRadius = 3.05 * svgH / 7
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
@@ -135,7 +135,7 @@ function createSignature(selectedsvgid) {
 
     }
 
-    textRadius = d3.max(radiiValues) + padding;
+    textRadius = d3.max(radiiValues) + 1.1 * padding;
     var minTextRadius = maxRadius / 2;
 
     var topValues = arraydata.concat().sort(function (a, b) {
@@ -251,7 +251,7 @@ function createSignature(selectedsvgid) {
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
         .attr("x", svgW / 2)
-        .attr("y", svgH / 2 - 2 * labelTextSize)
+        .attr("y", svgH - 2.1 * labelTextSize)
         .attr("fill", "black")
         .attr("opacity", 0)
         .attr("visibility", "hidden");
@@ -371,7 +371,6 @@ function selectBar(selection) {
                 .attr("y", svgH / 2 - barTextY);
 
             d3.select("#label" + id).transition()
-                .text(topicnames[i])
                 .attr("font-size", labelTextSize * 11 / 8)
                 .attr("visibility", "visible")
                 .attr("opacity", "1");
