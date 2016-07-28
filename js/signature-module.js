@@ -165,7 +165,6 @@ function createSignature(selectedsvgid) {
             }
         }
 
-
         //creates the invisible strip
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
@@ -282,7 +281,7 @@ function resetBars() {
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
 
-        if(isTopResult) {
+        if (isTopResult) {
             d3.select("#label" + (i + 1)).transition()
                 .text(abbrNames[i])
                 .attr("x", svgW / 2 + textX)
@@ -420,7 +419,7 @@ function selectBar(selection) {
                 .attr("opacity", "0")
                 .attr("visibility", "hidden");
 
-            if (isTopResult && i != index && (i + 1) % barN != index && (barN + i - 1) % barN != index) {
+            if (isTopResult && i != index && Math.abs(i - index) % barN >= 4) {
                 d3.select("#label" + (i + 1)).transition()
                     .text(abbrNames[i])
                     .attr("font-size", labelTextSize)
@@ -460,7 +459,7 @@ function capitalizeLetters(string) {
         }
         finalString = strn.join("-");
     }
-    
+
     return finalString;
 
 }
