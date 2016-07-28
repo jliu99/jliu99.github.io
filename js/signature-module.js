@@ -247,12 +247,13 @@ function createSignature(selectedsvgid) {
 
     }
 
-    current.append("text")
+    svg.append("text")
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
         .attr("x", svgW / 2)
-        .attr("y", svgH - 2.1 * labelTextSize)
+        .attr("y", svgH - 2.5 * labelTextSize)
         .attr("fill", "black")
+        .attr("text-anchor", "middle")
         .attr("opacity", 0)
         .attr("visibility", "hidden");
 }
@@ -307,11 +308,11 @@ function resetBars() {
                 .attr("visibility", "hidden");
 
         }
-
-        d3.select("#fixed").transition()
-            .attr("opacity", "0")
-            .attr("visibility", "hidden");
     }
+
+    d3.select("#fixed").transition()
+        .attr("opacity", "0")
+        .attr("visibility", "hidden");
 }
 
 // HOVER EFFECTS
@@ -385,7 +386,8 @@ function selectBar(selection) {
                 .duration(50)
                 .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
 
-            d3.select("#fixed").text(topicnames[i])
+            d3.select("#fixed")
+                .text(topicnames[i])
                 .attr("visibility", "hidden")
                 .transition()
                 .duration(200)
