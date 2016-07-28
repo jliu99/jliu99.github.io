@@ -153,6 +153,7 @@ function createSignature(selectedsvgid) {
     var refinedValues = [];
 
     for (i = 0; i < topResultsNumber; i++) {
+        console.log(topValues[i]);
         if (topValues[i] != 0) {
             refinedValues.push(topValues[i]);
         }
@@ -160,7 +161,6 @@ function createSignature(selectedsvgid) {
 
     topResults = refinedValues;
     
-
     //CONSTRUCTION
 
     var color = "rgb(160, 20, 20)";
