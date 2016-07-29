@@ -384,6 +384,7 @@ footer {
 
 #display-toggles ul li:hover {
     color: maroon;
+    cursor:pointer;
 }
 
 
@@ -429,7 +430,7 @@ footer {
 }
 
 #related ul li {
-    width:200px;
+    width:185px;
 }
 
 #related ul li svg {

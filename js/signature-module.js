@@ -273,6 +273,18 @@ function resetBars() {
     svgW = $(svgID).width();
     svgH = $(svgID).height();
 
+        
+    var n;
+    if(svgW < svgH){
+        n = svgW;
+    } else {
+        n = svgH;
+    }
+    
+    var padding = n / 16.5;
+    var minRadius = holeWidth / 3;
+    var maxRadius = 3.05 * n / 7
+    
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
