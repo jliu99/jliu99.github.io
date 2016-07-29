@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Maven+Pro:700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
@@ -21,7 +22,7 @@
         <div id="searchbar-wrapper">
             <form id="searchbar">
                 <input type="text" name="query" id="query" placeholder="Search for..." required />
-                <button type='submit'><i class="material-icons">search</i></button>
+                <button type='submit' style="top:0;"><i class="material-icons">search</i></button>
             </form>
         </div>
     </header>
@@ -51,8 +52,8 @@
         <section id="display-toggles">
             <ul>
                 <li class="selected" id="sig" onclick="handleTabs(d3.select(this))">Signature</li>
-                <li id="network" onclick="handleTabs(d3.select((this))">Co-authors</li>
-                <li id="works" onclick="handleTabs(d3.select((this))">Published Works</li>
+                <li id="network" onclick="handleTabs(d3.select(this))">Co-authors</li>
+                <li id="works" onclick="handleTabs(d3.select(this))">Published Works</li>
             </ul>
         </section>
         <section id="display">
@@ -215,7 +216,7 @@
             d3.select("#main-svg").selectAll("*").remove();
         }
 
-        function handleTabs(tab){
+        function handleTabs(tab) {
             console.log(tab);
             if (tab.attr("class") != "selected") {
                 clearSVG();
