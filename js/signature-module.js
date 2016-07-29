@@ -1,9 +1,9 @@
 // Data
 var arraydata, topicnames, barN;
 
-// Intended for animated module only.
-var holeWidth = 15;
+// Intended for animated module only.=
 var svgID, svgW, svgH;
+var holeWidth = 15, minRadius, maxRadius;
 var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
