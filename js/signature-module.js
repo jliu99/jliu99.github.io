@@ -46,6 +46,13 @@ function createStagnantSignature(selectedsvgid) {
     svg = d3.select(id);
     svgW = $(id).width();
     svgH = $(id).height();
+    
+    var n;
+    if(svgW < svgH){
+        n = svgW;
+    } else {
+        n = svgH;
+    }
 
     var padding = svgH / 16.5;
     var minRadius = holeWidth / 3;
@@ -260,7 +267,7 @@ function createSignature(selectedsvgid) {
     var r = svg.append("rect")
         .attr("id", "white-rect")
         .attr("x", svgW / 2)
-        .attr("y", svg H - 2.05 * labelTextSize)
+        .attr("y", svgH - 2.05 * labelTextSize)
         .attr("width", svgW)
         .attr("height", 2.05 * labelTextSize)
         .attr("fill", "white")
