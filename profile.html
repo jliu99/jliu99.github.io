@@ -18,6 +18,10 @@
     </div>
     <header>
         <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
+        <form id="searchbar">
+            <input type="text" name="query" id="query" placeholder="Search for..." required />
+            <button type='submit'><i class="material-icons">search</i></button>
+        </form>
     </header>
     <main>
         <section id="profile">
@@ -95,7 +99,7 @@
             </div>
         </div>
     </footer>
-    
+
     <script type="text/javascript">
         //Variables
         var author, numTopics;
@@ -207,13 +211,13 @@
         }
     </script>
     <script type="text/javascript">
-        function clearSVG(){
+        function clearSVG() {
             d3.select("#main-svg").selectAll("*").remove();
         }
-        function handleTabs(){
+
+        function handleTabs() {
             clearSVG();
         }
-        
     </script>
 </body>
 
