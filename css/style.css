@@ -92,9 +92,9 @@ header#home-header h2 {
 }
 
 #searchbar {
-    display:inline-block;
     margin-bottom: 75px;
     text-align: center;
+    width:100%;
 }
 
 #searchbar input {
