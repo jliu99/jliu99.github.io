@@ -54,9 +54,9 @@ function createStagnantSignature(selectedsvgid) {
         n = svgH;
     }
 
-    var padding = svgH / 16.5;
+    var padding = n / 16.5;
     var minRadius = holeWidth / 3;
-    var maxRadius = 3.05 * svgH / 7
+    var maxRadius = 3.05 * n / 7
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
@@ -334,7 +334,7 @@ function resetBars() {
         .attr("opacity", "0")
         .attr("visibility", "hidden");
     d3.select("#white-rect").transition()
-        .attry("opacity", "0");
+        .attr("opacity", "0");
 }
 
 // HOVER EFFECTS

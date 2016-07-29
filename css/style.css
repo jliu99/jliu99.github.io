@@ -180,14 +180,15 @@ footer {
 }
 
 #top-authors {
-    margin-top: 90px;
-    width: 27.5%;
+    margin-top:90px;
+    width:25%;
     min-width:250px;
-    float: right;
+    float:right;
 }
 
 #top-authors select {
-    width: 100%;
+    width:100%;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
 #top-authors ul {
@@ -197,14 +198,15 @@ footer {
 #top-authors ul li {
     box-sizing: border-box;
     padding:5px;
-    height: 100px;
+    height: 105px;
     background-color: #eee;
     border-top: 1px solid #bbb;
+    border-bottom:4px solid maroon;
 }
 
 #top-authors ul li h4 {
     padding-top:20px;
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 .top-authors-svg {
