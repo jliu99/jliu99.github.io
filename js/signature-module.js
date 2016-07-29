@@ -39,7 +39,6 @@ function setShowTopOnly(value) {
     onlyShowTop = value;
 }
 
-
 // Stationary Signature; for related profile displays. No labels and no animation.
 
 function createStagnantSignature(selectedsvgid) {
@@ -102,23 +101,16 @@ function createSignature(selectedsvgid) {
     var svg = d3.select(svgID);
     svgW = $(svgID).width();
     svgH = $(svgID).height();
-
-    padding = svgW / 17.5;
-
-    //stores the abbreviated versions of the names for ease of access
-    var abbNames = [];
-
-    for (i = 0; i < topicnames.length; i++) {
-        if (topicnames[i].length > 8) {
-            abbNames.push(topicnames[i].substr(0, 5) + "...");
-        } else {
-            abbNames.push(topicnames[i]);
-        }
+    
+    var n;
+    if(svgW < svgH){
+        n = svgW;
+    } else {
+        n = svgH;
     }
-
-    abbrNames = abbNames;
-
-    var maxRadius = 3 * svgH / 8;
+    
+    padding = n / 17.5;
+    var maxRadius = 3 * n / 8;
     var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
 
@@ -278,8 +270,8 @@ function createSignature(selectedsvgid) {
 
 function resetBars() {
     var svg = d3.select(svgID);
-    svgW = svg.attr("width");
-    svgH = svg.attr("height");
+    svgW = $(svgID).width();
+    svgH = $(svgID).height();
 
     for (i = 0; i < barN; i++) {
         var isTopResult = false;

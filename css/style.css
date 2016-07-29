@@ -20,12 +20,11 @@ body {
 
 main {
     width: 90%;
-    margin: auto;
-    margin-bottom: 25px;
-    margin-top: 25px;
+    margin:25px auto;
 }
 
 .svg {
+    
     width: 100%;
     height: 100%;
     background-color: #fff;
@@ -58,16 +57,16 @@ header h2, header h2 a {
     color: #fff;
 }
 
-header#home {
+header#home-header {
     height: 350px;
     padding-top:25px;
-    background-image: url('../img/home.jpg');
+    background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align:center;
     margin-left:0;
 }
 
-header#home h2 {
+header#home-header h2 {
     font-size: 2.7em;
     color:maroon;
 }
@@ -148,13 +147,11 @@ footer {
 }
 
 .footer-img a {
-    opacity:0.4;
-    transition: opacity 0.2s;
+    opacity:0.5;
 }
 
 .footer-img a:hover {
     opacity:1;
-    transition: opacity 0.2s;
 }
 
 /* Home Page */
