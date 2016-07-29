@@ -3,7 +3,8 @@ var arraydata, topicnames, barN;
 
 // Intended for animated module only.
 var holeWidth = 15;
-var svg, svgW, svgH, padding, angle, textRadius, maxScore;
+var svgID, svgW, svgH;
+var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 10,
@@ -42,10 +43,10 @@ function setShowTopOnly(value) {
 // Stationary Signature; for related profile displays. No labels and no animation.
 
 function createStagnantSignature(selectedsvgid) {
-    var id = "#" + selectedsvgid;
-    svg = d3.select(id);
-    svgW = $(id).width();
-    svgH = $(id).height();
+    svgID = "#" + selectedsvgid;
+    var svg = d3.select(svgID);
+    svgW = $(svgID).width();
+    svgH = $(svgID).height();
     
     var n;
     if(svgW < svgH){
@@ -97,10 +98,10 @@ function createStagnantSignature(selectedsvgid) {
 
 
 function createSignature(selectedsvgid) {
-    var id = "#" + selectedsvgid;
-    svg = d3.select(id);
-    svgW = $(id).width();
-    svgH = $(id).height();
+    svgID = "#" + selectedsvgid;
+    var svg = d3.select(svgID);
+    svgW = $(svgID).width();
+    svgH = $(svgID).height();
 
     padding = svgW / 17.5;
 
@@ -276,6 +277,7 @@ function createSignature(selectedsvgid) {
 }
 
 function resetBars() {
+    var svg = d3.select(svgID);
     svgW = svg.attr("width");
     svgH = svg.attr("height");
 

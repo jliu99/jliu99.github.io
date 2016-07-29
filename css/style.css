@@ -161,7 +161,7 @@ footer {
 /* Home Page */
 
 #visual-content {
-    width: 80%;
+    width: 82.5%;
     margin: auto;
 }
 
@@ -201,7 +201,7 @@ footer {
     height: 105px;
     background-color: #eee;
     border-top: 1px solid #bbb;
-    border-bottom:4px solid maroon;
+    border-bottom:2px solid #901010;
 }
 
 #top-authors ul li h4 {
