@@ -22,7 +22,7 @@
         <div id="searchbar-wrapper">
             <form id="searchbar">
                 <input type="text" name="query" id="query" placeholder="Search for..." required />
-                <button type='submit' style="top:0;"><i class="material-icons">search</i></button>
+                <button type='submit'><i class="material-icons">search</i></button>
             </form>
         </div>
     </header>
@@ -217,11 +217,16 @@
         }
 
         function handleTabs(tab) {
-            console.log(tab);
             if (tab.attr("class") != "selected") {
                 clearSVG();
             }
+            
+            var id = tab.attr("id");
+            if(id == "sig"){
+                createSignature("main-svg");
+            }
         }
+        
     </script>
 </body>
 
