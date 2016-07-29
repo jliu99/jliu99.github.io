@@ -50,9 +50,9 @@
         </section>
         <section id="display-toggles">
             <ul>
-                <li class="selected" onclick="handleTabs(this)">Signature</li>
-                <li onclick="handleTabs(this)">Co-authors</li>
-                <li onclick="handleTabs(this)">Published Works</li>
+                <li class="selected" id="sig" onclick="handleTabs(d3.select(this))">Signature</li>
+                <li id="network" onclick="handleTabs(d3.select((this))">Co-authors</li>
+                <li id="works" onclick="handleTabs(d3.select((this))">Published Works</li>
             </ul>
         </section>
         <section id="display">
@@ -163,9 +163,7 @@
                 jQuery(this).attr({
                     'data-sbtooltip': jQuery(this).attr("title")
                 }).removeAttr("title");
-
             });
-
         };
 
         $(document).ready(function () {
@@ -217,9 +215,11 @@
             d3.select("#main-svg").selectAll("*").remove();
         }
 
-        function handleTabs(x) {
-            console.log(x);
-            clearSVG();
+        function handleTabs(tab
+            console.log(tab);
+            if (tab.attr("class") != "selected") {
+                clearSVG();
+            }
         }
     </script>
 </body>
