@@ -50,6 +50,8 @@ header {
 }
 
 header h2, header h2 a {
+    height:100%;
+    padding-top:15px;
     display:inline-block;
     font-size:1.45em;
     margin-bottom:30px;
@@ -59,7 +61,7 @@ header h2, header h2 a {
 
 header#home-header {
     height: 350px;
-    padding-top:25px;
+    padding-top:5px;
     background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align:center;
@@ -67,6 +69,7 @@ header#home-header {
 }
 
 header#home-header h2 {
+    height:auto;
     font-size: 2.7em;
     color:maroon;
 }
