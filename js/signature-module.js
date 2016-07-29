@@ -3,7 +3,8 @@ var arraydata, topicnames, barN;
 
 // Intended for animated module only.=
 var svgID, svgW, svgH;
-var holeWidth = 15, minRadius, maxRadius;
+var holeWidth = 15,
+    minRadius, maxRadius;
 var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
@@ -46,9 +47,9 @@ function createStagnantSignature(selectedsvgid) {
     var svg = d3.select(svgID);
     svgW = $(svgID).width();
     svgH = $(svgID).height();
-    
+
     var n;
-    if(svgW < svgH){
+    if (svgW < svgH) {
         n = svgW;
     } else {
         n = svgH;
@@ -101,14 +102,14 @@ function createSignature(selectedsvgid) {
     var svg = d3.select(svgID);
     svgW = $(svgID).width();
     svgH = $(svgID).height();
-    
+
     var n;
-    if(svgW < svgH){
+    if (svgW < svgH) {
         n = svgW;
     } else {
         n = svgH;
     }
-    
+
     padding = n / 17.5;
     var maxRadius = 3 * n / 8;
     var minRadius = holeWidth;
@@ -247,6 +248,15 @@ function createSignature(selectedsvgid) {
 
     }
 
+    var r = svg.append("rect")
+        .attr("id", "white-rect")
+        .attr("x", 0)
+        .attr("y", svgH - 2.05 * labelTextSize)
+        .attr("width", svgW)
+        .attr("height", 2.05 * labelTextSize)
+        .attr("fill", "white")
+        .attr("opacity", "0");
+
     var fixedtxt = svg.append("text")
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
@@ -257,15 +267,6 @@ function createSignature(selectedsvgid) {
         .attr("opacity", 0)
         .attr("visibility", "hidden");
 
-    var r = svg.append("rect")
-        .attr("id", "white-rect")
-        .attr("x", svgW / 2)
-        .attr("y", svgH - 2.05 * labelTextSize)
-        .attr("width", svgW)
-        .attr("height", 2.05 * labelTextSize)
-        .attr("fill", "white")
-        .attr("opacity", "0");
-
 }
 
 function resetBars() {
@@ -273,18 +274,17 @@ function resetBars() {
     svgW = $(svgID).width();
     svgH = $(svgID).height();
 
-        
     var n;
-    if(svgW < svgH){
+    if (svgW < svgH) {
         n = svgW;
     } else {
         n = svgH;
     }
-    
+
     var padding = n / 16.5;
     var minRadius = holeWidth / 3;
     var maxRadius = 3.05 * n / 7
-    
+
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
