@@ -221,6 +221,9 @@
                 clearSVG();
             }
             
+            d3.selectAll("li.selected").attr("class", "");
+            
+            tab.attr("class", "selected");
             var id = tab.attr("id");
             if(id == "sig"){
                 createSignature("main-svg");
