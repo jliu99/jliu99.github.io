@@ -1,47 +1,47 @@
-// Data
 var arraydata, topicnames, barN;
-
-// Intended for animated module only.=
 var svgID, svgW, svgH;
-var holeWidth = 15,
-    minRadius, maxRadius;
+var holeWidth = 15, minRadius, maxRadius;
 var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 10,
     onlyShowTop = false;
 
-// Scales
 var scale = d3.scale.linear()
     .clamp(true)
     .nice();
 
-// SET PARAMETERS BEFORE CONSTRUCTION.
+/* MUST do before generating a signature */
 
+// Sets the data to represent
 function loadData(dataValues) {
     arraydata = dataValues;
     barN = dataValues.length;
     max = d3.max(dataValues);
 }
 
+// Sets the names of the topics
 function loadNames(nameValues) {
     topicnames = nameValues;
 }
 
+// Sets the maximum (for configuring the scale of the radius)
 function setMax(value) {
     maxScore = value;
 }
 
+// Sets the number of top results to be displayed
 function setTopResultsNumber(value) {
     topResultsNumber = value;
 }
 
+// Toggles whether to only show the results as top results or not
 function setShowTopOnly(value) {
     onlyShowTop = value;
 }
 
-// Stationary Signature; for related profile displays. No labels and no animation.
-
+// Stationary Signature; for related profile displays. No labels, no animation
+.
 function createStagnantSignature(selectedsvgid) {
     svgID = "#" + selectedsvgid;
     var svg = d3.select(svgID);
@@ -248,15 +248,6 @@ function createSignature(selectedsvgid) {
 
     }
 
-    var r = svg.append("rect")
-        .attr("id", "white-rect")
-        .attr("x", 0)
-        .attr("y", svgH - 2.05 * labelTextSize)
-        .attr("width", svgW)
-        .attr("height", 2.05 * labelTextSize)
-        .attr("fill", "white")
-        .attr("opacity", "0");
-
     var fixedtxt = svg.append("text")
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
@@ -339,8 +330,6 @@ function resetBars() {
     d3.select("#fixed").transition()
         .attr("opacity", "0")
         .attr("visibility", "hidden");
-    d3.select("#white-rect").transition()
-        .attr("opacity", "0");
 }
 
 // HOVER EFFECTS
@@ -413,10 +402,6 @@ function selectBar(selection) {
             d3.select("#space" + id).transition()
                 .duration(50)
                 .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
-
-            d3.select("#white-rect").transition()
-                .duration(200)
-                .attr("opacity", "1");
 
             d3.select("#fixed")
                 .text(topicnames[i])
