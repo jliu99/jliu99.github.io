@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sample Network Graph</title>
+    <style type="text/css">
+        body {
+            font-family: 'Verdana', 'Trebuchet';
+            font-size: 10pt;
+            margin-left: 100px;
+        }
+        
+        h1 {
+            font-size: 20pt;
+        }
+    </style>
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+</head>
+
+<body>
+    <h1>SAMPLE</h1>
+    <script type="text/javascript">
+        var svgW = 800;
+        var svgH = 600;
+        var svg = d3.select("body").append("svg")
+            .attr("width", svgW)
+            .attr("height", svgH);
+
+        var iconSize = 20;
+        var imgURL = "img/person.svg.png";
+        var numPeople = 20;
+
+        var angle = 2 * Math.PI / numPeople;
+        var minRadius = 60;
+
+        var radiiValues = [];
+
+        /* GENERATE RANDOM DATA */
+
+        for (i = 0; i < numPeople; i++) {
+            var randomRadius = Math.random() * svgH / 2;
+            if (randomRadius < minRadius) {
+                randomRadius = minRadius;
+            }
+            radiiValues.push(randomRadius);
+        }
+
+        /* CREATE LINES */
+
+        for (i = 0; i < numPeople; i++) {
+
+            var xCoord = svgW / 2 + radiiValues[i] * Math.cos(i * angle);
+            var yCoord = svgH / 2 + radiiValues[i] * Math.sin(i * angle);
+
+            svg.append("line")
+                .attr("stroke", "#ddd")
+                .attr("stroke-width", "2")
+                .attr("opacity", "0.7")
+                .attr("x1", svgW / 2)
+                .attr("y1", svgH / 2)
+                .attr("x2", svgW / 2)
+                .attr("y2", svgH / 2)
+                .transition()
+                .duration(800)
+                .attr("x2", xCoord)
+                .attr("y2", yCoord);
+
+        }
+
+        /* CREATE ICONS */
+
+        for (i = 0; i < numPeople; i++) {
+
+            var xCoord = svgW / 2 + radiiValues[i] * Math.cos(i * angle);
+            var yCoord = svgH / 2 + radiiValues[i] * Math.sin(i * angle);
+
+            var gp2 = svg.append("g")
+                .append("a")
+                .attr("href", "http://google.com");
+
+            gp2.append("image")
+                .attr("xlink:href", imgURL)
+                .attr("width", iconSize)
+                .attr("height", iconSize)
+                .attr("x", svgW / 2 - iconSize / 2)
+                .attr("y", svgH / 2 - iconSize / 2)
+                .transition()
+                .duration(800)
+                .attr("x", xCoord - iconSize / 2)
+                .attr("y", yCoord - iconSize / 2);
+
+            var name = "Bob Jones";
+
+            var r = gp2.append("rect")
+                .attr("fill", "white")
+                .attr("opacity", "0");
+
+            var t = gp2.append("text")
+                .text(name)
+                .attr("fill", "black")
+                .attr("font-size", 10)
+                .attr("text-anchor", "middle")
+                .attr("x", xCoord)
+                .attr("y", yCoord + iconSize)
+                .attr("id", "txt" + i)
+                .attr("opacity", "0")
+                .transition()
+                .delay(400)
+                .duration(800)
+                .attr("opacity", "1");
+            
+
+            var bbox = t.node().getBBox();
+
+            var txtWidth = bbox.width;
+            var txtHeight = bbox.height;
+            
+            r.attr("x", xCoord - txtWidth / 2)
+                .attr("y", yCoord + iconSize / 2)
+                .attr("width", txtWidth)
+                .attr("height", txtHeight)
+                .transition()
+                .delay(400)
+                .duration(800)
+                .attr("opacity", "1");
+        }
+
+        var gpMain = svg.append("g")
+
+        gpMain.append("image")
+            .attr("xlink:href", imgURL)
+            .attr("x", svgW / 2 - iconSize / 2)
+            .attr("y", svgH / 2 - iconSize / 2)
+            .attr("width", iconSize)
+            .attr("height", iconSize);
+
+        var r = gpMain.append("rect")
+            .attr("fill", "white");
+
+        var t = gpMain.append("text")
+            .text("John Doe")
+            .attr("fill", "black")
+            .attr("font-size", "10")
+            .attr("text-anchor", "middle")
+            .attr("x", svgW / 2)
+            .attr("y", svgH / 2 + iconSize)
+            .attr("opacity", "0")
+            .transition()
+            .delay(400)
+            .duration(800)
+            .attr("opacity", "1");
+
+        var bbox = t.node().getBBox();
+
+        var txtWidth = bbox.width;
+        var txtHeight = bbox.height;
+
+        r.attr("x", svgW / 2 - txtWidth / 2)
+            .attr("y", svgH / 2 + iconSize / 2)
+            .attr("width", txtWidth)
+            .attr("height", txtHeight)
+            .attr("opacity", "0")
+            .transition()
+            .delay(400)
+            .duration(800)
+            .attr("opacity", "1");
+    </script>
+</body>
+
+</html>
