@@ -41,7 +41,7 @@ function setShowTopOnly(value) {
 }
 
 // Stationary Signature; for related profile displays. No labels, no animation
-.
+
 function createStagnantSignature(selectedsvgid) {
     svgID = "#" + selectedsvgid;
     var svg = d3.select(svgID);
