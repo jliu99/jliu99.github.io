@@ -252,7 +252,7 @@ function createSignature(selectedsvgid) {
         .attr("id", "fixed")
         .attr("font-size", 2 * labelTextSize)
         .attr("x", svgW / 2)
-        .attr("y", svgH - 2.05 * labelTextSize)
+        .attr("y", svgH - 2 * labelTextSize)
         .attr("fill", "black")
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
