@@ -71,7 +71,7 @@
                 <li>
                     <a href="">
                         <svg class="svg rel-prof" id="rel2"></svg>
-                        <p>Gary Sue</p>
+                        <p>Gary Stu</p>
                     </a>
                 </li>
                 <li>
@@ -112,9 +112,15 @@
             topicsList = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_data_updated.json", function (error, data) {
-            alert(error);
-            var r = Math.floor(Math.random() * data.length);
+        d3.json("/data/all_data_updated.json", function (data) {
+            var r;
+            for(i = 0; i < data.length; i++){
+                if(data[i].ID == "9132950200"){
+                    r = i;
+                    break;
+                }
+            }
+            //var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = author.authorName;
             id = author.ID;
