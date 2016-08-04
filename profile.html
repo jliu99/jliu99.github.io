@@ -14,9 +14,6 @@
 </head>
 
 <body>
-    <div id="loading">
-        <h3>loading...</h3>
-    </div>
     <header>
         <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
         <div id="searchbar-wrapper">
@@ -97,12 +94,15 @@
             <div class="footer-img">
                 <a href="http://www.uchicago.edu/"><img src="img/University_of_Chicago_logo.png" /></a>
             </div>
+            <div class="divider"> | </div>
             <div class="footer-img">
                 <a href="http://www.knowledgelab.org/"><img src="img/KnowledgeLab.Main.Black.png" /></a>
             </div>
         </div>
     </footer>
-
+    <div id="loading">
+        <h3>loading...</h3>
+    </div>
     <script type="text/javascript">
         //Variables
         var author, numTopics;
@@ -220,16 +220,15 @@
             if (tab.attr("class") != "selected") {
                 clearSVG();
             }
-            
+
             d3.selectAll("li.selected").attr("class", "");
-            
+
             tab.attr("class", "selected");
             var id = tab.attr("id");
-            if(id == "sig"){
+            if (id == "sig") {
                 createSignature("main-svg");
             }
         }
-        
     </script>
 </body>
 

@@ -159,6 +159,12 @@ footer {
     opacity:1;
 }
 
+footer .divider {
+    height:100%;
+    font-size: 60px;
+    color:#ddd;
+}
+
 /* Home Page */
 
 #visual-content {
