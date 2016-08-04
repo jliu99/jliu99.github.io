@@ -115,7 +115,7 @@
         d3.json("/data/all_data_new.json", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
-            name = capitalizeLetters(author.authorName);
+            name = author.authorName;
             id = author.ID;
             topics = author.topics;
             numTopics = topics.length;
@@ -138,7 +138,7 @@
 
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i][1]["names"];
-                topicNames.push(capitalizeLetters(n));
+                topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
             }
             setMax(d3.max(topicScores));

@@ -256,7 +256,8 @@ function createSignature(selectedsvgid) {
         .attr("fill", "black")
         .attr("text-anchor", "middle")
         .attr("opacity", 0)
-        .attr("visibility", "hidden");
+        .attr("visibility", "hidden")
+        .style("text-transform", "capitalize");
 
 }
 
@@ -475,30 +476,3 @@ $(window).resize(function () {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(resetBars, 100);
 });
-
-var words = ["of", "in",
-            "the", "and"];
-
-function capitalizeLetters(string) {
-    var str = string.split(" ");
-    for (var x = 0; x < str.length; x++) {
-        str[x] = str[x].split('');
-        str[x][0] = str[x][0].toUpperCase();
-        str[x] = str[x].join('');
-    }
-
-    var finalString = str.join(" ");
-
-    if (finalString.indexOf("-") > -1) {
-        var strn = finalString.split("-");
-        for (x = 0; x < strn.length; x++) {
-            strn[x] = strn[x].split('');
-            strn[x][0] = strn[x][0].toUpperCase();
-            strn[x] = strn[x].join('');
-        }
-        finalString = strn.join("-");
-    }
-
-    return finalString;
-
-}

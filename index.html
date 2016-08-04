@@ -108,9 +108,6 @@
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"];
-                for(j = 0; j < n.length; j++){
-                    n[j] = capitalizeLetters(n[j]);
-                }
                 topicNames.push(n);
                 topicScores.push(topics[i]["score"]);
             }

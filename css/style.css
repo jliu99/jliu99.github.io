@@ -80,6 +80,7 @@ header#home-header h2 {
     border-radius:5px;
     height:275px;
     margin:auto;
+    margin-top:20px;
     padding:20px;
     padding-top:65px;
 }
@@ -277,6 +278,7 @@ footer {
     margin-bottom: 5px;
     font-size: 3.75em;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+    text-transform: capitalize;
 }
 
 #profile #info p {
