@@ -321,8 +321,7 @@ function resetBars() {
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
                 .attr("font-size", labelTextSize)
-                .attr("opacity", "0")
-                .attr("visibility", "hidden");
+                .attr("opacity", "0");
 
         }
     }
@@ -462,7 +461,6 @@ function selectBar(selection) {
             } else {
                 d3.select("#label" + (i + 1)).transition()
                     .attr("font-size", labelTextSize)
-                    .attr("visibility", "hidden")
                     .attr("opacity", "0");
 
             }
