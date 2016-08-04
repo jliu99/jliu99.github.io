@@ -131,6 +131,7 @@ footer {
 }
 
 #footer-img-wrapper {
+    box-sizing:border-box;
     width: 70%;
     height: 100%;
     margin: auto;
@@ -160,10 +161,9 @@ footer {
 }
 
 footer .divider {
-    height:100%;
-    font-size: 60px;
-    color:#ddd;
     display:inline-block;
+    color:#ddd;
+    transform: scale(2.8);
 }
 
 /* Home Page */
