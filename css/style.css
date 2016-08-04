@@ -163,6 +163,7 @@ footer .divider {
     height:100%;
     font-size: 60px;
     color:#ddd;
+    display:inline-block;
 }
 
 /* Home Page */
