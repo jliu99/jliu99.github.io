@@ -16,7 +16,7 @@
 <body>
     <header>
         <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
-        <div id="searchbar-wrapper" style="margin-top: -13px;">
+        <div id="searchbar-wrapper" style="margin-top: -5px;">
             <form id="searchbar">
                 <input type="text" name="query" id="query" placeholder="Search for..." required />
                 <button type='submit'><i class="material-icons">search</i></button>
@@ -112,7 +112,7 @@
             topicsList = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_data_new.json", function (data) {
+        d3.json("/data/all_data_updated.txt", function (data) {
             var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = author.authorName;
