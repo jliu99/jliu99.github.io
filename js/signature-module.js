@@ -20,7 +20,7 @@ function loadData(dataValues) {
     max = d3.max(dataValues);
 }
 
-// Sets the names of the topics
+// Sets the name arrays of the topics; should be an array of arrays
 function loadNames(nameValues) {
     topicnames = nameValues;
 }
@@ -404,7 +404,7 @@ function selectBar(selection) {
                 .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
 
             d3.select("#fixed")
-                .text(topicnames[i])
+                .text(topicnames[i][0] + " | " + topicnames[i][1] + " | " + topicnames[i][2])
                 .attr("visibility", "visible")
                 .transition()
                 .duration(200)

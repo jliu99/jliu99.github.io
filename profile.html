@@ -137,7 +137,7 @@
             });
 
             for (i = 0; i < numTopics; i++) {
-                var n = topics[i][1]["names"][0];
+                var n = topics[i][1]["names"];
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i][1]["score"]);
             }

@@ -107,7 +107,7 @@
             topics = data[0]["topics"];
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
-                var n = topics[i]["names"][0];
+                var n = topics[i]["names"];
                 topicNames.push(capitalizeLetters(n));
                 topicScores.push(topics[i]["score"]);
             }
