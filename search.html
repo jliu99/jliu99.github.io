@@ -50,16 +50,19 @@
             var people = [],
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {
-                if (data[0][i].authorName.toLowerCase().equals(term)) {
-                    people.push(data[0][i]);
-                    indices.push(i);
+                var authors = data[0];
+                for (i = 0; i < authors.length; i++) {
+                    if (authors[i].authorName.toLowerCase().equals(term)) {
+                        people.push(authors[i]);
+                        indices.push(i);
+                    }
                 }
             });
             console.log(people);
             console.log(indices);
             for (j = 0; j < people.length; j++) {
                 var author = people[j];
-                $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id='" + indices[j] + "'><h2>" + people[j].authorName +"</h2></a></div>");
+                $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id='" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
             }
         }
     </script>
