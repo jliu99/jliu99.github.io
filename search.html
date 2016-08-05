@@ -77,7 +77,8 @@
     <script type="text/javascript">
         var search = location.search;
         if (location.search != null) {
-            var term = decodeURI(search.replace(“ ? query = ”, ‘’)).toLowerCase();
+            search = search.replace("?query=", "")
+            var term = decodeURI().toLowerCase();
             var people = [],
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {
