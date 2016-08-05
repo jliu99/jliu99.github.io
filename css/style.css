@@ -33,6 +33,9 @@ a:hover {
     pointer-events: none;
 }
 
+h1, h2, h3, h4 {
+    color:maroon;
+}
 
 /* Header */
 
@@ -96,7 +99,7 @@ header#home-header h2 {
     float: right;
     width: 50%;
     min-width: 500px;
-    margin-top: -5px;
+    margin-top: -6px;
 }
 
 #searchbar {
@@ -261,10 +264,6 @@ footer .divider {
     background-color: #eee;
     border: 1px solid #ccc;
     border-bottom: 4px solid maroon;
-}
-
-#profile h2 {
-    color: maroon;
 }
 
 #profile #icon {
