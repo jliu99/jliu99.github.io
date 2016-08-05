@@ -544,8 +544,8 @@ footer .divider {
 
 .results-item {
     background-color:#eee;
-    width: 33%;
-    margin:.33%;
+    width: 29%;
+    margin: auto;
     height:250px;
     display:inline-block;
 }
