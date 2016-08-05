@@ -49,16 +49,13 @@
             var term = decodeURI().toLowerCase();
             var people = [],
                 indices = [];
-            d3.json("/data/all_data_updated.json", function (error, data) {
-                var authors = data[0];
-                console.log(authors);
-                for (i = 0; i < authors.length; i++) {
-                    if (authors[i].authorName.toLowerCase().equals(term)) {
-                        people.push(authors[i]);
+            d3.json("/data/all_data_updated.json", function (data) {
+                for (i = 0; i < data.length; i++) {
+                    if (data[i].authorName.toLowerCase().equals(term)) {
+                        people.push(data[i]);
                         indices.push(i);
                     }
                 }
-                alert(error);
             });
             console.log(people);
             console.log(indices);
