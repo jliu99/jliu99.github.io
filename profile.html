@@ -107,7 +107,7 @@
     </div>
     <script type="text/javascript">
         var dataid = location.search;
-        dataid = dataid.replace("?=id", "");
+        var index = dataid.replace("?id=", "");
         //Variables
         var author, numTopics;
         var name, id, topics, pubCount;
@@ -117,7 +117,7 @@
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/all_data_updated.json", function (data) {
-            author = data[dataid];
+            author = data[index];
             name = author.authorName;
             id = author.ID;
             topics = author.topics;
