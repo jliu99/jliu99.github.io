@@ -551,9 +551,19 @@ footer .divider {
 }
 
 .results-item {
+    box-sizing: border-box;
     background-color:#eee;
-    width: 29%;
-    margin: 30px auto;
+    width: 30%;
+    min-width:300px;
+    margin: 15px 1.5%;
     height:250px;
     display:inline-block;
+    padding:20px;
+}
+
+.results-svg-container {
+    width:150px;
+    height:150px;
+    float:left;
+    margin-right:15px;
 }

@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
 </head>
 
 <body>
@@ -27,7 +28,7 @@
             <h2>Research Analytics Institutional Lookup<br/>(RAIL)</h2>
             <form id="searchbar">
                 <input type="text" name="query" id="query" placeholder="Search for..." required />
-                <button type='submit'><i class="material-icons">search</i></button>
+                <button type='submit' onclick="search()"><i class="material-icons">search</i></button>
             </form>
         </div>
         <!--div class="title">

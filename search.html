@@ -20,28 +20,43 @@
         </div>
     </header>
     <main>
-        <section class="search-info">
+        <section id="search-info">
             <h2>Search Results</h2>
             <p>blah results for blah term</p>
         </section>
-        <section class="results">
+        <section id="results">
             <div id="results-grid">
                 <div id="results-row">
                     <div class="results-item">
+                        <div class="results-svg-container">
+                            <svg class="svg results-svg"></svg>
+                        </div>
                         <h3>John Doe</h3>
                     </div>
                     <div class="results-item">
+                        <div class="results-svg-container">
+                            <svg class="svg results-svg"></svg>
+                        </div>
                         <h3>Jane Doe</h3>
                     </div>
                     <div class="results-item">
+                        <div class="results-svg-container">
+                            <svg class="svg results-svg"></svg>
+                        </div>
                         <h3>Bob Jones</h3>
                     </div>
                 </div>
                 <div id="results-row">
                     <div class="results-item">
+                        <div class="results-svg-container">
+                            <svg class="svg results-svg"></svg>
+                        </div>
                         <h3>Gary Stu</h3>
                     </div>
                     <div class="results-item">
+                        <div class="results-svg-container">
+                            <svg class="svg results-svg"></svg>
+                        </div>
                         <h3>Mary Sue</h3>
                     </div>
                 </div>
@@ -59,6 +74,24 @@
             </div>
         </div>
     </footer>
+    <script type="text/javascript">
+        var search = location.search;
+        if (location.search != null) {
+            var term = decodeURI(search.replace(“ ? query = ”, ‘’)).toLowerCase();
+            var people = [],
+                indices = [];
+            d3.json("/data/all_data_updated.json", function (data) {
+                if (data[0][i].authorName.toLowerCase().equals(term)) {
+                    people.push(data[0][i]);
+                    indices.push(i);
+                }
+            });
+            console.log(people);
+            console.log(indices);
+        }
+    </script>
+    <script type="text/javascript">
+    </script>
 </body>
 
 </html>
