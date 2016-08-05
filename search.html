@@ -52,16 +52,17 @@
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {
                 for (i = 0; i < data.length; i++) {
-                    if (data[i].authorName.toLowerCase()==term) {
+                    if (data[i].authorName.toLowerCase() == term) {
                         people.push(data[i]);
                         indices.push(i);
                     }
                 }
+                for (j = 0; j < people.length; j++) {
+                    var author = people[j];
+                    $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
+                }
             });
-            for (j = 0; j < people.length; j++) {
-                var author = people[j];
-                $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
-            }
+
         }
     </script>
 </body>
