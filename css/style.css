@@ -137,7 +137,7 @@ header#home-header h2 {
 #searchbar button:active {
     background-color: rgb(155, 0, 0);
     border-bottom-width:2px;
-    top:6px;
+    height:44px;
 }
 
 footer {
@@ -539,10 +539,13 @@ footer .divider {
 
 .results-row {
     width:100%;
+    display:block;
 }
 
 .results-item {
     background-color:#eee;
     width: 33%;
+    margin:.33%;
     height:250px;
+    display:inline-block;
 }
