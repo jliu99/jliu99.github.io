@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
 </head>
 
 <body>
@@ -26,40 +27,6 @@
         </section>
         <section id="results">
             <div id="results-grid">
-                <div id="results-row">
-                    <div class="results-item">
-                        <div class="results-svg-container">
-                            <svg class="svg results-svg"></svg>
-                        </div>
-                        <h3>John Doe</h3>
-                    </div>
-                    <div class="results-item">
-                        <div class="results-svg-container">
-                            <svg class="svg results-svg"></svg>
-                        </div>
-                        <h3>Jane Doe</h3>
-                    </div>
-                    <div class="results-item">
-                        <div class="results-svg-container">
-                            <svg class="svg results-svg"></svg>
-                        </div>
-                        <h3>Bob Jones</h3>
-                    </div>
-                </div>
-                <div id="results-row">
-                    <div class="results-item">
-                        <div class="results-svg-container">
-                            <svg class="svg results-svg"></svg>
-                        </div>
-                        <h3>Gary Stu</h3>
-                    </div>
-                    <div class="results-item">
-                        <div class="results-svg-container">
-                            <svg class="svg results-svg"></svg>
-                        </div>
-                        <h3>Mary Sue</h3>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
@@ -89,9 +56,11 @@
             });
             console.log(people);
             console.log(indices);
+            for (j = 0; j < people.length; j++) {
+                var author = people[j];
+                $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id='" + indices[j] + "'><h2>" + people[j].authorName +"</h2></a></div>");
+            }
         }
-    </script>
-    <script type="text/javascript">
     </script>
 </body>
 
