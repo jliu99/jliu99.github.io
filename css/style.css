@@ -532,15 +532,16 @@ footer .divider {
 
 /* ---- Results ---- */
 
-#results-table {
-    border:none;
+#results, #results-grid {
+    width:100%;
 }
 
-#results-table td {
+.results-row {
+    width:100%;
 }
 
-#results-table td tr div.result {
+.results-item {
     background-color:#eee;
-    width:300px;
-    height:300px;
+    width: 33%;
+    height:250px;
 }
