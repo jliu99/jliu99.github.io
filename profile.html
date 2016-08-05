@@ -34,6 +34,10 @@
                     <br>Email: johndoe@uchicago.edu</p>
             </div>
             <div class="numbers">
+                <h2 class="count" id="a-count"></h2>
+                <p>Articles represented</p>
+            </div>
+            <div class="numbers">
                 <p>h-Index</p>
                 <a class="tooltip" href="#" title="Index number here">
                     <div id="index-graph-container">
@@ -42,10 +46,6 @@
                         </svg>
                     </div>
                 </a>
-            </div>
-            <div class="numbers">
-                <h2 class="count" id="a-count"></h2>
-                <p>Articles represented</p>
             </div>
         </section>
         <section id="display-toggles">
@@ -115,14 +115,14 @@
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/all_data_updated.json", function (data) {
-            var r;
+            /*var r;
             for (i = 0; i < data.length; i++) {
                 if (data[i].ID == "56783802900") {
                     r = i;
                     break;
                 }
-            }
-            //var r = Math.floor(Math.random() * data.length);
+            }*/
+            var r = Math.floor(Math.random() * data.length);
             author = data[r];
             name = author.authorName;
             id = author.ID;
