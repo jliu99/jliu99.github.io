@@ -306,7 +306,7 @@ footer .divider {
     opacity: 0;
 }
 
-#numbers {
+.numbers {
     box-sizing: border-box;
     width: 20%;
     min-width: 150px;
@@ -320,13 +320,13 @@ footer .divider {
     font-size: .9em;
 }
 
-#numbers h2 {
+.numbers h2 {
     font-size: 3.7em;
     font-family: 'Maven Pro', 'neris';
     margin-bottom: 2px;
 }
 
-#numbers #index-graph-container {
+.numbers #index-graph-container {
     width: 65%;
     height: 20px;
     border: 1px solid rgba(100, 100, 100, 0.7);
@@ -335,16 +335,16 @@ footer .divider {
     margin-bottom: 5px;
 }
 
-#numbers .svg {
+.numbers .svg {
     background-color: rgba(255, 255, 255, 0);
 }
 
-#numbers .tooltip:hover {
+.numbers .tooltip:hover {
     position: relative;
     z-index: 100;
 }
 
-#numbers .tooltip:before {
+.numbers .tooltip:before {
     background-color: #444;
     color: #fff;
     border-radius: 2px;
@@ -361,7 +361,7 @@ footer .divider {
     font-size: 10px;
 }
 
-#numbers .tooltip:after {
+.numbers .tooltip:after {
     border-width: 10px;
     border-style: solid;
     border-color: transparent #444 transparent transparent;
@@ -374,8 +374,8 @@ footer .divider {
     left: 80px;
 }
 
-#numbers .tooltip:hover:after,
-#numbers .tooltip:hover:before {
+.numbers .tooltip:hover:after,
+.numbers .tooltip:hover:before {
     display: block;
 }
 
