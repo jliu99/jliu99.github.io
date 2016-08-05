@@ -257,6 +257,7 @@ footer .divider {
     width: 70%;
     height: 175px;
     margin: auto;
+    margin-top: 30px;
     display: block;
     background-color: #eee;
     border: 1px solid #ccc;
