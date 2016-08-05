@@ -126,11 +126,12 @@ header#home-header h2 {
     color: #fff;
     border: 2px solid #500000;
     border-top-width:1px;
-    border-bottom-width:5px;
+    border-right-width:3px;
+    border-bottom-width:6px;
     display: inline-block;
     position: relative;
     left: -8px;
-    top: 5px;
+    top: 4px;
 }
 
 #searchbar button:active {
