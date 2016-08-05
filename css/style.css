@@ -20,6 +20,7 @@ body {
 
 main {
     width: 90%;
+    margin:auto;
 }
 
 .svg {
@@ -37,7 +38,7 @@ h1, h2, h3, h4 {
     color:maroon;
 }
 
-/* Header */
+/* ---- Header ---- */
 
 header {
     box-sizing: border-box;
@@ -92,7 +93,7 @@ header#home-header h2 {
 }
 
 
-/* Search */
+/* ---- Search ---- */
 
 #searchbar-wrapper {
     display: inline-block;
@@ -183,7 +184,7 @@ footer .divider {
 }
 
 
-/* Home Page */
+/* ---- Home Page ---- */
 
 #visual-content {
     width: 72.5%;
@@ -254,7 +255,7 @@ footer .divider {
 }
 
 
-/* PROFILE */
+/* ---- PROFILE ---- */
 
 #profile {
     box-sizing: border-box;
@@ -425,7 +426,7 @@ footer .divider {
 }
 
 
-/* Main Display */
+/* ---- Main Display ---- */
 
 #display {
     width: 70%;
@@ -440,7 +441,7 @@ footer .divider {
 }
 
 
-/* Related */
+/* ---- Related ---- */
 
 #related {
     width: 70%;
@@ -490,7 +491,7 @@ footer .divider {
 }
 
 
-/* Loading */
+/* ---- Loading Div ---- */
 
 @keyframes float {
     0% {
@@ -527,4 +528,19 @@ footer .divider {
     #profile #info h2 {
         font-size: 3em;
     }
+}
+
+/* ---- Results ---- */
+
+#results-table {
+    border:none;
+}
+
+#results-table td {
+    height:300px;
+}
+
+#results-table td tr {
+    width:300px;
+    background-color:#eee;
 }
