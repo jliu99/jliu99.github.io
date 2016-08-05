@@ -44,18 +44,16 @@ header {
     text-align: left;
     overflow: hidden;
     padding: 0 20px;
-    padding-top: 15px;
+    padding-top: 17px;
 }
 
 header h2 {
-    border-left: 7px solid maroon;
-    padding-left: 5px;
-    margin-bottom:3px;
+    border-bottom:3px solid maroon;
+    line-height:1.3em;
 }
 
 header h2,
 header h2 a {
-    height: 100%;
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
@@ -65,7 +63,6 @@ header h2 a {
 
 header#home-header {
     height: 350px;
-    padding-top: 5px;
     background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align: center;
@@ -85,11 +82,10 @@ header#home-header h2 {
     background-color: rgba(245, 245, 245, 0.92);
     width: 75%;
     border-radius: 5px;
-    height: 275px;
+    height: 285px;
     margin: auto;
-    margin-top: 20px;
-    padding: 20px;
-    padding-top: 65px;
+    margin-top: 15px;
+    padding-top: 50px;
 }
 
 
@@ -100,6 +96,7 @@ header#home-header h2 {
     float: right;
     width: 50%;
     min-width: 500px;
+    margin-top: -5px;
 }
 
 #searchbar {
@@ -124,10 +121,17 @@ header#home-header h2 {
     background-color: maroon;
     color: #fff;
     border: 2px solid #500000;
+    border-bottom-width:4px;
     display: inline-block;
     position: relative;
     left: -8px;
-    top: 6px;
+    top: 5px;
+}
+
+#searchbar button:active {
+    background-color: rgb(155, 0, 0);
+    border-bottom-width:2px;
+    top:6px;
 }
 
 footer {
@@ -218,12 +222,11 @@ footer .divider {
     padding: 5px;
     height: 105px;
     background-color: #eee;
-    border-top: 1px solid #bbb;
-    border-bottom: 2px solid #901010;
+    border-bottom: 1px solid #bbb;
 }
 
 #top-authors ul li h4 {
-    padding-top: 20px;
+    padding-top: 10px;
     font-size: 1.3;
 }
 
@@ -252,7 +255,7 @@ footer .divider {
 #profile {
     box-sizing: border-box;
     width: 70%;
-    height: 150px;
+    height: 175px;
     margin: auto;
     display: block;
     background-color: #eee;
@@ -291,7 +294,7 @@ footer .divider {
 #profile #info h2 {
     padding: 4px 10px;
     margin-bottom: 5px;
-    font-size: 3.75em;
+    font-size: 50px;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     text-transform: capitalize;
 }
@@ -305,7 +308,7 @@ footer .divider {
 
 #numbers {
     box-sizing: border-box;
-    width: 22%;
+    width: 20%;
     min-width: 150px;
     max-width: 225px;
     height: 145px;
