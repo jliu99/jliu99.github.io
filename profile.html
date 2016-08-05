@@ -11,7 +11,6 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
 </head>
 
 <body>
@@ -107,6 +106,8 @@
         <h3>loading...</h3>
     </div>
     <script type="text/javascript">
+        var dataid = location.search;
+        dataid = dataid.replace("?=id", "");
         //Variables
         var author, numTopics;
         var name, id, topics, pubCount;
@@ -116,15 +117,7 @@
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/all_data_updated.json", function (data) {
-            /*var r;
-            for (i = 0; i < data.length; i++) {
-                if (data[i].ID == "56783802900") {
-                    r = i;
-                    break;
-                }
-            }*/
-            var r = Math.floor(Math.random() * data.length);
-            author = data[r];
+            author = data[dataid];
             name = author.authorName;
             id = author.ID;
             topics = author.topics;
