@@ -537,10 +537,10 @@ footer .divider {
 }
 
 #results-table td {
-    height:300px;
 }
 
-#results-table td tr {
-    width:300px;
+#results-table td tr div.result {
     background-color:#eee;
+    width:300px;
+    height:300px;
 }
