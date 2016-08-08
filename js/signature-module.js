@@ -1,6 +1,7 @@
 var arraydata, topicnames, barN;
 var svgID, svgW, svgH;
-var holeWidth = 15, minRadius, maxRadius;
+var holeWidth = 15,
+    minRadius, maxRadius;
 var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
@@ -409,6 +410,17 @@ function selectBar(selection) {
                 .transition()
                 .duration(200)
                 .attr("opacity", "1");
+
+            var bbox = d3.select("#fixed").node().getBBox();
+
+            var txtWidth = bbox.width;
+
+            if (txtWidth > svgW) {
+                d3.select("#fixed").attr("font-size", 1.5 * labelTextSize);
+            } else {
+
+                d3.select("#fixed").attr("font-size", 2 * labelTextSize);
+            }
 
             break;
         }
