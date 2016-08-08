@@ -10,18 +10,11 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
 </head>
 
 <body>
     <header>
         <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
-        <div id="searchbar-wrapper">
-            <form id="searchbar">
-                <input type="text" name="query" id="query" placeholder="Search for..." required />
-                <button type='submit'><i class="material-icons">search</i></button>
-            </form>
-        </div>
     </header>
     <header id="home-header">
         <div id="header-content">
@@ -130,6 +123,14 @@
             loadNames(topicNames);
             createSignature("home-svg");
         });
+    </script>
+    <script type="text/javascript">
+        function search() {
+            var term = document.getElementById("query").value;
+            term = term.toLowerCase();
+            term = term.replace(" ", "+");
+            window.location.href = "http://jliu99.github.io/search.html?query=" + term;
+        }
     </script>
 </body>
 </html
