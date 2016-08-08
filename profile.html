@@ -14,6 +14,12 @@
 </head>
 
 <body>
+    <script type="text/javascript">
+        var search = location.search;
+        if (search != null && search.includes("?query=")) {
+            window.location.href = "http://jliu99.github.io/search.html" + search;
+        }
+    </script>
     <header>
         <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
         <div id="searchbar-wrapper">
