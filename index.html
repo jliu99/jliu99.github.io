@@ -56,6 +56,7 @@
 
             <div id="top-authors">
                 <select>
+                    <option value="all">All Topics</option>
                 </select>
                 <ul>
                     <li>
@@ -115,7 +116,7 @@
             loadNames(topicNames);
             createSignature("home-svg");
             for (j = 0; j < topicNames.length; j++) {
-                    $("select").append("<option>" + topicNames[j][0] + " | " + topicNames[j][1] + " | " + topicNames[j][2] + "</option>");
+                    $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j][0] + " | " + topicNames[j][1] + " | " + topicNames[j][2] + "</option>");
                 }
         });
     </script>
