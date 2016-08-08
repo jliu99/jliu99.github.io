@@ -1,4 +1,5 @@
 function search() {
+    alert("Debugging");
 	var term = document.getElementById("query").value;
 	term = term.toLowerCase();
     term = term.replace(" ", "+");
