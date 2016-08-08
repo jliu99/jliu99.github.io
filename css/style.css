@@ -224,6 +224,10 @@ footer .divider {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
+#top-authors select option {
+    text-transform:capitalize;
+}
+
 #top-authors ul {
     list-style-type: none;
 }
