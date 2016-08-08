@@ -52,6 +52,7 @@ header {
     position:fixed;
     top:0;
     left:0;
+    z-index:100;
 }
 
 header h2 {
@@ -69,7 +70,7 @@ header h2 a {
 }
 
 header#home-header {
-    height: 300px;
+    height: 250px;
     background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align: center;
@@ -249,7 +250,7 @@ footer .divider {
 }
 
 #top-authors ul a:hover {
-    letter-spacing: 1.1em;
+    letter-spacing: 3px;
 }
 
 .top-authors-svg {
