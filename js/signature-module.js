@@ -405,7 +405,7 @@ function selectBar(selection) {
                 .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ") scale(2)");
 
             d3.select("#fixed")
-                .text(topicnames[i][0] + " | " + topicnames[i][1] + " | " + topicnames[i][2])
+                .text(topicnames[i])
                 .attr("visibility", "visible")
                 .transition()
                 .duration(200)
