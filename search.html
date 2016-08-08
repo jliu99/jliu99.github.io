@@ -58,7 +58,7 @@
                     }
                 }
                 if (people.length == 0) {
-                    document.getElementByID("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
+                    document.getElementById("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
                 } else {
                     for (j = 0; j < people.length; j++) {
                         $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
