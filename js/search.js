@@ -1,5 +1,5 @@
 function search() {
-    alert("Debugging");
+    window.location.href = "http://jliu99.github.io/search.html";
 	var term = document.getElementById("query").value;
 	term = term.toLowerCase();
     term = term.replace(" ", "+");
