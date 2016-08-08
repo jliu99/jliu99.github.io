@@ -561,11 +561,17 @@ footer .divider {
     box-sizing: border-box;
     background-color:#eee;
     width: 30%;
-    min-width:300px;
+    min-width:250px;
     margin: 15px 1.5%;
-    height:250px;
+    height:150px;
     display:inline-block;
     padding:20px;
+}
+
+.results-item h2 {
+    font-size:1.5em;
+    text-decoration: none;
+    text-transform: capitalize;
 }
 
 .results-svg-container {
