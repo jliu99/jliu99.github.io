@@ -510,7 +510,6 @@ footer .divider {
     width: 100vw;
     height: 100vh;
     background-color: rgba(255, 255, 255, 0.9);
-    color: #ccc;
     font-size: 4em;
     text-align: center;
     position: fixed;
@@ -523,6 +522,7 @@ footer .divider {
     margin: auto;
     margin-top: 42vh;
     animation: float 2s infinite;
+    color: #ccc;
 }
 
 @media screen and (min-width: 480px) {
