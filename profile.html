@@ -122,11 +122,11 @@
             topicsList = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_data_updated.json", function (data) {
+        d3.json("/data/all_scopus.json", function (data) {
             author = data[index];
             name = author.authorName;
             id = author.ID;
-            topics = author.topics;
+            topics = author.scopusTopics;
             numTopics = topics.length;
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
