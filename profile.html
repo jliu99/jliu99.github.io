@@ -122,7 +122,7 @@
             topicsList = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_scopus.json", function (data) {
+        d3.json("/data/all_scopus_data.json", function (data) {
             author = data[index];
             name = author.authorName;
             id = author.ID;
