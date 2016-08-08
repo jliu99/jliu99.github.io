@@ -49,6 +49,9 @@ header {
     overflow: hidden;
     padding: 0 20px;
     padding-top: 17px;
+    position:fixed;
+    top:0;
+    left:0;
 }
 
 header h2 {
@@ -66,12 +69,13 @@ header h2 a {
 }
 
 header#home-header {
-    height: 350px;
+    height: 300px;
     background-image: url(../img/home.jpg);
     background-position: bottom;
     text-align: center;
     margin-left: 0;
     border-bottom: 2px solid maroon;
+    position:static;
 }
 
 header#home-header h2 {
@@ -245,7 +249,7 @@ footer .divider {
 }
 
 #top-authors ul a:hover {
-    letter-spacing: 1.5em;
+    letter-spacing: 1.1em;
 }
 
 .top-authors-svg {
