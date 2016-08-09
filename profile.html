@@ -65,7 +65,7 @@
             <svg id="main-svg" class="svg">
             </svg>
             <div id="svg-info">
-                <button class="scopus-toggle selected" onclick="handleButtons($(this))">
+                <button class="scopus-toggle button-selected" onclick="handleButtons($(this))">
                     LDA
                 </button>
                 <button class="scopus-toggle" onclick="handleButtons($(this))">
@@ -178,9 +178,8 @@
             console.log(data);
             for (i = 0; i < data.length; i++) {
                 var scopusAuthor = data[i];
-                console.log(data[i]);
-                if (scopusAuthor.ID == id) {
-                    scopusTopics = scopusAuthor.scopusTopics;
+                if (scopusAuthor["ID"] == id) {
+                    scopusTopics = scopusAuthor["scopusTopics"];
                     break;
                 }
             }

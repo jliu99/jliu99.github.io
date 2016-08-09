@@ -479,7 +479,7 @@ footer .divider {
     background-color: rgb(155, 0, 0);    
 }
 
-#svg-info .scopus-toggle .selected {
+#svg-info .scopus-toggle .button-selected {
     background-color:#fff;
     color:maroon;
     font-weight:bold;
