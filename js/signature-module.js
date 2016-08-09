@@ -264,7 +264,13 @@ function resetBars() {
     }
 
     var padding = n / 16.5;
+    var maxRadius = 3 * n / 8;
 
+    scale.range([minRadius, maxRadius]);
+
+    for (i = 0; i < radiiValues.length; i++) {
+        radiiValues[i] = scale(arraydata[i]);
+    }
 
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
