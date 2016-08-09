@@ -136,13 +136,6 @@ function createSignature(selectedsvgid) {
 
     radiiValues = rvalues;
 
-    if (barN < 50) {
-        var barTextSize = 15;
-    } else {
-        var barTextSize = 12;
-
-    }
-
     textRadius = d3.max(radiiValues) + 1.2 * padding;
     var minTextRadius = maxRadius / 2;
 
@@ -243,16 +236,6 @@ function createSignature(selectedsvgid) {
                 .attr("opacity", "1");
         }
 
-        current.append("text")
-            .text("score: " + arraydata[i])
-            .attr("id", "barText" + (i + 1))
-            .attr("font-size", barTextSize)
-            .attr("font-family", "Arial")
-            .attr("fill", "white")
-            .attr("text-anchor", "middle")
-            .attr("opacity", 0)
-            .attr("visibility", "hidden");
-
     }
 
     var fixedtxt = svg.append("text")
@@ -283,10 +266,10 @@ function resetBars() {
     var padding = n / 16.5;
     var minRadius = holeWidth / 3;
     var maxRadius = 3.05 * n / 7;
-    
+
     scale.range([minRadius, maxRadius]);
-    
-    for(i = 0; i < radiiValues.length; i++){
+
+    for (i = 0; i < radiiValues.length; i++) {
         radiiValues[i] = scale(arraydata[i]);
     }
 
@@ -310,10 +293,6 @@ function resetBars() {
             .attr("d", arc);
 
         var calcAngle = Math.PI / 2 - (angle * i + angle / 2);
-
-        d3.select("#barText" + (i + 1))
-            .attr("visibility", "hidden")
-            .attr("opacity", "0");
 
         d3.select("#space" + (i + 1)).transition()
             .duration(200)
@@ -350,7 +329,6 @@ function resetBars() {
 // HOVER EFFECTS
 
 function selectBar(selection) {
-
     var id = selection.attr("id");
     id = parseInt(id.replace('gp', ''));
     var index = id - 1;
@@ -379,29 +357,10 @@ function selectBar(selection) {
 
             var calcAngle = (largeSAngle + largeAngle / 2);
 
+            textRadius = d3.max(radiiValues) + 1.2 * padding;
+
             var textX = Math.cos(calcAngle) * (textRadius);
             var textY = Math.sin(calcAngle) * (textRadius);
-
-            var barText = d3.select("#barText" + id);
-
-            if (radiiValues[i] < textRadius / 2 || Math.floor(arraydata[i]) >= 75) {
-                barText.attr("fill", "black");
-            }
-
-            if (radiiValues[i] < textRadius / 2) {
-                var barTextX = Math.cos(calcAngle) * (radiiValues[i] + padding);
-                var barTextY = Math.sin(calcAngle) * (radiiValues[i] + padding);
-            } else {
-                var barTextX = Math.cos(calcAngle) * (radiiValues[i] - padding);
-                var barTextY = Math.sin(calcAngle) * (radiiValues[i] - padding);
-            }
-
-            barText.attr("visibility", "hidden")
-                .transition()
-                .duration(200)
-                .attr("opacity", 1)
-                .attr("x", svgW / 2 + barTextX)
-                .attr("y", svgH / 2 - barTextY);
 
             if (showNumbers) {
                 d3.select("#label" + id).transition()
@@ -477,10 +436,6 @@ function selectBar(selection) {
 
             .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")")
                 .attr("d", arc);
-
-            d3.select("#barText" + (i + 1))
-                .attr("opacity", "0")
-                .attr("visibility", "hidden");
 
             if (isTopResult && i != index && Math.abs(i - index) % barN >= 2) {
                 d3.select("#label" + (i + 1)).transition()
