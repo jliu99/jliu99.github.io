@@ -178,11 +178,11 @@ function createSignature(selectedsvgid) {
             .outerRadius(maxRadius - 1.75 * padding);
 
         if (padBars) {
-            arc.startAngle(i * angle)
-                .endAngle((i + 1) * angle + barPadAngle);
+            arc.startAngle(i * angle + barPadAngle)
+                .endAngle((i + 1) * angle - barPadAngle);
         } else {
             arc.startAngle(i * angle)
-                .endAngle((i + 1) * angle - barPadAngle);
+                .endAngle((i + 1) * angle);
         }
 
         var gp = svg.append("g")
@@ -299,9 +299,14 @@ function resetBars() {
         }
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
-            .outerRadius(radiiValues[i])
-            .startAngle(i * angle)
-            .endAngle((i + 1) * angle);
+            .outerRadius(radiiValues[i]);
+        if (padBars) {
+            arc.startAngle(i * angle + barPadAngle)
+                .endAngle((i + 1) * angle - barPadAngle);
+        } else{
+            arc.startAngle(i * angle + barPadAngle)
+                .endAngle((i + 1) * angle - barPadAngle);
+        }
 
         d3.select("#bar" + (i + 1)).transition()
             .duration(200)
@@ -383,7 +388,7 @@ function selectBar(selection) {
                     calcAngle += smallAnglePad;
                 }
             }
-            
+
             var textX = Math.cos(calcAngle) * (textRadius);
             var textY = Math.sin(calcAngle) * (textRadius);
 
@@ -445,11 +450,11 @@ function selectBar(selection) {
         if (i < id) {
             var tempS = largeSAngle - ((index - i) * smallAngle);
             var tempE = largeSAngle - ((index - i - 1) * smallAngle);
-            if(padBars){
-                
-            arc.startAngle(2 * Math.PI + tempS + smallAnglePad)
-                .endAngle(2 * Math.PI + tempE - smallAnglePad);
-            } else{
+            if (padBars) {
+
+                arc.startAngle(2 * Math.PI + tempS + smallAnglePad)
+                    .endAngle(2 * Math.PI + tempE - smallAnglePad);
+            } else {
                 arc.startAngle(2 * Math.PI + tempS)
                     .endAngle(2 * Math.PI + tempE);
             }
