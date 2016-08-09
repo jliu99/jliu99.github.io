@@ -175,8 +175,10 @@
 
         //Load in SCOPUS JSON
         d3.json("/data/all_scopus_data.json", function (data) {
+            console.log(data);
             for (i = 0; i < data.length; i++) {
                 var scopusAuthor = data[i];
+                console.log(data[i]);
                 if (scopusAuthor.ID == id) {
                     scopusTopics = scopusAuthor.scopusTopics;
                     break;
