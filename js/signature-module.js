@@ -287,7 +287,7 @@ function resetBars() {
     scale.range([minRadius, maxRadius]);
     
     for(i = 0; i < radiiValues.length; i++){
-        radiiValues[i] = scale(radiiValues[i]);
+        radiiValues[i] = scale(arraydata[i]);
     }
 
     for (i = 0; i < barN; i++) {
@@ -342,7 +342,7 @@ function resetBars() {
 
     d3.select("#fixed").transition()
         .attr("x", svgW / 2)
-        .attr("y", svgH / 2)
+        .attr("y", svgH - 2 * labelTextSize)
         .attr("opacity", "0")
         .attr("visibility", "hidden");
 }
