@@ -200,13 +200,14 @@
                 button.addClass("button-selected");
                 
                 var value = button.html();
+                console.log(value);
                 if (value == "LDA") {
                     loadNames(topicNames);
                     loadData(topicScores);
                     setPadBars(false);
                     createSignature("main-svg");
                 } else if (value == "Scopus") {
-                    loadData(scopusTopicNames);
+                    loadNames(scopusTopicNames);
                     loadData(scopusTopicScores);
                     setPadBars(true);
                     createSignature("main-svg");
