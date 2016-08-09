@@ -304,8 +304,8 @@ function resetBars() {
             arc.startAngle(i * angle + barPadAngle)
                 .endAngle((i + 1) * angle - barPadAngle);
         } else{
-            arc.startAngle(i * angle + barPadAngle)
-                .endAngle((i + 1) * angle - barPadAngle);
+            arc.startAngle(i * angle)
+                .endAngle((i + 1) * angle);
         }
 
         d3.select("#bar" + (i + 1)).transition()

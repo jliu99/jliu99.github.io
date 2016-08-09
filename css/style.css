@@ -404,7 +404,7 @@ footer .divider {
 }
 
 #display-toggles ul {
-    width: 70%;
+    width: 90%;
     min-width: 650px;
 }
 
@@ -445,8 +445,6 @@ footer .divider {
     margin-top: -2px;
     min-width: 650px;
     min-height: 500px;
-    border: 1px solid #ccc;
-    border-top: none;
     overflow: hidden;
 }
 
@@ -457,9 +455,10 @@ footer .divider {
 
 #display #svg-info {
     width:20%;
+    height:60%;
     margin: auto;
     display:inline-block;
-    background-color:#eee;
+    background-color:#ddd;
 }
 
 /* ---- Related ---- */
