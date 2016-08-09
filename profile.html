@@ -192,13 +192,13 @@
         }
 
         function handleButtons(button) {
-            console.log("handling...");
-            console.log(button);
-            if (button.hasClass("selected")) {
+            if (!button.hasClass("button-selected")) {
                 clearSVG();
 
-                button.removeClass("selected");
-
+                d3.selectAll("button").attr("class", "scopus-toggle");
+                
+                button.addClass("button-selected");
+                
                 var value = button.html();
                 if (value == "LDA") {
                     loadNames(topicNames);
