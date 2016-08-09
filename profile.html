@@ -134,6 +134,7 @@
             author = data[index];
             name = author.authorName;
             id = author.ID;
+            console.log(id);
             topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
@@ -178,8 +179,7 @@
             console.log(data);
             for (i = 0; i < data.length; i++) {
                 var scopusAuthor = data[i];
-                console.log(scopusAuthor.ID);
-                if (scopusAuthor["ID"] == id) {
+                if (scopusAuthor.ID == id) {
                     console.log(scopusTopics);
                     scopusTopics = scopusAuthor["scopusTopics"];
                     break;
