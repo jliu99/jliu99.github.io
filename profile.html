@@ -65,9 +65,13 @@
             <svg id="main-svg" class="svg">
             </svg>
             <div id="svg-info">
-                <button id="scopus-toggle" onclick="toggleScopus()">
+                <button class="scopus-toggle selected" onclick="handleButtons($(this))">
                     LDA
                 </button>
+                <button class="scopus-toggle" onclick="handleButtons($(this))">
+                    Scopus
+                </button>
+
             </div>
         </section>
         <section id="related">
@@ -126,11 +130,11 @@
             topicScores = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_scopus_data.json", function (data) {
+        d3.json("/data/all_data_updated.json", function (data) {
             author = data[index];
             name = author.authorName;
             id = author.ID;
-            topics = author.scopusTopics;
+            topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
@@ -156,7 +160,6 @@
             }
             setMax(d3.max(topicScores));
             setTopResultsNumber(10);
-            setPadBars(true);
             loadData(topicScores);
             loadNames(topicNames);
             var loadDiv = document.getElementById("loading");
@@ -170,7 +173,7 @@
             scopusTopicNames = [],
             scopusTopicScores = [];
 
-        /*Load in SCOPUS JSON
+        //Load in SCOPUS JSON
         d3.json("/data/all_scopus_data.json", function (data) {
             for (i = 0; i < data.length; i++) {
                 var scopusAuthor = data[i];
@@ -183,7 +186,29 @@
                 scopusTopicNames.push(scopusTopics[j][1]["name"]);
                 scopusTopicScores.push(scopusTopics[j][1]["score"]);
             }
-        });*/
+        });
+        
+        function handleButtons(button){
+            if (button.hasClass("selected")) {
+                clearSVG();
+                
+                button.removeClass("selected");
+                
+                var value = button.html();
+                if (value == "LDA") {
+                    loadNames(topicNames);
+                    loadData(topicScores);
+                    setPadBars(false);
+                    createSignature("main-svg");
+                } else if (value == "Scopus"){
+                    loadData(scopusTopicNames);
+                    loadData(scopusTopicScores);
+                    setPadBars(true);
+                    createSignature("main-svg");
+                }
+            }
+            
+        }
     </script>
     <script type="text/javascript">
         jQuery.fn.sbTooltip = function () {
@@ -249,14 +274,13 @@
         function handleTabs(tab) {
             if (tab.attr("class") != "selected") {
                 clearSVG();
-            }
+                d3.selectAll("li.selected").attr("class", "");
 
-            d3.selectAll("li.selected").attr("class", "");
-
-            tab.attr("class", "selected");
-            var id = tab.attr("id");
-            if (id == "sig") {
-                createSignature("main-svg");
+                tab.attr("class", "selected");
+                var id = tab.attr("id");
+                if (id == "sig") {
+                    createSignature("main-svg");
+                }
             }
         }
     </script>
@@ -266,10 +290,6 @@
             term = term.toLowerCase();
             term = term.replace(" ", "+");
             window.location.href = "http://jliu99.github.io/search.html?query=" + term;
-        }
-        
-        function toggleScopus(){
-            
         }
     </script>
 </body>

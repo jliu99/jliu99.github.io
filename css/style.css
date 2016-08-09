@@ -461,24 +461,34 @@ footer .divider {
     text-align:center;
 }
 
-#svg-info #scopus-toggle {
+#svg-info .scopus-toggle {
     background-color:maroon;
     padding:8px;
     text-align:center;
     color:#fff;
-    border: 3px solid rgb(100, 0, 0);
-    width:100px;
+    border: 5px solid maroon;
+    width:125px;
     margin:auto;
 }
 
-#svg-info button:hover {
+#svg-info .scopus-toggle:hover {
     cursor:pointer;
+}
+
+#svg-info .scopus-toggle:active {
+    background-color: rgb(155, 0, 0);    
+}
+
+#svg-info .scopus-toggle .selected {
+    background-color:#fff;
+    color:maroon;
+    font-weight:bold;
 }
 
 /* ---- Related ---- */
 
 #related {
-    width: 70%;
+    width: 85%;
     box-sizing: border-box;
     margin: auto;
     margin-top: 30px;
