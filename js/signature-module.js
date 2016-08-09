@@ -264,11 +264,17 @@ function resetBars() {
     }
 
     var padding = n / 16.5;
+<<<<<<< HEAD
     var maxRadius = 3 * n / 8;
 
+=======
+    var minRadius = holeWidth / 3;
+    var maxRadius = 3.05 * n / 7;
+    
+>>>>>>> parent of cf76e93... Remove bar text, fix text radius
     scale.range([minRadius, maxRadius]);
-
-    for (i = 0; i < radiiValues.length; i++) {
+    
+    for(i = 0; i < radiiValues.length; i++){
         radiiValues[i] = scale(arraydata[i]);
     }
 
@@ -328,6 +334,7 @@ function resetBars() {
 // HOVER EFFECTS
 
 function selectBar(selection) {
+
     var id = selection.attr("id");
     id = parseInt(id.replace('gp', ''));
     var index = id - 1;
@@ -356,10 +363,9 @@ function selectBar(selection) {
 
             var calcAngle = (largeSAngle + largeAngle / 2);
 
-            textRadius = d3.max(radiiValues) + 1.2 * padding;
-
             var textX = Math.cos(calcAngle) * (textRadius);
             var textY = Math.sin(calcAngle) * (textRadius);
+
 
             if (showNumbers) {
                 d3.select("#label" + id).transition()
