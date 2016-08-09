@@ -266,11 +266,16 @@ function resetBars() {
     var padding = n / 16.5;
     var maxRadius = 3 * n / 8;
     
-    scale.range([minRadius, maxRadius]);
+    scale.domain([0, maxScore])
+        .range([minRadius, maxRadius]);
+        
+    var rValues = [];
     
     for(i = 0; i < radiiValues.length; i++){
-        radiiValues[i] = scale(arraydata[i]);
+        rValues.push(scale(arraydata[i]));
     }
+    
+    radiiValues = rValues;
 
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
