@@ -178,7 +178,7 @@ function createSignature(selectedsvgid) {
             .outerRadius(maxRadius - 1.75 * padding);
 
         if (padBars) {
-            arc.startAngle(i * angleW)
+            arc.startAngle(i * angle)
                 .endAngle((i + 1) * angle + barPadAngle);
         } else {
             arc.startAngle(i * angle)
