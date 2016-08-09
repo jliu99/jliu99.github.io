@@ -284,7 +284,7 @@ function resetBars() {
     var minRadius = holeWidth / 3;
     var maxRadius = 3.05 * n / 7;
     
-    scale.range(minRadius, maxRadius);
+    scale.range([minRadius, maxRadius]);
     
     for(i = 0; i < radiiValues.length; i++){
         radiiValues[i] = scale(radiiValues[i]);
