@@ -269,6 +269,8 @@ function resetBars() {
     
     scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
+    console.log(minRadius);
+    console.log(maxRadius);
         
     var rValues = [];
     
