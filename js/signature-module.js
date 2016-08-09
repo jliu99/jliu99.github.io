@@ -264,14 +264,8 @@ function resetBars() {
     }
 
     var padding = n / 16.5;
-<<<<<<< HEAD
     var maxRadius = 3 * n / 8;
-
-=======
-    var minRadius = holeWidth / 3;
-    var maxRadius = 3.05 * n / 7;
     
->>>>>>> parent of cf76e93... Remove bar text, fix text radius
     scale.range([minRadius, maxRadius]);
     
     for(i = 0; i < radiiValues.length; i++){
