@@ -445,12 +445,12 @@ footer .divider {
     margin-top: -2px;
     min-width: 650px;
     min-height: 500px;
-    overflow: hidden;
 }
 
 #display #main-svg {
     width:75%;
     display:inline-block;
+    overflow:hidden;
 }
 
 #display #svg-info {
@@ -459,6 +459,7 @@ footer .divider {
     margin: auto;
     display:inline-block;
     background-color:#ddd;
+    vertical-align:top;
 }
 
 /* ---- Related ---- */
