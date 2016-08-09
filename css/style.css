@@ -458,6 +458,7 @@ footer .divider {
     margin: auto;
     display:inline-block;
     vertical-align:top;
+    text-align:center;
 }
 
 #svg-info #scopus-toggle {
@@ -468,6 +469,10 @@ footer .divider {
     border: 3px solid rgb(100, 0, 0);
     width:100px;
     margin:auto;
+}
+
+#svg-info button:hover {
+    cursor:pointer;
 }
 
 /* ---- Related ---- */
