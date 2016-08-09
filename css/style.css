@@ -439,7 +439,7 @@ footer .divider {
 /* ---- Main Display ---- */
 
 #display {
-    width: 70%;
+    width: 90%;
     height: 70vh;
     margin: auto;
     margin-top: -2px;
@@ -450,6 +450,17 @@ footer .divider {
     overflow: hidden;
 }
 
+#display #main-svg {
+    width:75%;
+    display:inline-block;
+}
+
+#display #svg-info {
+    width:20%;
+    margin: auto;
+    display:inline-block;
+    background-color:#eee;
+}
 
 /* ---- Related ---- */
 

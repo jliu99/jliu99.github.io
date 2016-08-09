@@ -2,12 +2,13 @@ var arraydata, topicnames, barN;
 var svgID, svgW, svgH;
 var holeWidth = 15,
     minRadius, maxRadius;
-var padding, angle, textRadius, maxScore;
+var padding, angle, barPadAngle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 10,
     onlyShowTop = false,
-    showNumbers = true;
+    showNumbers = true,
+    padBars = false;
 
 var scale = d3.scale.linear()
     .clamp(true)
@@ -45,6 +46,10 @@ function setShowTopOnly(value) {
 //Toggles whether to show numbers for each bar or not
 function setShowNumbers(value) {
     showNumbers = value;
+}
+
+function setPadBars(value) {
+    padBars = value;
 }
 
 // Stationary Signature; for related profile displays. No labels, no animation
@@ -121,6 +126,7 @@ function createSignature(selectedsvgid) {
     var maxRadius = 3 * n / 8;
     var minRadius = holeWidth;
     angle = (2 * Math.PI) / barN;
+    barPadAngle = angle / 12;
 
     var rvalues = [];
 
@@ -169,9 +175,15 @@ function createSignature(selectedsvgid) {
         //creates the invisible strip
         var arc = d3.svg.arc()
             .innerRadius(holeWidth)
-            .outerRadius(maxRadius - 1.75 * padding)
-            .startAngle(i * angle)
-            .endAngle((i + 1) * angle);
+            .outerRadius(maxRadius - 1.75 * padding);
+
+        if (padBars) {
+            arc.startAngle(i * angleW)
+                .endAngle((i + 1) * angle + barPadAngle);
+        } else {
+            qac.startAngle(i * angle)
+                .endAngle((i + 1) * angle - barPadAngle);
+        }
 
         var gp = svg.append("g")
             .attr("id", "gp" + (i + 1))
@@ -266,18 +278,16 @@ function resetBars() {
     var padding = n / 16.5;
     var minRadius = holeWidth;
     var maxRadius = 3 * n / 8;
-    
+
     scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
-    console.log(minRadius);
-    console.log(maxRadius);
-        
+
     var rValues = [];
-    
-    for(i = 0; i < radiiValues.length; i++){
+
+    for (i = 0; i < radiiValues.length; i++) {
         rValues.push(scale(arraydata[i]));
     }
-    
+
     radiiValues = rValues;
 
     for (i = 0; i < barN; i++) {
@@ -347,6 +357,7 @@ function selectBar(selection) {
     var largeAngleDifference = largeAngle - angle;
     var smallAngle = ((2 * Math.PI) - largeAngle) / (barN - 1); //ANGLE OF SHRUNKEN BARS
     var smallAngleDifference = angle - smallAngle;
+    var smallAnglePad = smallAngle / 12;
 
     //Finds the hovered arc; adjusts it
 
@@ -365,6 +376,14 @@ function selectBar(selection) {
 
             var calcAngle = (largeSAngle + largeAngle / 2);
 
+            if (padBars) {
+                if (i < barN / 2) {
+                    calcAngle -= smallAnglePad;
+                } else if (i > barN / 2) {
+                    calcAngle += smallAnglePad;
+                }
+            }
+            
             var textX = Math.cos(calcAngle) * (textRadius);
             var textY = Math.sin(calcAngle) * (textRadius);
 
@@ -426,13 +445,19 @@ function selectBar(selection) {
         if (i < id) {
             var tempS = largeSAngle - ((index - i) * smallAngle);
             var tempE = largeSAngle - ((index - i - 1) * smallAngle);
-            arc.startAngle(2 * Math.PI + tempS)
-                .endAngle(2 * Math.PI + tempE);
+            if(padBars){
+                
+            arc.startAngle(2 * Math.PI + tempS + smallAnglePad)
+                .endAngle(2 * Math.PI + tempE - smallAnglePad);
+            } else{
+                arc.startAngle(2 * Math.PI + tempS)
+                    .endAngle(2 * Math.PI + tempE);
+            }
             calcAngle = Math.PI / 2 - (2 * Math.PI + largeSAngle - ((index - i) * smallAngle) + smallAngle / 2);
 
         } else if (i > index) {
-            arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle))
-                .endAngle(largeEAngle + ((i - index) * smallAngle));
+            arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle) + smallAnglePad)
+                .endAngle(largeEAngle + ((i - index) * smallAngle) - smallAnglePad);
             calcAngle = Math.PI / 2 - (largeEAngle + ((i - index - 1) * smallAngle) + smallAngle / 2);
         }
 
