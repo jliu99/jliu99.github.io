@@ -134,7 +134,6 @@
             author = data[index];
             name = author.authorName;
             id = author.ID;
-            console.log(id);
             topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
@@ -163,6 +162,7 @@
             setTopResultsNumber(10);
             loadData(topicScores);
             loadNames(topicNames);
+            loadScopus();
             var loadDiv = document.getElementById("loading");
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
@@ -174,43 +174,43 @@
             scopusTopicNames = [],
             scopusTopicScores = [];
 
-        //Load in SCOPUS JSON
-        d3.json("/data/all_scopus_data.json", function (data) {
-            console.log(data);
-            for (i = 0; i < data.length; i++) {
-                var scopusAuthor = data[i];
-                if (scopusAuthor.ID == id) {
-                    console.log(scopusTopics);
-                    scopusTopics = scopusAuthor["scopusTopics"];
-                    break;
+        function loadScopus() {
+            //Load in SCOPUS JSON
+            d3.json("/data/all_scopus_data.json", function (data) {
+                for (i = 0; i < data.length; i++) {
+                    var scopusAuthor = data[i];
+                    if (scopusAuthor.ID == id) {
+                        scopusTopics = scopusAuthor.scopusTopics;
+                        break;
+                    }
                 }
-            }
-            for (j = 0; j < scopusTopics.length; j++) {
-                scopusTopicNames.push(scopusTopics[j][1]["name"]);
-                scopusTopicScores.push(scopusTopics[j][1]["score"]);
-            }
-        });
-        
-        function handleButtons(button){
+                for (j = 0; j < scopusTopics.length; j++) {
+                    scopusTopicNames.push(scopusTopics[j][1]["name"]);
+                    scopusTopicScores.push(scopusTopics[j][1]["score"]);
+                }
+            });
+        }
+
+        function handleButtons(button) {
             if (button.hasClass("selected")) {
                 clearSVG();
-                
+
                 button.removeClass("selected");
-                
+
                 var value = button.html();
                 if (value == "LDA") {
                     loadNames(topicNames);
                     loadData(topicScores);
                     setPadBars(false);
                     createSignature("main-svg");
-                } else if (value == "Scopus"){
+                } else if (value == "Scopus") {
                     loadData(scopusTopicNames);
                     loadData(scopusTopicScores);
                     setPadBars(true);
                     createSignature("main-svg");
                 }
             }
-            
+
         }
     </script>
     <script type="text/javascript">
