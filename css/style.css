@@ -267,7 +267,7 @@ footer .divider {
 
 #profile {
     box-sizing: border-box;
-    width: 100%;
+    width:85%;
     height: 175px;
     margin: auto;
     margin-top:75px;
@@ -439,7 +439,7 @@ footer .divider {
 /* ---- Main Display ---- */
 
 #display {
-    width: 90%;
+    width: 85%;
     height: 70vh;
     margin: auto;
     margin-top: -2px;
@@ -460,6 +460,13 @@ footer .divider {
     display:inline-block;
     background-color:#ddd;
     vertical-align:top;
+}
+
+#svg-info #scopus-toggle {
+    background-color:maroon;
+    padding:8px;
+    text-align:center;
+    color:#fff;
 }
 
 /* ---- Related ---- */
