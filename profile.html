@@ -178,7 +178,9 @@
             console.log(data);
             for (i = 0; i < data.length; i++) {
                 var scopusAuthor = data[i];
+                console.log(scopusAuthor.ID);
                 if (scopusAuthor["ID"] == id) {
+                    console.log(scopusTopics);
                     scopusTopics = scopusAuthor["scopusTopics"];
                     break;
                 }
