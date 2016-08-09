@@ -20,7 +20,7 @@ body {
 
 main {
     width: 90%;
-    margin: auto;
+    margin:auto;
 }
 
 .svg {
@@ -34,13 +34,9 @@ a:hover {
     pointer-events: none;
 }
 
-h1,
-h2,
-h3,
-h4 {
-    color: maroon;
+h1, h2, h3, h4 {
+    color:maroon;
 }
-
 
 /* ---- Header ---- */
 
@@ -53,15 +49,15 @@ header {
     overflow: hidden;
     padding: 0 20px;
     padding-top: 17px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:100;
 }
 
 header h2 {
-    border-bottom: 3px solid maroon;
-    line-height: 1.3em;
+    border-bottom:3px solid maroon;
+    line-height:1.3em;
 }
 
 header h2,
@@ -80,7 +76,7 @@ header#home-header {
     text-align: center;
     margin-left: 0;
     border-bottom: 2px solid maroon;
-    position: static;
+    position:static;
 }
 
 header#home-header h2 {
@@ -134,8 +130,8 @@ header#home-header h2 {
     background-color: maroon;
     color: #fff;
     border: 1px solid #500000;
-    border-right-width: 3px;
-    border-bottom-width: 6px;
+    border-right-width:3px;
+    border-bottom-width:6px;
     display: inline-block;
     position: relative;
     left: -8px;
@@ -144,7 +140,7 @@ header#home-header h2 {
 
 #searchbar button:active {
     background-color: rgb(155, 0, 0);
-    border-bottom-width: 2px;
+    border-bottom-width:2px;
 }
 
 footer {
@@ -227,7 +223,7 @@ footer .divider {
 }
 
 #top-authors select option {
-    text-transform: capitalize;
+    text-transform:capitalize;
 }
 
 #top-authors ul {
@@ -271,10 +267,10 @@ footer .divider {
 
 #profile {
     box-sizing: border-box;
-    width: 85%;
+    width: 100%;
     height: 175px;
     margin: auto;
-    margin-top: 75px;
+    margin-top:75px;
     display: block;
     background-color: #eee;
     border: 1px solid #ccc;
@@ -326,7 +322,7 @@ footer .divider {
     min-width: 150px;
     max-width: 225px;
     height: 100%;
-    padding-top: 45px;
+    padding-top:45px;
     float: right;
     display: inline-block;
     text-align: center;
@@ -443,55 +439,74 @@ footer .divider {
 /* ---- Main Display ---- */
 
 #display {
-    width: 85%;
+    width: 90%;
     height: 70vh;
     margin: auto;
     margin-top: -2px;
-    min-width: 500px;
+    min-width: 650px;
     min-height: 500px;
 }
 
 #display #main-svg {
-    width: 75%;
-    display: inline-block;
-    overflow: hidden;
+    width:75%;
+    display:inline-block;
+    overflow:hidden;
 }
 
+#display #svg-info {
+    width:20%;
+    height:60%;
+    margin: auto;
+    display:inline-block;
+    background-color:#ddd;
+    vertical-align:top;
+}
 
 /* ---- Related ---- */
 
-#display #svg-info {
-    width: 20%;
-    height: 60%;
+#related {
+    width: 70%;
+    box-sizing: border-box;
     margin: auto;
-    display: inline-block;
+    margin-top: 30px;
+    padding: 15px;
     background-color: rgb(250, 250, 250);
     border: 1px solid #ddd;
-    padding: 15px;
-    vertical-align: top;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
-#svg-info ul {
+#related hr {
+    border-color: #971E1E;
+    border-style: solid;
+    width: 90px;
+    border-width: 1px;
+    margin-top: 1px;
+}
+
+#related ul {
     margin-top: 17px;
 }
 
-#svg-info ul li svg {
-    width: 30%;
-    margin-bottom: 10px;
-    display:inline-block;
-    float:left;
+#related ul li {
+    width: 185px;
 }
 
-#svg-info ul li a:hover > svg {
+#related ul li svg {
+    width: 85%;
+    margin-bottom: 10px;
+}
+
+#related ul li a:hover > svg {
     box-shadow: 0px 0px 3px 0px rgb(150, 20, 20);
 }
 
-#svg-info ul li a {
+#related ul li a {
     color: #000;
     text-decoration: none;
 }
 
-#svg-info ul li:hover {
+#related ul li:hover {
     text-decoration: underline;
     text-decoration-color: maroon;
 }
@@ -536,47 +551,45 @@ footer .divider {
     }
 }
 
-
 /* ---- Results ---- */
 
 #search-info {
-    margin-top: 20px;
+    margin-top:20px;
 }
 
 #search-info h2 {
     font-size: 2.5em;
 }
 
-#results,
-#results-grid {
-    width: 100%;
+#results, #results-grid {
+    width:100%;
 }
 
 .results-row {
-    width: 100%;
-    display: block;
+    width:100%;
+    display:block;
 }
 
 .results-item {
     box-sizing: border-box;
-    background-color: #eee;
+    background-color:#eee;
     width: 30%;
-    min-width: 250px;
+    min-width:250px;
     margin: 15px 1.5%;
-    height: 150px;
-    display: inline-block;
-    padding: 20px;
+    height:150px;
+    display:inline-block;
+    padding:20px;
 }
 
 .results-item h2 {
-    font-size: 1.5em;
+    font-size:1.5em;
     text-decoration: none;
     text-transform: capitalize;
 }
 
 .results-svg-container {
-    width: 150px;
-    height: 150px;
-    float: left;
-    margin-right: 15px;
+    width:150px;
+    height:150px;
+    float:left;
+    margin-right:15px;
 }
