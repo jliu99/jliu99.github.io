@@ -6,7 +6,8 @@ var padding, angle, textRadius, maxScore;
 var radiiValues, topResults, abbrNames;
 var topResultsNumber = 10,
     labelTextSize = 10,
-    onlyShowTop = false;
+    onlyShowTop = false,
+    showNumbers = true;
 
 var scale = d3.scale.linear()
     .clamp(true)
@@ -21,7 +22,7 @@ function loadData(dataValues) {
     max = d3.max(dataValues);
 }
 
-// Sets the name arrays of the topics; should be an array of arrays
+// Sets the names of the topics; should just be an array of strings
 function loadNames(nameValues) {
     topicnames = nameValues;
 }
@@ -39,6 +40,11 @@ function setTopResultsNumber(value) {
 // Toggles whether to only show the results as top results or not
 function setShowTopOnly(value) {
     onlyShowTop = value;
+}
+
+//Toggles whether to show numbers for each bar or not
+function setShowNumbers(value) {
+    showNumbers = value;
 }
 
 // Stationary Signature; for related profile displays. No labels, no animation
@@ -229,7 +235,7 @@ function createSignature(selectedsvgid) {
             .attr("visibility", "hidden")
             .attr("id", "label" + (i + 1));
 
-        if (isTopResult) {
+        if (isTopResult && showNumbers) {
             t.attr("visibility", "visible")
                 .transition()
                 .duration(450)
@@ -276,7 +282,12 @@ function resetBars() {
 
     var padding = n / 16.5;
     var minRadius = holeWidth / 3;
-    var maxRadius = 3.05 * n / 7
+    var maxRadius = 3.05 * n / 7;
+    
+    scale.range(minRadius, maxRadius);
+    for(i = 0; i < radiiValues.length; i++){
+        radiiValues[i] = scale(radiiValues[i]);
+    }
 
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
@@ -310,7 +321,7 @@ function resetBars() {
         var textX = Math.cos(calcAngle) * textRadius;
         var textY = Math.sin(calcAngle) * textRadius;
 
-        if (isTopResult) {
+        if (isTopResult && showNumbers) {
             d3.select("#label" + (i + 1)).transition()
                 .attr("x", svgW / 2 + textX)
                 .attr("y", svgH / 2 - textY)
@@ -329,6 +340,8 @@ function resetBars() {
     }
 
     d3.select("#fixed").transition()
+        .attr("x", svgW / 2)
+        .attr("y", svgH / 2)
         .attr("opacity", "0")
         .attr("visibility", "hidden");
 }
@@ -389,10 +402,12 @@ function selectBar(selection) {
                 .attr("x", svgW / 2 + barTextX)
                 .attr("y", svgH / 2 - barTextY);
 
-            d3.select("#label" + id).transition()
-                .attr("font-size", labelTextSize * 11 / 8)
-                .attr("visibility", "visible")
-                .attr("opacity", "1");
+            if (showNumbers) {
+                d3.select("#label" + id).transition()
+                    .attr("font-size", labelTextSize * 11 / 8)
+                    .attr("visibility", "visible")
+                    .attr("opacity", "1");
+            }
 
             d3.select("#bar" + id).transition()
                 .duration(200)

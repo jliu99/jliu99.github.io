@@ -111,7 +111,8 @@
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"];
-                topicNames.push(n);
+                var str = n[0] + " | " + n[1] + " | " + n[2];
+                topicNames.push(str);
                 topicScores.push(topics[i]["score"]);
             }
 
