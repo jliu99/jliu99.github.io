@@ -279,6 +279,9 @@ function resetBars() {
     var minRadius = holeWidth;
     var maxRadius = 3 * n / 8;
 
+    
+    textRadius = d3.max(radiiValues) + 1.2 * padding;
+    
     scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
 
@@ -290,6 +293,8 @@ function resetBars() {
 
     radiiValues = rValues;
 
+    textRadius = d3.max(radiiValues) + 1.2 * padding;
+    
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
