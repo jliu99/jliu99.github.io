@@ -448,14 +448,13 @@ footer .divider {
 }
 
 #display #main-svg {
-    width:75%;
+    width:80%;
     display:inline-block;
     overflow:hidden;
 }
 
 #display #svg-info {
-    width:20%;
-    height:60%;
+    width:15%;
     margin: auto;
     display:inline-block;
     vertical-align:top;
@@ -466,6 +465,9 @@ footer .divider {
     padding:8px;
     text-align:center;
     color:#fff;
+    border: 3px solid rgb(100, 0, 0);
+    width:100px;
+    margin:auto;
 }
 
 /* ---- Related ---- */
