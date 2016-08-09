@@ -118,15 +118,14 @@
         var author, numTopics;
         var name, id, topics, pubCount;
         var topicNames = [],
-            topicScores = [],
-            topicsList = [];
+            topicScores = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_scopus_data.json", function (data) {
+        d3.json("/data/all_data_updated.json", function (data) {
             author = data[index];
             name = author.authorName;
             id = author.ID;
-            topics = author.scopusTopics;
+            topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
             document.getElementById("name").innerHTML = name;
@@ -150,20 +149,39 @@
                 topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
             }
-            setMax(d3.max(topicScores));
             setTopResultsNumber(10);
             loadData(topicScores);
             loadNames(topicNames);
-            var loadDiv = document.getElementById("loading");
-            loadDiv.style.left = "-100vw";
-            loadDiv.style.display = "none";
-
-            createSignature("main-svg");
         });
+
+        var scopusAuthor,
+            scopusTopics,
+            scopusTopicNames = [],
+            scopusTopicScores = [];
+
+        //Load in SCOPUS JSON
+        d3.json("/data/all_scopus_data.json", function (data) {
+            for (i = 0; i < data.length; i++) {
+                var scopusAuthor = data[i];
+                if (scopusAuthor.ID == id) {
+                    scopusTopics = scopusAuthor.scopusTopics;
+                    break;
+                }
+            }
+            for (j = 0; j < scopusTopics.length; j++) {
+                scopusTopicNames.push(scopusTopics[j][1]["name"]);
+                scopusTopicScores.push(scopusTopics[j][1]["score"]);
+            }
+        });
+        
+        var loadDiv = document.getElementById("loading");
+        loadDiv.style.left = "-100vw";
+        loadDiv.style.display = "none";
+
+        createSignature("main-svg");
     </script>
     <script type="text/javascript">
         jQuery.fn.sbTooltip = function () {
-
             // For each instance of this element
             return this.each(function () {
 
