@@ -264,6 +264,7 @@ function resetBars() {
     }
 
     var padding = n / 16.5;
+    var minRadius = holeWidth;
     var maxRadius = 3 * n / 8;
     
     scale.domain([0, maxScore])
