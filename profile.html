@@ -154,12 +154,12 @@
             }
             setMax(d3.max(topicScores));
             setTopResultsNumber(10);
+            setPadBars(true);
             loadData(topicScores);
             loadNames(topicNames);
             var loadDiv = document.getElementById("loading");
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
-
             createSignature("main-svg");
         });
 

@@ -181,7 +181,7 @@ function createSignature(selectedsvgid) {
             arc.startAngle(i * angleW)
                 .endAngle((i + 1) * angle + barPadAngle);
         } else {
-            qac.startAngle(i * angle)
+            arc.startAngle(i * angle)
                 .endAngle((i + 1) * angle - barPadAngle);
         }
 
