@@ -65,12 +65,8 @@
             <svg id="main-svg" class="svg">
             </svg>
             <div id="svg-info">
-                <button class="scopus-toggle button-selected" onclick="handleButtons($(this))">
-                    LDA
-                </button>
-                <button class="scopus-toggle" onclick="handleButtons($(this))">
-                    Scopus
-                </button>
+                <button class="scopus-toggle button-selected" onclick="handleButtons($(this))">LDA</button>
+                <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
 
             </div>
         </section>
@@ -196,11 +192,10 @@
                 clearSVG();
 
                 d3.selectAll("button").attr("class", "scopus-toggle");
-                
+
                 button.addClass("button-selected");
-                
+
                 var value = button.html();
-                console.log(value);
                 if (value == "LDA") {
                     loadNames(topicNames);
                     loadData(topicScores);
