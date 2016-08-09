@@ -404,7 +404,7 @@ footer .divider {
 }
 
 #display-toggles ul {
-    width: 90%;
+    width: 85%;
     min-width: 650px;
 }
 
@@ -458,7 +458,6 @@ footer .divider {
     height:60%;
     margin: auto;
     display:inline-block;
-    background-color:#ddd;
     vertical-align:top;
 }
 
