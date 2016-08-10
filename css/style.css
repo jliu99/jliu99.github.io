@@ -61,7 +61,7 @@ header {
 
 header a {
     border-bottom: 3px solid maroon;
-    line-height: 1.3em;
+    line-height: 1.8em;
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
@@ -208,7 +208,7 @@ footer .divider {
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     margin-bottom: 15px;
     margin-top: 20px;
-    text-align: center;
+    display:inline-block;
 }
 
 #top-authors {

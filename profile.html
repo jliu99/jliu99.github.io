@@ -11,6 +11,7 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript" src="js/count.js"></script>
 </head>
 
 <body>
@@ -21,7 +22,7 @@
         }
     </script>
     <header>
-        <a href="index.html">Research Analytics Institutional Lookup</a>
+        <a href="index.html"><h2>Research Analytics Institutional Lookup</h2></a>
         <div id="searchbar-wrapper">
             <div id="searchbar">
                 <input type="text" name="query" id="query" placeholder="Search for..." required />
@@ -137,17 +138,7 @@
             document.getElementById("a-count").innerHTML = pubCount;
 
             //Animates the article count numbers
-            $('.count').each(function () {
-                $(this).prop('Counter', 0).animate({
-                    Counter: $(this).text()
-                }, {
-                    duration: 2000,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-                });
-            });
+            animateCount();
 
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i][1]["names"];

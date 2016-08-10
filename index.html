@@ -10,6 +10,7 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript" src="js/count.js"></script>
 </head>
 
 <body>
@@ -55,7 +56,7 @@
     <main>
         <section id="visual-content">
             <div id="home-svg-container">
-                <h3>U-Chicago</h3>
+                <h3>U-Chicago</h3><h3><span class="count"></span></h3>
                 <svg class="svg" id="home-svg">
                 </svg>
             </div>
@@ -107,7 +108,7 @@
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago.json", function (data) {
-            topics = data[1]["ldatopics"];
+            topics = data[1]["LdaTopics"];
             console.log(data[1]);
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
