@@ -72,10 +72,13 @@ header {
 header a {
     border-bottom: 3px solid maroon;
     display: inline-block;
-    font-size: 1.45em;
+    font-size: 1.75em;
     text-decoration: none;
     color:#fff;
-    line-height:50px;
+}
+
+header a:hover {
+    cursor:pointer;
 }
 
 /* ---- Searchbar ---- */
@@ -85,7 +88,7 @@ header a {
     float: right;
     width: 50%;
     min-width: 500px;
-    margin-top: 4px;
+    margin-top: 8px;
 }
 
 #searchbar {
@@ -196,27 +199,27 @@ footer .divider {
     font-family:'neris', sans-serif;
 }
 
-#top-authors {
+#home-svg-info {
     margin-top: 75px;
     width: 25%;
     min-width: 250px;
     float: right;
 }
 
-#top-authors select {
+#home-svg-info select {
     width: 100%;
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-#top-authors select option {
+#home-svg-info select option {
     text-transform: capitalize;
 }
 
-#top-authors ul {
+#home-svg-info ul {
     list-style-type: none;
 }
 
-#top-authors ul li {
+#home-svg-info ul li {
     box-sizing: border-box;
     padding: 5px;
     height: 105px;
@@ -224,20 +227,20 @@ footer .divider {
     border-bottom: 1px solid #bbb;
 }
 
-#top-authors ul li h4 {
+#home-svg-info ul li h4 {
     padding-top: 10px;
     font-size: 1.3;
 }
 
-#top-authors ul a,
-#top-authors ul a:hover,
-#top-authors ul a:visited {
+#home-svg-info ul a,
+#home-svg-info ul a:hover,
+#home-svg-info ul a:visited {
     text-decoration: none;
     color: #000;
     transition: all 0.5s;
 }
 
-#top-authors ul a:hover {
+#home-svg-info ul a:hover {
     letter-spacing: 3px;
 }
 
@@ -447,7 +450,7 @@ footer .divider {
     float: right;
 }
 
-#svg-info .scopus-toggle {
+.scopus-toggle {
     background-color: maroon;
     padding: 8px;
     text-align: center;
@@ -458,15 +461,15 @@ footer .divider {
     display: table-cell;
 }
 
-#svg-info .scopus-toggle:hover {
+.scopus-toggle:hover {
     cursor: pointer;
 }
 
-#svg-info .scopus-toggle:active {
+.scopus-toggle:active {
     background-color: rgb(155, 0, 0);
 }
 
-#svg-info .scopus-toggle.selected {
+.scopus-toggle.selected {
     background-color: #fff;
     color: maroon;
     font-weight: bold;

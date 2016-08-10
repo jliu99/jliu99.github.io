@@ -44,7 +44,7 @@
                 <h4>(RUMBLE)</h4>
             </div-->
     <main>
-        <div id="searchbar" style="padding-top:10px">
+        <div id="searchbar" style="padding-top:2px;">
             <input type="text" name="query" id="query" placeholder="Search for..." required />
             <button onclick="search()"><i class="material-icons">search</i></button>
         </div>
@@ -56,7 +56,7 @@
                 </svg>
             </div>
 
-            <div id="top-authors">
+            <div id="home-svg-info">
                 <select>
                     <option value="all">All Topics</option>
                 </select>
@@ -80,6 +80,8 @@
                         </a>
                     </li>
                 </ul>
+                <button class="scopus-toggle selected" onclick="handleButtons($(this))">LDA</button>
+                <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
             </div>
         </section>
     </main>
@@ -96,19 +98,23 @@
     </footer>
     <script type="text/javascript">
         //Variables
-        var numTopics, topics;
+        var topics, scopusTopics;
         var numTopTopics = 50;
         var topicNames = [],
-            topicScores = [];
+            topicScores = [],
+            scopusTopicScores = [],
+            scopusTopicNames = [];
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago.json", function (data) {
             topics = data[1]["ldaTopics"];
-            numTopics = topics.length;
-            for (i = 0; i < numTopics; i++) {
+            for (i = 0; i < topics.length; i++) {
                 var n = topics[i][1]["name"];
                 var str = n[0] + " | " + n[1] + " | " + n[2];
                 topicNames.push(str);
+                topicScores.push(topics[i][1]["score"]);
+                n = scopusTopics[i][1]["name"]
+                topicNames.push(n);
                 topicScores.push(topics[i][1]["score"]);
             }
 
