@@ -68,7 +68,7 @@ header a {
     color:#fff;
 }
 
-header#home-header {
+#home-header {
     height: 250px;
     background-image: url(../img/home.jpg);
     background-position: bottom;
@@ -77,25 +77,6 @@ header#home-header {
     border-bottom: 2px solid maroon;
     position: static;
 }
-
-header#home-header h2 {
-    height: auto;
-    font-size: 2.7em;
-    color: maroon;
-    border: none;
-}
-
-#header-content {
-    box-sizing: border-box;
-    background-color: rgba(245, 245, 245, 0.92);
-    width: 75%;
-    border-radius: 5px;
-    height: 285px;
-    margin: auto;
-    margin-top: 15px;
-    padding-top: 50px;
-}
-
 
 /* ---- Searchbar ---- */
 
