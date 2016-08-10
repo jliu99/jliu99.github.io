@@ -23,7 +23,7 @@
     </header>
     <main>
         <section id="search-info">
-            <h2>Search Results</h2>
+            <h2>Search</h2>
             <p><span id="count"></span> results for <span id="term" style="text-transform:capitalize;"></span></p>
         </section>
         <section id="results">
@@ -48,7 +48,7 @@
             search = search.replace("?query=", "")
             var term = decodeURI(search).toLowerCase();
             term = term.replace("\+", " ");
-            document.getElementById("term").innerHTML = term;
+            document.getElementById("term").innerHTML = '"' + term + '"';
             var people = [],
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {
@@ -63,11 +63,13 @@
                 } else {
                     for (j = 0; j < people.length; j++) {
                         $("#results-grid").append("<div class='results-item'><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
+
                     }
                 }
+
+                document.getElementById("count").innerHTML = people.length;
             });
-            
-            document.getElementById("count").innerHTML = people.length;
+
 
         } else {}
     </script>

@@ -578,11 +578,15 @@ footer .divider {
 /* ---- Results ---- */
 
 #search-info {
-    margin-top:60px;
+    margin-top:75px;
 }
 
 #search-info h2 {
     font-size: 2.5em;
+}
+
+#results {
+    margin-top:15px;
 }
 
 #results, #results-grid {
@@ -600,10 +604,11 @@ footer .divider {
     padding:20px;
 }
 
-.results-item a h2 {
-    font-size:1.5em;
+.results-item a, .results-item h2 {
+    font-size:1.45em;
     text-decoration: none;
     text-transform: capitalize;
+    font-weight:bold;
 }
 
 .results-svg-container {
