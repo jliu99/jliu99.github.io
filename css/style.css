@@ -24,6 +24,7 @@ body {
 
 main {
     width: 87.5%;
+    min-height:87.5%;
     background-color:#fff;
     border-left:1px solid #ccc;
     border-right:1px solid #ccc;
@@ -75,7 +76,7 @@ header a {
     font-size: 2em;
     text-decoration: none;
     color:#fff;
-    margin-top:8px;
+    margin-top:10px;
 }
 
 header a:hover {

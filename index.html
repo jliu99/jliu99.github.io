@@ -157,10 +157,14 @@
                 if (value == "LDA") {
                     loadNames(topicNames);
                     loadData(topicScores);
+                    document.getElementById("a-count").innerHTML = pubCount;
+                    animateCount();
                     createSignature("home-svg");
                 } else if (value == "Scopus") {
                     loadNames(scopusTopicNames);
                     loadData(scopusTopicScores);
+                    document.getElementById("a-count").innerHTML = scopusPubCount;
+                    animateCount();
                     createSignature("home-svg");
                 }
             }
