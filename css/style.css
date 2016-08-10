@@ -28,7 +28,7 @@ main {
     border-left:1px solid #ccc;
     border-right:1px solid #ccc;
     margin: auto;
-    margin-top:70px;
+    margin-top:65px;
     box-sizing:border-box;
     padding:20px;
 }
@@ -85,7 +85,7 @@ header a {
     float: right;
     width: 50%;
     min-width: 500px;
-    margin-top: -6px;
+    margin-top: 4px;
 }
 
 #searchbar {
@@ -130,6 +130,7 @@ footer {
     border-top: 1px solid #eee;
     background-color:#fff;
     margin:auto;
+    margin-bottom:10px;
 }
 
 #footer-img-wrapper {
@@ -189,6 +190,10 @@ footer .divider {
     margin-bottom: 15px;
     margin-top: 20px;
     display:inline-block;
+}
+
+#home-svg-container h3.count {
+    font-family:'neris', sans-serif;
 }
 
 #top-authors {
@@ -578,7 +583,7 @@ footer .divider {
     background-color: #eee;
     border: 2px solid #ccc;
     width: 22.5%;
-    min-width: 200px;
+    min-width: 275px;
     margin: 15px 1.5%;
     height: 150px;
     display: inline-block;

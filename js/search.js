@@ -1,7 +1,6 @@
 function search() {
-    window.location.href = "http://jliu99.github.io/search.html";
-	var term = document.getElementById("query").value;
-	term = term.toLowerCase();
+    var term = document.getElementById("query").value;
+    term = term.toLowerCase();
     term = term.replace(" ", "+");
-	window.location.href = "http://jliu99.github.io/search.html?query=" + term;
+    window.location.href = "http://jliu99.github.io/search.html?query=" + term;
 }

@@ -6,20 +6,16 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/reset.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:700' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/count.js"></script>
 </head>
 
 <body>
-    <script type="text/javascript">
-        var search = location.search;
-        if (search != null && search.includes("?query=")) {
-            window.location.href = "http://jliu99.github.io/search.html" + search;
-        }
-    </script>
     <header>
         <a href="index.html">Research Analytics Institutional Lookup</a>
     </header>
@@ -126,14 +122,6 @@
                 $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j] + "</option>");
             }
         });
-    </script>
-    <script type="text/javascript">
-        function search() {
-            var term = document.getElementById("query").value;
-            term = term.toLowerCase();
-            term = term.replace(" ", "+");
-            window.location.href = "http://jliu99.github.io/search.html?query=" + term;
-        }
     </script>
 </body>
 </html
