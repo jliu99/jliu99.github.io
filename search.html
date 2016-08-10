@@ -24,7 +24,7 @@
     <main>
         <section id="search-info">
             <h2>Search Results</h2>
-            <p>blah results for blah term</p>
+            <p><span id="count"></span> results for <span id="term" style="text-transform:capitalize;"></span></p>
         </section>
         <section id="results">
             <div id="results-grid">
@@ -48,6 +48,7 @@
             search = search.replace("?query=", "")
             var term = decodeURI(search).toLowerCase();
             term = term.replace("\+", " ");
+            document.getElementyById("term").innerHTML = term;
             var people = [],
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {

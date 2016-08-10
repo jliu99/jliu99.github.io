@@ -136,6 +136,7 @@ header#home-header h2 {
     position: relative;
     left: -8px;
     top: 4px;
+    vertical-align:top;
 }
 
 #searchbar button:active {
@@ -577,7 +578,7 @@ footer .divider {
 /* ---- Results ---- */
 
 #search-info {
-    margin-top:20px;
+    margin-top:60px;
 }
 
 #search-info h2 {
@@ -588,23 +589,18 @@ footer .divider {
     width:100%;
 }
 
-.results-row {
-    width:100%;
-    display:block;
-}
-
 .results-item {
     box-sizing: border-box;
     background-color:#eee;
-    width: 30%;
-    min-width:250px;
+    width: 22.5%;
+    min-width:200px;
     margin: 15px 1.5%;
     height:150px;
     display:inline-block;
     padding:20px;
 }
 
-.results-item h2 {
+.results-item a h2 {
     font-size:1.5em;
     text-decoration: none;
     text-transform: capitalize;
