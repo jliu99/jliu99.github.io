@@ -138,7 +138,7 @@
         });
         
         function clearSVG() {
-            d3.select("#main-svg").selectAll("*").remove();
+            d3.select("#home-svg").selectAll("*").remove();
         }
 
         function handleButtons(button) {
@@ -154,12 +154,12 @@
                     loadNames(topicNames);
                     loadData(topicScores);
                     setPadBars(false);
-                    createSignature("main-svg");
+                    createSignature("home-svg");
                 } else if (value == "Scopus") {
                     loadNames(scopusTopicNames);
                     loadData(scopusTopicScores);
                     setPadBars(true);
-                    createSignature("main-svg");
+                    createSignature("home-svg");
                 }
             }
 
