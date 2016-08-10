@@ -112,10 +112,10 @@
             console.log(data[1]);
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
-                var n = topics[i]["names"];
+                var n = topics[i][1]["name"];
                 var str = n[0] + " | " + n[1] + " | " + n[2];
                 topicNames.push(str);
-                topicScores.push(topics[i]["score"]);
+                topicScores.push(topics[i][1]["score"]);
             }
 
             setTopResultsNumber(numTopTopics);
