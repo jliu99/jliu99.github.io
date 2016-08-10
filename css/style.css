@@ -70,7 +70,8 @@ header {
 }
 
 header a {
-    border-bottom: 3px solid maroon;
+    border-bottom: 2px solid maroon;
+    padding-bottom: 5px;
     display: inline-block;
     font-size: 1.75em;
     text-decoration: none;
@@ -462,7 +463,7 @@ footer .divider {
     padding: 8px;
     text-align: center;
     color: #fff;
-    border: 4px solid maroon;
+    border: 3px solid maroon;
     width: 100%;
     margin: auto;
     display: table-cell;
