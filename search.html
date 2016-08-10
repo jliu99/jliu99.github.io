@@ -48,7 +48,7 @@
             search = search.replace("?query=", "")
             var term = decodeURI(search).toLowerCase();
             term = term.replace("\+", " ");
-            document.getElementyById("term").innerHTML = term;
+            document.getElementById("term").innerHTML = term;
             var people = [],
                 indices = [];
             d3.json("/data/all_data_updated.json", function (data) {
@@ -66,6 +66,8 @@
                     }
                 }
             });
+            
+            document.getElementById("count").innerHTML = people.length;
 
         } else {}
     </script>
