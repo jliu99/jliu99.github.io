@@ -51,7 +51,7 @@
         <section id="visual-content">
             <div id="home-svg-container">
                 <h3>U-Chicago</h3>
-                <h3 class="count" id="a-count"></h3>
+                <span style="display:inline-block"># articles: <h3 class="count" id="a-count" style="float:right"></h3></span>
                 <svg class="svg" id="home-svg">
                 </svg>
             </div>
@@ -125,7 +125,7 @@
             }
 
             animateCount();
-            
+
             setTopResultsNumber(numTopTopics);
             loadData(topicScores);
             setMax(d3.max(topicScores));
@@ -135,7 +135,32 @@
             for (j = 0; j < topicNames.length; j++) {
                 $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j] + "</option>");
             }
+
         });
+
+        function handleButtons(button) {
+            if (!button.hasClass("selected")) {
+                clearSVG();
+
+                d3.selectAll("button").attr("class", "scopus-toggle");
+
+                button.addClass("selected");
+
+                var value = button.html();
+                if (value == "LDA") {
+                    loadNames(topicNames);
+                    loadData(topicScores);
+                    setPadBars(false);
+                    createSignature("main-svg");
+                } else if (value == "Scopus") {
+                    loadNames(scopusTopicNames);
+                    loadData(scopusTopicScores);
+                    setPadBars(true);
+                    createSignature("main-svg");
+                }
+            }
+
+        }
     </script>
 </body>
 </html
