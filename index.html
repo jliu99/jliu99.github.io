@@ -20,7 +20,7 @@
         }
     </script>
     <header>
-        <h2><a href="index.html">Research Analytics Institutional Lookup</a></h2>
+        <a href="index.html"><h2>Research Analytics Institutional Lookup</h2></a>
     </header>
     <header id="home-header" style="box-sizing:border-box; padding-top:120px;">
         <div id="searchbar">
@@ -106,7 +106,7 @@
             topicScores = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/uchicago_array.json", function (data) {
+        d3.json("/data/uchicago.json", function (data) {
             topics = data[0]["ldatopics"];
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
