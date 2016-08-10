@@ -28,6 +28,9 @@ main {
     border-left:1px solid #ccc;
     border-right:1px solid #ccc;
     margin: auto;
+    margin-top:70px;
+    box-sizing:border-box;
+    padding:20px;
 }
 
 .svg {
@@ -73,6 +76,7 @@ header a {
     margin-bottom: 30px;
     text-decoration: none;
     color:#fff;
+    line-height:65px;
 }
 
 /* ---- Searchbar ---- */
@@ -127,6 +131,7 @@ footer {
     height: 75px;
     border-top: 1px solid #eee;
     margin-top: 50px;
+    background-color:#fff;
 }
 
 #footer-img-wrapper {
