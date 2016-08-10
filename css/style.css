@@ -449,17 +449,18 @@ footer .divider {
 }
 
 #display #main-svg {
-    width:85%;
+    width:80%;
     display:inline-block;
     overflow:hidden;
 }
 
 #display #svg-info {
-    width:12.5%;
+    width:17%;
     margin: auto;
     display:inline-block;
     vertical-align:top;
     text-align:center;
+    float:right;
 }
 
 #svg-info .scopus-toggle {
@@ -480,7 +481,7 @@ footer .divider {
     background-color: rgb(155, 0, 0);    
 }
 
-#svg-info .scopus-toggle .button-selected {
+#svg-info .scopus-toggle.selected {
     background-color:#fff;
     color:maroon;
     font-weight:bold;
@@ -596,6 +597,7 @@ footer .divider {
 .results-item {
     box-sizing: border-box;
     background-color:#eee;
+    border: 2px solid #ccc;
     width: 22.5%;
     min-width:200px;
     margin: 15px 1.5%;
@@ -608,7 +610,6 @@ footer .divider {
     font-size:1.45em;
     text-decoration: none;
     text-transform: capitalize;
-    font-weight:bold;
 }
 
 .results-svg-container {
