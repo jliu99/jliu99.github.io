@@ -61,7 +61,6 @@ header {
 
 header a {
     border-bottom: 3px solid maroon;
-    line-height: 1.8em;
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
@@ -135,7 +134,7 @@ header#home-header h2 {
     display: inline-block;
     position: relative;
     left: -8px;
-    top: 1px;
+    top: 0px;
     vertical-align: top;
 }
 
