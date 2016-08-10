@@ -279,9 +279,9 @@ function resetBars() {
     var minRadius = holeWidth;
     var maxRadius = 3 * n / 8;
 
-    
+
     textRadius = d3.max(radiiValues) + 1.2 * padding;
-    
+
     scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
 
@@ -294,7 +294,7 @@ function resetBars() {
     radiiValues = rValues;
 
     textRadius = d3.max(radiiValues) + 1.2 * padding;
-    
+
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
@@ -308,7 +308,7 @@ function resetBars() {
         if (padBars) {
             arc.startAngle(i * angle + barPadAngle)
                 .endAngle((i + 1) * angle - barPadAngle);
-        } else{
+        } else {
             arc.startAngle(i * angle)
                 .endAngle((i + 1) * angle);
         }
@@ -456,7 +456,6 @@ function selectBar(selection) {
             var tempS = largeSAngle - ((index - i) * smallAngle);
             var tempE = largeSAngle - ((index - i - 1) * smallAngle);
             if (padBars) {
-
                 arc.startAngle(2 * Math.PI + tempS + smallAnglePad)
                     .endAngle(2 * Math.PI + tempE - smallAnglePad);
             } else {
@@ -466,8 +465,13 @@ function selectBar(selection) {
             calcAngle = Math.PI / 2 - (2 * Math.PI + largeSAngle - ((index - i) * smallAngle) + smallAngle / 2);
 
         } else if (i > index) {
-            arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle) + smallAnglePad)
-                .endAngle(largeEAngle + ((i - index) * smallAngle) - smallAnglePad);
+            if (padBars) {
+                arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle) + smallAnglePad)
+                    .endAngle(largeEAngle + ((i - index) * smallAngle) - smallAnglePad);
+            } else {
+                arc.startAngle(largeEAngle + ((i - index - 1) * smallAngle))
+                    .endAngle(largeEAngle + ((i - index) * smallAngle));
+            }
             calcAngle = Math.PI / 2 - (largeEAngle + ((i - index - 1) * smallAngle) + smallAngle / 2);
         }
 
