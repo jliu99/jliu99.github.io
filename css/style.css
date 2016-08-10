@@ -55,18 +55,14 @@ header {
     z-index:100;
 }
 
-header h2 {
-    border-bottom:3px solid maroon;
-    line-height:1.3em;
-}
-
-header h2,
-header h2 a {
+header a {
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
     text-decoration: none;
     color: #fff;
+    border-bottom:3px solid maroon;
+    line-height:1.3em;
 }
 
 header#home-header {
@@ -135,7 +131,6 @@ header#home-header h2 {
     display: inline-block;
     position: relative;
     left: -8px;
-    top: 4px;
     vertical-align:top;
 }
 
