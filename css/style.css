@@ -66,10 +66,7 @@ header a {
     font-size: 1.45em;
     margin-bottom: 30px;
     text-decoration: none;
-}
-
-header a h2 {
-    color: #fff;
+    color:#fff;
 }
 
 header#home-header {
