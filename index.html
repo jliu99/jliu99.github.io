@@ -11,7 +11,6 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
-    <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript" src="js/count.js"></script>
 </head>
 
@@ -137,6 +136,10 @@
             }
 
         });
+        
+        function clearSVG() {
+            d3.select("#main-svg").selectAll("*").remove();
+        }
 
         function handleButtons(button) {
             if (!button.hasClass("selected")) {
@@ -162,5 +165,6 @@
 
         }
     </script>
+    <script type="text/javascript" src="js/search.js"></script>
 </body>
 </html
