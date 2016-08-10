@@ -129,6 +129,7 @@ footer {
     height: 75px;
     border-top: 1px solid #eee;
     background-color:#fff;
+    margin:auto;
 }
 
 #footer-img-wrapper {
