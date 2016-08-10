@@ -108,6 +108,7 @@
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago.json", function (data) {
             topics = data[1]["ldatopics"];
+            console.log(data[1]);
             numTopics = topics.length;
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i]["names"];
