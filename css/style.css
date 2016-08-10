@@ -451,13 +451,19 @@ footer .divider {
     float: right;
 }
 
+.scopus-button-container {
+    width:125px;
+    text-align:center;
+    margin:auto;
+}
+
 .scopus-toggle {
     background-color: maroon;
     padding: 8px;
     text-align: center;
     color: #fff;
-    border: 5px solid maroon;
-    width: 125px;
+    border: 4px solid maroon;
+    width: 100%;
     margin: auto;
     display: table-cell;
 }
@@ -467,7 +473,7 @@ footer .divider {
 }
 
 .scopus-toggle:active {
-    background-color: rgb(155, 0, 0);
+    background-color: rgb(70, 0, 0);
 }
 
 .scopus-toggle.selected {

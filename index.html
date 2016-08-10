@@ -51,7 +51,7 @@
         <section id="visual-content">
             <div id="home-svg-container">
                 <h3>U-Chicago</h3>
-                <h3><span class="count"></span></h3>
+                <h3 class="count" id="a-count"></h3>
                 <svg class="svg" id="home-svg">
                 </svg>
             </div>
@@ -80,8 +80,10 @@
                         </a>
                     </li>
                 </ul>
-                <button class="scopus-toggle selected" onclick="handleButtons($(this))">LDA</button>
-                <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
+                <div class="scopus-button-container">
+                    <button class="scopus-toggle selected" onclick="handleButtons($(this))">LDA</button>
+                    <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
+                </div>
             </div>
         </section>
     </main>
@@ -98,7 +100,7 @@
     </footer>
     <script type="text/javascript">
         //Variables
-        var topics, scopusTopics;
+        var topics, scopusTopics, pubCount, scopusPubCount;
         var numTopTopics = 50;
         var topicNames = [],
             topicScores = [],
@@ -108,16 +110,22 @@
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago.json", function (data) {
             topics = data[1]["ldaTopics"];
+            scopusTopics = data[0]["scopusTopics"];
+            scopusPubCount = data[0]["pubCount"];
+            pubCount = data[1]["pubCount"];
+            document.getElementById("a-count").innerHTML = pubCount;
             for (i = 0; i < topics.length; i++) {
                 var n = topics[i][1]["name"];
                 var str = n[0] + " | " + n[1] + " | " + n[2];
                 topicNames.push(str);
                 topicScores.push(topics[i][1]["score"]);
                 n = scopusTopics[i][1]["name"]
-                topicNames.push(n);
-                topicScores.push(topics[i][1]["score"]);
+                scopusTopicNames.push(n);
+                scopusTopicScores.push(topics[i][1]["score"]);
             }
 
+            animateCount();
+            
             setTopResultsNumber(numTopTopics);
             loadData(topicScores);
             setMax(d3.max(topicScores));
