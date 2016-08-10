@@ -16,10 +16,17 @@
 body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     overflow-x: hidden;
+    background-image:url("../img/home.jpg");
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position:bottom;
 }
 
 main {
     width: 90%;
+    background-color:#fff;
+    border-left:1px solid #ccc;
+    border-right:1px solid #ccc;
     margin: auto;
 }
 
@@ -66,16 +73,6 @@ header a {
     margin-bottom: 30px;
     text-decoration: none;
     color:#fff;
-}
-
-#home-header {
-    height: 250px;
-    background-image: url(../img/home.jpg);
-    background-position: bottom;
-    text-align: center;
-    margin-left: 0;
-    border-bottom: 2px solid maroon;
-    position: static;
 }
 
 /* ---- Searchbar ---- */
