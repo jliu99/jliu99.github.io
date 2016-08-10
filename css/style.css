@@ -471,6 +471,7 @@ footer .divider {
     border: 5px solid maroon;
     width:125px;
     margin:auto;
+    display:table-cell;
 }
 
 #svg-info .scopus-toggle:hover {
