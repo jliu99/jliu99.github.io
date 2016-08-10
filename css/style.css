@@ -55,13 +55,9 @@ header {
     z-index:100;
 }
 
-header h2 {
+header a {
     border-bottom:3px solid maroon;
     line-height:1.3em;
-}
-
-header h2,
-header h2 a {
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
