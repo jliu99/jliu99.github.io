@@ -9,8 +9,7 @@ document.getElementById("query").onkeypress = function (e) {
 
 function search() {
     var term = document.getElementById("query").value;
-    alert(term);
-    if (term != null || term != "" || term.replace(" ", "") != "") {
+    if (term != null && term != "" && term.replace(" ", "") != "") {
         term = term.toLowerCase();
         term = term.replace(" ", "+");
         window.location.href = "http://jliu99.github.io/search.html?query=" + term;

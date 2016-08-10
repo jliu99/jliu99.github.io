@@ -49,11 +49,15 @@
         </div>
         <section id="visual-content">
             <div id="home-svg-container">
-                <h3>U-Chicago</h3>
-                <span style="display:inline-block"># articles: <h3 class="count" id="a-count" style="float:right"></h3></span>
+                <div id="institution-info">
+                        <h3 id="name" style="position:relative; top:10px;">University of Chicago</h3>
+                        <h3 class="count" id="a-count"></h3>
+                        <p style="text-align:right; font-size:14px;">articles represented</p>
+                </div>
                 <svg class="svg" id="home-svg">
                 </svg>
             </div>
+            
 
             <div id="home-svg-info">
                 <select>
@@ -136,7 +140,7 @@
             }
 
         });
-        
+
         function clearSVG() {
             d3.select("#home-svg").selectAll("*").remove();
         }
@@ -153,12 +157,10 @@
                 if (value == "LDA") {
                     loadNames(topicNames);
                     loadData(topicScores);
-                    setPadBars(false);
                     createSignature("home-svg");
                 } else if (value == "Scopus") {
                     loadNames(scopusTopicNames);
                     loadData(scopusTopicScores);
-                    setPadBars(true);
                     createSignature("home-svg");
                 }
             }

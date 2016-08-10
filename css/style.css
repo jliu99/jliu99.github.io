@@ -23,7 +23,7 @@ body {
 }
 
 main {
-    width: 90%;
+    width: 87.5%;
     background-color:#fff;
     border-left:1px solid #ccc;
     border-right:1px solid #ccc;
@@ -129,7 +129,7 @@ header a:hover {
 
 footer {
     box-sizing: border-box;
-    width: 90%;
+    width: 87.5%;
     height: 75px;
     border-top: 1px solid #eee;
     background-color:#fff;
@@ -177,7 +177,7 @@ footer .divider {
 /* ---- Home Page ---- */
 
 #visual-content {
-    width: 73.5%;
+    width: 75%;
     margin: auto;
 }
 
@@ -187,17 +187,24 @@ footer .divider {
     display: inline-block;
 }
 
-#home-svg-container h3 {
+#institution-info {
+    margin-bottom:10px;
+    color:#999;
+}
+
+#institution-info h3 {
     font-size: 2.5em;
     color: maroon;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
-    margin-bottom: 15px;
     margin-top: 20px;
+    margin-bottom:3px;
     display:inline-block;
+    box-sizing:border-box;
 }
 
-#home-svg-container h3.count {
+#institution-info h3.count {
     font-family:'neris', sans-serif;
+    float:right;
 }
 
 #home-svg-info {
