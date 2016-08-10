@@ -20,7 +20,7 @@ body {
 
 main {
     width: 90%;
-    margin:auto;
+    margin: auto;
 }
 
 .svg {
@@ -34,9 +34,13 @@ a:hover {
     pointer-events: none;
 }
 
-h1, h2, h3, h4 {
-    color:maroon;
+h1,
+h2,
+h3,
+h4 {
+    color: maroon;
 }
+
 
 /* ---- Header ---- */
 
@@ -49,19 +53,22 @@ header {
     overflow: hidden;
     padding: 0 20px;
     padding-top: 17px;
-    position:fixed;
-    top:0;
-    left:0;
-    z-index:100;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
 header a {
-    border-bottom:3px solid maroon;
-    line-height:1.3em;
+    border-bottom: 3px solid maroon;
+    line-height: 1.3em;
     display: inline-block;
     font-size: 1.45em;
     margin-bottom: 30px;
     text-decoration: none;
+}
+
+header a h2 {
     color: #fff;
 }
 
@@ -72,7 +79,7 @@ header#home-header {
     text-align: center;
     margin-left: 0;
     border-bottom: 2px solid maroon;
-    position:static;
+    position: static;
 }
 
 header#home-header h2 {
@@ -126,18 +133,18 @@ header#home-header h2 {
     background-color: maroon;
     color: #fff;
     border: 1px solid #500000;
-    border-right-width:3px;
-    border-bottom-width:6px;
+    border-right-width: 3px;
+    border-bottom-width: 6px;
     display: inline-block;
     position: relative;
     left: -8px;
     top: 4px;
-    vertical-align:top;
+    vertical-align: top;
 }
 
 #searchbar button:active {
     background-color: rgb(155, 0, 0);
-    border-bottom-width:2px;
+    border-bottom-width: 2px;
 }
 
 footer {
@@ -220,7 +227,7 @@ footer .divider {
 }
 
 #top-authors select option {
-    text-transform:capitalize;
+    text-transform: capitalize;
 }
 
 #top-authors ul {
@@ -264,10 +271,10 @@ footer .divider {
 
 #profile {
     box-sizing: border-box;
-    width:85%;
+    width: 85%;
     height: 175px;
     margin: auto;
-    margin-top:75px;
+    margin-top: 75px;
     display: block;
     background-color: #eee;
     border: 1px solid #ccc;
@@ -319,7 +326,7 @@ footer .divider {
     min-width: 150px;
     max-width: 225px;
     height: 100%;
-    padding-top:45px;
+    padding-top: 45px;
     float: right;
     display: inline-block;
     text-align: center;
@@ -445,44 +452,45 @@ footer .divider {
 }
 
 #display #main-svg {
-    width:80%;
-    display:inline-block;
-    overflow:hidden;
+    width: 80%;
+    display: inline-block;
+    overflow: hidden;
 }
 
 #display #svg-info {
-    width:17%;
+    width: 17%;
     margin: auto;
-    display:inline-block;
-    vertical-align:top;
-    text-align:center;
-    float:right;
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    float: right;
 }
 
 #svg-info .scopus-toggle {
-    background-color:maroon;
-    padding:8px;
-    text-align:center;
-    color:#fff;
+    background-color: maroon;
+    padding: 8px;
+    text-align: center;
+    color: #fff;
     border: 5px solid maroon;
-    width:125px;
-    margin:auto;
-    display:table-cell;
+    width: 125px;
+    margin: auto;
+    display: table-cell;
 }
 
 #svg-info .scopus-toggle:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
 
 #svg-info .scopus-toggle:active {
-    background-color: rgb(155, 0, 0);    
+    background-color: rgb(155, 0, 0);
 }
 
 #svg-info .scopus-toggle.selected {
-    background-color:#fff;
-    color:maroon;
-    font-weight:bold;
+    background-color: #fff;
+    color: maroon;
+    font-weight: bold;
 }
+
 
 /* ---- Related ---- */
 
@@ -573,10 +581,11 @@ footer .divider {
     }
 }
 
+
 /* ---- Results ---- */
 
 #search-info {
-    margin-top:75px;
+    margin-top: 75px;
 }
 
 #search-info h2 {
@@ -584,34 +593,36 @@ footer .divider {
 }
 
 #results {
-    margin-top:15px;
+    margin-top: 15px;
 }
 
-#results, #results-grid {
-    width:100%;
+#results,
+#results-grid {
+    width: 100%;
 }
 
 .results-item {
     box-sizing: border-box;
-    background-color:#eee;
+    background-color: #eee;
     border: 2px solid #ccc;
     width: 22.5%;
-    min-width:200px;
+    min-width: 200px;
     margin: 15px 1.5%;
-    height:150px;
-    display:inline-block;
-    padding:20px;
+    height: 150px;
+    display: inline-block;
+    padding: 20px;
 }
 
-.results-item a, .results-item h2 {
-    font-size:1.45em;
+.results-item a,
+.results-item h2 {
+    font-size: 1.45em;
     text-decoration: none;
     text-transform: capitalize;
 }
 
 .results-svg-container {
-    width:150px;
-    height:150px;
-    float:left;
-    margin-right:15px;
+    width: 150px;
+    height: 150px;
+    float: left;
+    margin-right: 15px;
 }
