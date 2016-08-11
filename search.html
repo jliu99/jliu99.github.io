@@ -10,6 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/signature-module.js"></script>
 </head>
 
 <body>
@@ -63,8 +64,8 @@
                     document.getElementById("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
                 } else {
                     for (j = 0; j < people.length; j++) {
-                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'><h2>" + people[j].authorName + "</h2></a></div>");
-
+                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>"
+                            people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
                     }
                 }
 
@@ -72,7 +73,9 @@
             });
 
 
-        } else {}
+        } else {
+            $("#results-grid").append("<p>It seems that you did not enter anything into the search box. Please enter your query and try again.</p>");
+        }
     </script>
 </body>
 
