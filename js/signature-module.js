@@ -503,5 +503,6 @@ function selectBar(selection) {
 var resizeTimer;
 $(window).resize(function () {
     clearTimeout(resizeTimer);
+    d3.select(svgID).attr("height", d3.select(svgID).attr("width"));
     resizeTimer = setTimeout(resetBars, 100);
 });
