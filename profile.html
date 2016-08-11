@@ -123,7 +123,7 @@
             topicScores = [];
 
         //Load in JSON and initialize variables + page content
-        d3.json("/data/all_data_updated.json", function (data) {
+        d3.json("/data/all_data_neighbors.json", function (data) {
             author = data[index];
             name = author.authorName;
             id = author.ID;

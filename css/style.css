@@ -189,7 +189,7 @@ footer .divider {
 }
 
 #home-svg-container {
-    width: 70%;
+    width: 67.5vh;
     height:67.5vh;
     display: inline-block;
 }
@@ -204,6 +204,7 @@ footer .divider {
     color: maroon;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     margin-top: 20px;
+    margin-left:5px;
     margin-bottom: 3px;
     display: inline-block;
     box-sizing: border-box;
