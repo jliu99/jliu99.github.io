@@ -16,22 +16,22 @@
 body {
     font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     overflow-x: hidden;
-    background-image:url("../img/home.jpg");
+    background-image: url("../img/home.jpg");
     background-repeat: no-repeat;
-    background-attachment:fixed;
-    background-position:bottom;
+    background-attachment: fixed;
+    background-position: bottom;
 }
 
 main {
     width: 87.5%;
-    min-height:85vh;
-    background-color:#fff;
-    border-left:1px solid #ccc;
-    border-right:1px solid #ccc;
+    min-height: 85vh;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
     margin: auto;
-    margin-top:60px;
-    box-sizing:border-box;
-    padding:20px;
+    margin-top: 60px;
+    box-sizing: border-box;
+    padding: 20px;
 }
 
 .svg {
@@ -63,7 +63,7 @@ header {
     text-align: left;
     overflow: hidden;
     padding: 0 20px;
-    padding-top:5px;
+    padding-top: 5px;
     position: fixed;
     top: 0;
     left: 0;
@@ -75,13 +75,14 @@ header a {
     display: inline-block;
     font-size: 2em;
     text-decoration: none;
-    color:#fff;
-    margin-top:10px;
+    color: #fff;
+    margin-top: 10px;
 }
 
 header a:hover {
-    cursor:pointer;
+    cursor: pointer;
 }
+
 
 /* ---- Searchbar ---- */
 
@@ -115,7 +116,7 @@ header a:hover {
     color: #fff;
     border: 1px solid #500000;
     border-right-width: 3px;
-    border-bottom-width: 6px;
+    border-bottom-width: 5px;
     display: inline-block;
     position: relative;
     left: -8px;
@@ -133,9 +134,9 @@ footer {
     width: 87.5%;
     height: 75px;
     border-top: 1px solid #eee;
-    background-color:#fff;
-    margin:auto;
-    margin-bottom:10px;
+    background-color: #fff;
+    margin: auto;
+    margin-bottom: 10px;
 }
 
 #footer-img-wrapper {
@@ -189,8 +190,8 @@ footer .divider {
 }
 
 #institution-info {
-    margin-bottom:10px;
-    color:#999;
+    margin-bottom: 10px;
+    color: #999;
 }
 
 #institution-info h3 {
@@ -198,14 +199,14 @@ footer .divider {
     color: maroon;
     font-family: 'unna', "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
     margin-top: 20px;
-    margin-bottom:3px;
-    display:inline-block;
-    box-sizing:border-box;
+    margin-bottom: 3px;
+    display: inline-block;
+    box-sizing: border-box;
 }
 
 #institution-info h3.count {
-    font-family:'neris', sans-serif;
-    float:right;
+    font-family: 'neris', sans-serif;
+    float: right;
 }
 
 #home-svg-info {
@@ -226,7 +227,7 @@ footer .divider {
 
 #home-svg-info ul {
     list-style-type: none;
-    margin-bottom:15px;
+    margin-bottom: 15px;
 }
 
 #home-svg-info ul li {
@@ -461,9 +462,9 @@ footer .divider {
 }
 
 .scopus-button-container {
-    width:150px;
-    text-align:center;
-    margin:auto;
+    width: 150px;
+    text-align: center;
+    margin: auto;
 }
 
 .scopus-toggle {
@@ -479,6 +480,7 @@ footer .divider {
 
 .scopus-toggle:hover {
     cursor: pointer;
+    background-color: rgb(140, 0, 0);
 }
 
 .scopus-toggle:active {
@@ -489,6 +491,10 @@ footer .divider {
     background-color: #fff;
     color: maroon;
     font-weight: bold;
+}
+
+.scopus-toggle.selected:hover {
+    background-color: #fff;
 }
 
 
