@@ -210,9 +210,11 @@ footer .divider {
 
 #home-svg-info {
     display:inline-block;
-    margin-top: 87px;
     width: 22.5%;
     min-width: 250px;
+    margin-top:40px;
+    margin:10px;
+    vertical-align: top;
 }
 
 #home-svg-info select {
