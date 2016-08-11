@@ -23,7 +23,7 @@ body {
 }
 
 main {
-    width: 87.5%;
+    width: 85%;
     min-height: 85vh;
     background-color: #fff;
     border-left: 1px solid #ccc;
@@ -50,6 +50,15 @@ h2,
 h3,
 h4 {
     color: maroon;
+}
+
+::-webkit-scrollbar {
+    width:12px;
+}
+
+::-webkit-scrollbar-track {
+    background-color:transparent;
+    
 }
 
 
@@ -131,7 +140,7 @@ header a:hover {
 
 footer {
     box-sizing: border-box;
-    width: 87.5%;
+    width: 85%;
     height: 75px;
     border-top: 1px solid #eee;
     background-color: #fff;
@@ -592,7 +601,6 @@ footer .divider {
 
 #search-info h2 {
     font-size: 2.5em;
-    font-family:'PT Sans', sans-serif;
 }
 
 #search-info p {
@@ -621,11 +629,15 @@ footer .divider {
     padding: 10px;
 }
 
-.results-item a,
 .results-item h2 {
     font-size: 1.45em;
     text-decoration: none;
     text-transform: capitalize;
+    font-family:'PT Sans', sans-serif;
+}
+
+.results-item a, .results-item a:visited {
+    color:#222;
 }
 
 .results-svg-container {
