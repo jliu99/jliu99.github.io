@@ -64,8 +64,7 @@
                     document.getElementById("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
                 } else {
                     for (j = 0; j < people.length; j++) {
-                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>"
-                            people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
+                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>" + people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
                     }
                 }
 
