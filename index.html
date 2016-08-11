@@ -82,9 +82,9 @@
                         </a>
                     </li>
                 </ul>
-                <div class="scopus-button-container">
-                    <button class="scopus-toggle selected" onclick="handleButtons($(this))">LDA</button>
-                    <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
+                <div class="s-button-container">
+                    <button class="s-toggle selected" onclick="handleButtons($(this))">Learned</button>
+                    <button class="s-toggle" onclick="handleButtons($(this))">Traditional</button>
                 </div>
             </div>
         </section>
@@ -102,18 +102,18 @@
     </footer>
     <script type="text/javascript">
         //Variables
-        var topics, scopusTopics, pubCount, scopusPubCount;
+        var topics, sTopics, pubCount, sPubCount;
         var numTopTopics = 50;
         var topicNames = [],
             topicScores = [],
-            scopusTopicScores = [],
-            scopusTopicNames = [];
+            sTopicScores = [],
+            sTopicNames = [];
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/uchicago.json", function (data) {
             topics = data[1]["ldaTopics"];
-            scopusTopics = data[0]["scopusTopics"];
-            scopusPubCount = data[0]["pubCount"];
+            sTopics = data[0]["scopusTopics"];
+            sPubCount = data[0]["pubCount"];
             pubCount = data[1]["pubCount"];
             document.getElementById("a-count").innerHTML = pubCount;
             for (i = 0; i < topics.length; i++) {
@@ -121,9 +121,9 @@
                 var str = n[0] + " | " + n[1] + " | " + n[2];
                 topicNames.push(str);
                 topicScores.push(topics[i][1]["score"]);
-                n = scopusTopics[i][1]["name"]
-                scopusTopicNames.push(n);
-                scopusTopicScores.push(topics[i][1]["score"]);
+                n = sTopics[i][1]["name"]
+                sTopicNames.push(n);
+                sTopicScores.push(topics[i][1]["score"]);
             }
 
             animateCount();
@@ -146,13 +146,13 @@
             $("select").empty();
             $("select").append("<option value='all'>All Topics</option>");
 
-            if (type == "lda") {
+            if (type == "l") {
                 for (j = 0; j < topicNames.length; j++) {
                     $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j] + "</option>");
                 }
-            } else if (type == "scopus") {
+            } else if (type == "s") {
                 for (j = 0; j < topicNames.length; j++) {
-                    $("select").append("<option value='" + (j + 1) + "'>" + scopusTopicNames[j] + "</option>");
+                    $("select").append("<option value='" + (j + 1) + "'>" + sTopicNames[j] + "</option>");
                 }
             }
         }
@@ -161,25 +161,25 @@
             if (!button.hasClass("selected")) {
                 clearSVG();
 
-                d3.selectAll("button").attr("class", "scopus-toggle");
+                d3.selectAll("button").attr("class", "s-toggle");
 
                 button.addClass("selected");
 
                 var value = button.html();
-                if (value == "LDA") {
+                if (value == "l") {
                     loadNames(topicNames);
                     loadData(topicScores);
                     document.getElementById("a-count").innerHTML = pubCount;
                     animateCount();
                     createSignature("home-svg");
-                    populateDDList("lda");
-                } else if (value == "Scopus") {
-                    loadNames(scopusTopicNames);
-                    loadData(scopusTopicScores);
-                    document.getElementById("a-count").innerHTML = scopusPubCount;
+                    populateDDList("l");
+                } else if (value == "s") {
+                    loadNames(sTopicNames);
+                    loadData(sTopicScores);
+                    document.getElementById("a-count").innerHTML = sPubCount;
                     animateCount();
                     createSignature("home-svg");
-                    populateDDList("scopus");
+                    populateDDList("s");
                 }
             }
 

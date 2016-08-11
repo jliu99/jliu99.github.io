@@ -105,7 +105,7 @@ header a:hover {
 }
 
 #searchbar input {
-    width: 75%;
+    width: 72.5%;
     box-sizing: border-box;
     height: 40px;
     padding: 8px 15px;
@@ -189,8 +189,8 @@ footer .divider {
 }
 
 #home-svg-container {
-    width: 72.5%;
-    height:70vh;
+    width: 70%;
+    height:67.5vh;
     display: inline-block;
 }
 
@@ -466,13 +466,13 @@ footer .divider {
     float: right;
 }
 
-.scopus-button-container {
+.s-button-container {
     width: 150px;
     text-align: center;
     margin: auto;
 }
 
-.scopus-toggle {
+.s-toggle {
     background-color: maroon;
     padding: 8px;
     text-align: center;
@@ -483,22 +483,22 @@ footer .divider {
     display: table-cell;
 }
 
-.scopus-toggle:hover {
+.s-toggle:hover {
     cursor: pointer;
     background-color: rgb(140, 0, 0);
 }
 
-.scopus-toggle:active {
+.s-toggle:active {
     background-color: rgb(90, 0, 0);
 }
 
-.scopus-toggle.selected {
+.s-toggle.selected {
     background-color: #fff;
     color: maroon;
     font-weight: bold;
 }
 
-.scopus-toggle.selected:hover {
+.s-toggle.selected:hover {
     background-color: #fff;
 }
 

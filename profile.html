@@ -61,9 +61,9 @@
             <svg id="main-svg" class="svg">
             </svg>
             <div id="svg-info">
-                <div class="scopus-button-container">
-                    <button class="scopus-toggle selected" onclick="handleButtons($(this))">LDA</button>
-                    <button class="scopus-toggle" onclick="handleButtons($(this))">Scopus</button>
+                <div class="s-button-container">
+                    <button class="s-toggle selected" onclick="handleButtons($(this))">Learned</button>
+                    <button class="s-toggle" onclick="handleButtons($(this))">Traditional</button>
                 </div>
             </div>
         </section>
@@ -146,31 +146,31 @@
             setTopResultsNumber(10);
             loadData(topicScores);
             loadNames(topicNames);
-            loadScopus();
+            loadSJson();
             var loadDiv = document.getElementById("loading");
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
             createSignature("main-svg");
         });
 
-        var scopusAuthor,
-            scopusTopics,
-            scopusTopicNames = [],
-            scopusTopicScores = [];
+        var sAuthor,
+            sTopics,
+            sTopicNames = [],
+            sTopicScores = [];
 
-        function loadScopus() {
+        function loadSJson() {
             //Load in SCOPUS JSON
-            d3.json("/data/all_scopus_data.json", function (data) {
+            d3.json("/data/all_s_data.json", function (data) {
                 for (i = 0; i < data.length; i++) {
-                    var scopusAuthor = data[i];
-                    if (scopusAuthor.ID == id) {
-                        scopusTopics = scopusAuthor.scopusTopics;
+                    var sAuthor = data[i];
+                    if (sAuthor.ID == id) {
+                        sTopics = sAuthor.sTopics;
                         break;
                     }
                 }
-                for (j = 0; j < scopusTopics.length; j++) {
-                    scopusTopicNames.push(scopusTopics[j][1]["name"]);
-                    scopusTopicScores.push(scopusTopics[j][1]["score"]);
+                for (j = 0; j < sTopics.length; j++) {
+                    sTopicNames.push(sTopics[j][1]["name"]);
+                    sTopicScores.push(sTopics[j][1]["score"]);
                 }
             });
         }
@@ -179,7 +179,7 @@
             if (!button.hasClass("selected")) {
                 clearSVG();
 
-                d3.selectAll("button").attr("class", "scopus-toggle");
+                d3.selectAll("button").attr("class", "s-toggle");
 
                 button.addClass("selected");
 
@@ -190,8 +190,8 @@
                     setPadBars(false);
                     createSignature("main-svg");
                 } else if (value == "Scopus") {
-                    loadNames(scopusTopicNames);
-                    loadData(scopusTopicScores);
+                    loadNames(sTopicNames);
+                    loadData(sTopicScores);
                     setPadBars(true);
                     createSignature("main-svg");
                 }
