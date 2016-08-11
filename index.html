@@ -50,18 +50,17 @@
         <section id="visual-content">
             <div id="home-svg-container">
                 <div id="institution-info">
-                        <h3 id="name" style="position:relative; top:10px;">University of Chicago</h3>
-                        <h3 class="count" id="a-count"></h3>
-                        <p style="text-align:right; font-size:14px;">articles represented</p>
+                    <h3 id="name" style="position:relative; top:10px;">University of Chicago</h3>
+                    <h3 class="count" id="a-count"></h3>
+                    <p style="text-align:right; font-size:14px;">articles represented</p>
                 </div>
                 <svg class="svg" id="home-svg">
                 </svg>
             </div>
-            
+
 
             <div id="home-svg-info">
                 <select>
-                    <option value="all">All Topics</option>
                 </select>
                 <ul>
                     <li>
@@ -135,14 +134,27 @@
             setShowTopOnly(true);
             loadNames(topicNames);
             createSignature("home-svg");
-            for (j = 0; j < topicNames.length; j++) {
-                $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j] + "</option>");
-            }
+            populateDDList("lda");
 
         });
 
         function clearSVG() {
             d3.select("#home-svg").selectAll("*").remove();
+        }
+
+        function populateDDList(type) {
+            $("select").empty();
+            $("select").append("<option value='all'>All Topics</option>");
+
+            if (type == "lda") {
+                for (j = 0; j < topicNames.length; j++) {
+                    $("select").append("<option value='" + (j + 1) + "'>" + topicNames[j] + "</option>");
+                }
+            } else if (type == "scopus") {
+                for (j = 0; j < topicNames.length; j++) {
+                    $("select").append("<option value='" + (j + 1) + "'>" + scopusTopicNames[j] + "</option>");
+                }
+            }
         }
 
         function handleButtons(button) {
@@ -160,12 +172,14 @@
                     document.getElementById("a-count").innerHTML = pubCount;
                     animateCount();
                     createSignature("home-svg");
+                    populateDDList("lda");
                 } else if (value == "Scopus") {
                     loadNames(scopusTopicNames);
                     loadData(scopusTopicScores);
                     document.getElementById("a-count").innerHTML = scopusPubCount;
                     animateCount();
                     createSignature("home-svg");
+                    populateDDList("scopus");
                 }
             }
 
