@@ -41,12 +41,7 @@ main {
     border: 1px solid #ddd;
 }
 
-a {
-    z-index:999;
-}
-
 a:hover {
-    pointer-events: none;
 }
 
 h1,
@@ -189,6 +184,7 @@ footer .divider {
 }
 
 #home-svg-container {
+    margin-left:10%;
     width: 67.5vh;
     height:67.5vh;
     display: inline-block;
@@ -216,10 +212,10 @@ footer .divider {
 }
 
 #home-svg-info {
+    display:inline-block;
     margin-top: 87px;
     width: 22.5%;
     min-width: 250px;
-    float: right;
 }
 
 #home-svg-info select {
