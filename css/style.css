@@ -41,6 +41,10 @@ main {
     border: 1px solid #ddd;
 }
 
+a {
+    z-index:1;
+}
+
 a:hover {
     pointer-events: none;
 }
@@ -50,15 +54,6 @@ h2,
 h3,
 h4 {
     color: maroon;
-}
-
-::-webkit-scrollbar {
-    width:12px;
-}
-
-::-webkit-scrollbar-track {
-    background-color:transparent;
-    
 }
 
 
@@ -604,7 +599,7 @@ footer .divider {
 }
 
 #search-info p {
-    font-size: 12px;
+    font-size: 14px;
     color:#222;
 }
 
@@ -621,8 +616,8 @@ footer .divider {
     box-sizing: border-box;
     background-color: #eee;
     border: 2px solid #ccc;
-    width: 22.5%;
-    min-width: 325px;
+    width: 30%;
+    min-width: 375px;
     margin: 15px 1.5%;
     height: 200px;
     display: inline-block;
@@ -631,18 +626,19 @@ footer .divider {
 
 .results-item h2 {
     font-size: 1.45em;
-    text-decoration: none;
     text-transform: capitalize;
-    font-family:'PT Sans', sans-serif;
+    font-family:'Open Sans', sans-serif;
 }
 
 .results-item a, .results-item a:visited {
     color:#222;
+    text-decoration: none;
+    font-size:13px;
 }
 
 .results-svg-container {
     width: 175px;
     height: 175px;
     float: left;
-    margin-right: 15px;
+    margin-right: 10px;
 }
