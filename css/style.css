@@ -592,6 +592,7 @@ footer .divider {
 
 #search-info h2 {
     font-size: 2.5em;
+    font-family:'PT Sans', sans-serif;
 }
 
 #search-info p {
@@ -613,7 +614,7 @@ footer .divider {
     background-color: #eee;
     border: 2px solid #ccc;
     width: 22.5%;
-    min-width: 275px;
+    min-width: 325px;
     margin: 15px 1.5%;
     height: 200px;
     display: inline-block;
@@ -628,8 +629,8 @@ footer .divider {
 }
 
 .results-svg-container {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     float: left;
     margin-right: 15px;
 }
