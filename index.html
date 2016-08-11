@@ -134,7 +134,7 @@
             setShowTopOnly(true);
             loadNames(topicNames);
             createSignature("home-svg");
-            populateDDList("lda");
+            populateDDList("l");
 
         });
 
@@ -166,14 +166,14 @@
                 button.addClass("selected");
 
                 var value = button.html();
-                if (value == "l") {
+                if (value == "Learned") {
                     loadNames(topicNames);
                     loadData(topicScores);
                     document.getElementById("a-count").innerHTML = pubCount;
                     animateCount();
                     createSignature("home-svg");
                     populateDDList("l");
-                } else if (value == "s") {
+                } else if (value == "Traditional") {
                     loadNames(sTopicNames);
                     loadData(sTopicScores);
                     document.getElementById("a-count").innerHTML = sPubCount;
