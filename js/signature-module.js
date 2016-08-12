@@ -103,13 +103,16 @@ function createStagnantSignature(selectedsvgid) {
             .attr("opacity", "0");
 
         arc.outerRadius(rvalues[i]);
-
-        cbar.transition()
-            .duration(450)
-            .delay(350 + i * 5)
-            .attr("d", arc)
-            .attr("opacity", "0.7");
-
+        
+        if (arraydata[i] == 0 || (onlyShowTop && !isTopResult)) {
+            cbar.attr("visibility", "hidden")
+        } else {
+            cbar.transition()
+                .duration(450)
+                .delay(350 + i * 5)
+                .attr("d", arc)
+                .attr("opacity", "0.7");
+        }
     }
 }
 
