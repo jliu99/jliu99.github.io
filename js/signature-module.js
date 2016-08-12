@@ -23,7 +23,7 @@ var scale = d3.scale.linear()
 function loadData(dataValues) {
     arraydata = dataValues;
     barN = dataValues.length;
-    max = d3.max(arraydata);
+    maxScore = d3.max(arraydata);
 }
 
 // Sets the names of the topics; should just be an array of strings
@@ -62,7 +62,6 @@ function setColor(value) {
 // Stationary Signature; for related profile displays. No labels, no animation
 
 function createStagnantSignature(selectedsvgid) {
-    console.log("creating...");
     svgID = "#" + selectedsvgid;
     var svg = d3.select(svgID);
     svgW = $(svgID).width();
@@ -78,9 +77,6 @@ function createStagnantSignature(selectedsvgid) {
     var padding = n / 16.5;
     var minRadius = holeWidth / 3;
     var maxRadius = 3.05 * n / 7
-    console.log(minRadius);
-    console.log(maxRadius);
-    console.log(maxScore);
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
