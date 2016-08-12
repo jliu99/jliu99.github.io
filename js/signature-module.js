@@ -75,8 +75,8 @@ function createStagnantSignature(selectedsvgid) {
     }
 
     var padding = n / 16.5;
-    var minRadius = holeWidth / 3;
-    var maxRadius = 3.05 * n / 7
+    var minRadius = holeWidth / 2.5;
+    var maxRadius = 3.1 * n / 7
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
@@ -104,7 +104,7 @@ function createStagnantSignature(selectedsvgid) {
 
         arc.outerRadius(rvalues[i]);
         
-        if (arraydata[i] == 0 || (onlyShowTop && !isTopResult)) {
+        if (arraydata[i] == 0) {
             cbar.attr("visibility", "hidden")
         } else {
             cbar.transition()
