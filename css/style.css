@@ -307,6 +307,10 @@ footer .divider {
     text-transform: capitalize;
 }
 
+#profile #info h2.grant-name {
+    text-transform:uppercase;
+}
+
 #profile #info p {
     padding-left: 15px;
     font-size: .8em;
