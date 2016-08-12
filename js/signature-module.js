@@ -56,7 +56,7 @@ function setPadBars(value) {
 }
 
 function setColor(value) {
-    color = value.toString();
+    color = '"' + value + '"';
 }
 
 // Stationary Signature; for related profile displays. No labels, no animation
