@@ -627,7 +627,7 @@ footer .divider {
     margin-top:5px;
     font-size: 1.7em;
     text-transform: capitalize;
-    
+    font-family: 'Montserrat', sans-serif;
 }
 
 .results-item a, .results-item a:visited {
