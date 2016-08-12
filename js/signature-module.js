@@ -23,7 +23,7 @@ var scale = d3.scale.linear()
 function loadData(dataValues) {
     arraydata = dataValues;
     barN = dataValues.length;
-    max = d3.max(dataValues);
+    max = d3.max(arraydata);
 }
 
 // Sets the names of the topics; should just be an array of strings
@@ -78,6 +78,9 @@ function createStagnantSignature(selectedsvgid) {
     var padding = n / 16.5;
     var minRadius = holeWidth / 3;
     var maxRadius = 3.05 * n / 7
+    console.log(minRadius);
+    console.log(maxRadius);
+    console.log(maxScore);
     var angle = (2 * Math.PI) / barN;
 
     var rvalues = [];
@@ -89,9 +92,6 @@ function createStagnantSignature(selectedsvgid) {
         var radius = scale(arraydata[i]);
         rvalues.push(radius);
     }
-
-    console.log(arraydata);
-    console.log(rvalues);
 
     for (i = 0; i < barN; i++) {
         var arc = d3.svg.arc()
