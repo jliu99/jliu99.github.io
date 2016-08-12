@@ -131,7 +131,7 @@
                         console.log(data[i]);
                         neighborIndex = i;
                         for(j = 0; j < neighbor.topics.length; j++){
-                            neighborScores.push(topics[j][1]["score"]);
+                            neighborScores.push(neighbor.topics[j][1]["score"]);
                         }
                         console.log(neighborScores);
                         loadData(neighborScores);
