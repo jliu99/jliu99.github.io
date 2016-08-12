@@ -58,6 +58,9 @@
             
             d3.json("/data/all_data_neighbors.json", function (data) {
                 for (i = 0; i < data.length; i++) {
+                    if(data[i].type = "grant"){
+                        console.log(data[i]);
+                    }
                     if (data[i].authorName != null && data[i].authorName.toLowerCase() == term) {
                         people.push(data[i]);
                         indices.push(i);
@@ -73,7 +76,7 @@
                         $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>" + people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
                     }
                     for (j = 0; j < grants.length; j++) {
-                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='g-result" + j + "'></svg></div><h2>" + grants[j].grantName + "</h2><a href='http://jliu99.github.io/grant.html?id=" + indices[j] + "'> > View full information </a></div></div>");
+                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='g-result" + j + "'></svg></div><h2 style='text-transform:uppercase'>" + grants[j].grantName + "</h2><a href='http://jliu99.github.io/grant.html?id=" + indices[j] + "'> > View full information </a></div></div>");
                     }
                 }
 

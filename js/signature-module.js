@@ -116,7 +116,6 @@ function createStagnantSignature(selectedsvgid) {
     }
 }
 
-
 function createSignature(selectedsvgid) {
     svgID = "#" + selectedsvgid;
     var svg = d3.select(svgID);
