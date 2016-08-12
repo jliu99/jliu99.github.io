@@ -54,7 +54,7 @@
                 indices = [];
             d3.json("/data/all_data_neighbors.json", function (data) {
                 for (i = 0; i < data.length; i++) {
-                    if (data[i].authorName.toLowerCase() == term) {
+                    if (data[i].authorName != null && data[i].authorName.toLowerCase() == term) {
                         people.push(data[i]);
                         indices.push(i);
                     }
