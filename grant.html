@@ -64,6 +64,8 @@
     </div>
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript">
+        var dataid = location.search;
+        var index = dataid.replace("?id=", "");
         var grant, grantName;
         var topicNames = [], topicScores = [];
             d3.json("/data/all_data_neighbors.json", function (data) {
