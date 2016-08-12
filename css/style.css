@@ -132,7 +132,7 @@ footer {
     border-top: 1px solid #eee;
     background-color: #fff;
     margin: auto;
-    margin-bottom: 10px;
+    margin-bottom: 7px;
 }
 
 #footer-img-wrapper {
@@ -589,6 +589,10 @@ footer .divider {
 
 /* ---- Results ---- */
 
+#search-info {
+    text-align:center;
+}
+
 #search-info h2 {
     font-size: 2.5em;
 }
@@ -620,7 +624,8 @@ footer .divider {
 }
 
 .results-item h2 {
-    font-size: 1.45em;
+    margin-top:5px;
+    font-size: 1.6em;
     text-transform: capitalize;
     
 }

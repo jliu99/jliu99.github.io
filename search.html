@@ -51,12 +51,18 @@
             term = term.replace("\+", " ");
             document.getElementById("term").innerHTML = '"' + term + '"';
             var people = [],
-                indices = [];
+                grants = [],
+                indices = [],
+                indicesG = [];
+            
             d3.json("/data/all_data_neighbors.json", function (data) {
                 for (i = 0; i < data.length; i++) {
                     if (data[i].authorName != null && data[i].authorName.toLowerCase() == term) {
                         people.push(data[i]);
                         indices.push(i);
+                    } else if(data[i].grantName!= null && data[i].grantName.toLowerCase() == term) {
+                        grants.push(data[i]);
+                        indicesG.push(i);
                     }
                 }
                 if (people.length == 0) {
