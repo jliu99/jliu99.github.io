@@ -119,6 +119,28 @@
 
             //Animates the article count numbers
             animateCount();
+            
+            $("li.related-profile").each(function(index){
+                //For later: find neighbors based on ID
+                var neighbor, neighborIndex, neighborScores = [];
+                var neighborName = neighbors[index].authorName;
+                console.log(neighborName);
+                for(i = 0; i < data.length; i++){
+                    if(data[i].authorName == neighborName){
+                        neighbor = data[i];
+                        console.log(data[i]);
+                        neighborIndex = i;
+                        for(j = 0; j < neighbor.topics.length; j++){
+                            neighborScores.push(topics[j][1]["score"]);
+                        }
+                        console.log(neighborScores);
+                        loadData(neighborScores);
+                        $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg class='svg' id='rel" + i + "'></svg><p>" + neighborName + "</p></a>");
+                        createStagnantSignature("rel" + i);
+                        break;
+                    }
+                }
+            });
 
             for (i = 0; i < numTopics; i++) {
                 var n = topics[i][1]["names"];
@@ -135,25 +157,6 @@
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
             createSignature("main-svg");
-            
-            $("li.related-profile").each(function(index){
-                //For later: find neighbors based on ID
-                var neighbor, neighborIndex, neighborScores = [];
-                var neighborName = neighbors[index].authorName;
-                for(i = 0; i < data.length; i++){
-                    if(data[i].authorName==neighborName){
-                        neighbor = data[i];
-                        neighborIndex = i;
-                        for(j = 0; j < neighbor.topics.length; j++){
-                            neighborScores.push(topics[j][1]["score"]);
-                        }
-                        loadData(neighborScores);
-                        $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg id='rel" + i + "'></svg><p>" + neighborName + "</p></a>");
-                        createStagnantSignature("rel" + i);
-                        break;
-                    }
-                }
-            });
         });
 
         var sAuthor,
