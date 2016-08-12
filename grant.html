@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html lang="en">
+
+<head>
+    <title>Grant</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Maven+Pro:700' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:600" rel="stylesheet">
+    <script type="text/javascript" src="js/d3/d3.js"></script>
+    <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
+    <script type="text/javascript" src="js/signature-module.js"></script>
+    <script type="text/javascript" src="js/count.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">Research Analytics Institutional Lookup</a>
+        <div id="searchbar-wrapper">
+            <div id="searchbar">
+                <input type="text" name="query" id="query" placeholder="Search for..." required />
+                <button onclick="search()"><i class="material-icons">search</i></button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="profile">
+            <div id="info">
+                <h2 id="name"></h2>
+                <p>Institution: University of Chicago
+                    <br>Email: johndoe@uchicago.edu</p>
+            </div>
+            <div class="numbers">
+                <h2 class="count" id="a-count"></h2>
+                <p>Articles represented</p>
+            </div>
+            <div class="numbers">
+                <p>h-Index</p>
+                <a class="tooltip" href="#" title="Index number here">
+                    <div id="index-graph-container">
+                        <svg class="svg" id="index-svg">
+                            <rect x="0" y="0" height="100%" width="60%" fill="#971E1E" />
+                        </svg>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <section id="display-toggles">
+            <ul>
+                <li class="selected" id="sig" onclick="handleTabs(d3.select(this))">Signature</li>
+                <li id="network" onclick="handleTabs(d3.select(this))">Co-authors</li>
+                <li id="works" onclick="handleTabs(d3.select(this))">Published Works</li>
+            </ul>
+        </section>
+        <section id="display">
+            <svg id="main-svg" class="svg">
+            </svg>
+            <div id="svg-info">
+                <div class="s-button-container">
+                    <button class="s-toggle selected" onclick="handleButtons($(this))">Learned</button>
+                    <button class="s-toggle" onclick="handleButtons($(this))">Traditional</button>
+                </div>
+            </div>
+        </section>
+        <section id="related">
+            <h4>related grants</h4>
+            <hr />
+            <ul>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel1">
+                        </svg>
+                        <p>Jane Doe</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel2"></svg>
+                        <p>Gary Stu</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel3"></svg>
+                        <p>Mary Sue</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <svg class="svg rel-prof" id="rel4"></svg>
+                        <p>Bob Jones</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer>
+        <div id="footer-img-wrapper">
+            <div class="footer-img">
+                <a href="http://www.uchicago.edu/"><img src="img/University_of_Chicago_logo.png" /></a>
+            </div>
+            <div class="divider"> | </div>
+            <div class="footer-img">
+                <a href="http://www.knowledgelab.org/"><img src="img/KnowledgeLab.Main.Black.png" /></a>
+            </div>
+        </div>
+    </footer>
+    <div id="loading">
+        <h3>loading...</h3>
+    </div>
+    <script type="text/javascript" src="js/search.js"></script>
+</body>
+
+</html>
