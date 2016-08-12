@@ -169,8 +169,6 @@ function createSignature(selectedsvgid) {
 
     //CONSTRUCTION
 
-    var color = "rgb(160, 20, 20)";
-
     for (i = 0; i < barN; i++) {
         var isTopResult = false;
         for (k = 0; k < topResultsNumber; k++) {
