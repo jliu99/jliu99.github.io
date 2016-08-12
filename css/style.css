@@ -58,6 +58,7 @@ h4 {
 
 ::-webkit-scrollbar-thumb {
     background-color:maroon;
+    border:none;
 }
 
 /* ---- Header ---- */
