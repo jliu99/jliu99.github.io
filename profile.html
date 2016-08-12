@@ -110,9 +110,10 @@
             topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
-            console.log(author.neighbors);
-            neighbors = author.neighbors.reverse();
-            console.log(neighbors);
+            neighbors = author.neighbors;
+            neighbors.sort(function (a, b) {
+                return a.distance - b.distance;
+            });
             document.getElementById("name").innerHTML = name;
             document.getElementById("a-count").innerHTML = pubCount;
 
@@ -134,16 +135,16 @@
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
             createSignature("main-svg");
-            
-            $("li.related-profile").each(function(index){
+
+            $("li.related-profile").each(function (index) {
                 //For later: find neighbors based on ID
                 var neighbor, neighborIndex, neighborScores = [];
-                var neighborName = neighbors[i].authorName;
-                for(i = 0; i < data.length; i++){
-                    if(data[i].authorName==neighborName){
+                for (i = 0; i < data.length; i++) {
+                    var neighborName = neighbors[i].authorName;
+                    if (data[i].authorName == neighborName) {
                         neighbor = data[i];
                         neighborIndex = i;
-                        for(j = 0; j < neighbor.topics.length; j++){
+                        for (j = 0; j < neighbor.topics.length; j++) {
                             neighborScores.push(topics[j][1]["score"]);
                         }
                         loadData(neighborScores);
