@@ -110,7 +110,9 @@
             topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
+            console.log(author.neighbors);
             neighbors = author.neighbors.reverse();
+            console.log(neighbors);
             document.getElementById("name").innerHTML = name;
             document.getElementById("a-count").innerHTML = pubCount;
 
@@ -161,7 +163,6 @@
         function loadSJson() {
             //Load in SCOPUS JSON
             d3.json("/data/all_s_data.json", function (data) {
-                console.log(data);
                 for (i = 0; i < data.length; i++) {
                     var sAuthor = data[i];
                     if (sAuthor.ID == id) {
