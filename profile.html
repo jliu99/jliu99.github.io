@@ -124,7 +124,6 @@
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/all_data_neighbors.json", function (data) {
-            console.log(data);
             author = data[index];
             name = author.authorName;
             id = author.ID;
