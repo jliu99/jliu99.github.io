@@ -71,31 +71,10 @@
             <h4>related profiles</h4>
             <hr />
             <ul>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel1">
-                        </svg>
-                        <p>Jane Doe</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel2"></svg>
-                        <p>Gary Stu</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel3"></svg>
-                        <p>Mary Sue</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel4"></svg>
-                        <p>Bob Jones</p>
-                    </a>
-                </li>
+                <li class="related-profile"></li>
+                <li class="related-profile"></li>
+                <li class="related-profile"></li>
+                <li class="related-profile"></li>
             </ul>
         </section>
     </main>
@@ -121,6 +100,7 @@
         var name, id, topics, pubCount;
         var topicNames = [],
             topicScores = [];
+        var neighbors = [];
 
         //Load in JSON and initialize variables + page content
         d3.json("/data/all_data_neighbors.json", function (data) {
@@ -130,6 +110,7 @@
             topics = author.topics;
             numTopics = topics.length;
             pubCount = author.pubCount;
+            neighbors = author.neighbors.reverse();
             document.getElementById("name").innerHTML = name;
             document.getElementById("a-count").innerHTML = pubCount;
 
@@ -151,6 +132,25 @@
             loadDiv.style.left = "-100vw";
             loadDiv.style.display = "none";
             createSignature("main-svg");
+            
+            $("li.related-profile").each(function(index){
+                //For later: find neighbors based on ID
+                var neighbor, neighborIndex, neighborScores = [];
+                var neighborName = neighbors[i].authorName;
+                for(i = 0; i < data.length; i++){
+                    if(data[i].authorName==neighborName){
+                        neighbor = data[i];
+                        neighborIndex = i;
+                        for(j = 0; j < neighbor.topics.length; j++){
+                            neighborScores.push(topics[j][1]["score"]);
+                        }
+                        loadData(neighborScores);
+                        $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg id='rel" + i + "'></svg><p>" + neighborName + "</p></a>");
+                        createStagnantSignature("rel" + i);
+                        break;
+                    }
+                }
+            });
         });
 
         var sAuthor,
@@ -161,6 +161,7 @@
         function loadSJson() {
             //Load in SCOPUS JSON
             d3.json("/data/all_s_data.json", function (data) {
+                console.log(data);
                 for (i = 0; i < data.length; i++) {
                     var sAuthor = data[i];
                     if (sAuthor.ID == id) {
@@ -184,12 +185,12 @@
                 button.addClass("selected");
 
                 var value = button.html();
-                if (value == "LDA") {
+                if (value == "Learned") {
                     loadNames(topicNames);
                     loadData(topicScores);
                     setPadBars(false);
                     createSignature("main-svg");
-                } else if (value == "Scopus") {
+                } else if (value == "Traditional") {
                     loadNames(sTopicNames);
                     loadData(sTopicScores);
                     setPadBars(true);
@@ -242,18 +243,6 @@
         d3.select("#info").select("p").transition()
             .duration(800)
             .style("opacity", "1");
-    </script>
-    <script type="text/javascript">
-        for (j = 1; j <= 4; j++) {
-            var dataArray = [];
-            for (i = 0; i < 150; i++) {
-                var data = Math.floor(101 * Math.random());
-                dataArray.push(data);
-            }
-            loadData(dataArray);
-            setMax(d3.max(dataArray));
-            createStagnantSignature("rel" + j);
-        }
     </script>
     <script type="text/javascript">
         function clearSVG() {
