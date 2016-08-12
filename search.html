@@ -55,21 +55,18 @@
                 grants = [],
                 indices = [],
                 indicesG = [];
-            
+
             d3.json("/data/all_data_neighbors.json", function (data) {
                 for (i = 0; i < data.length; i++) {
-                    if(data[i].type = "grant"){
-                        console.log(data[i]);
-                    }
-                    if (data[i].authorName != null && data[i].authorName.toLowerCase() == term) {
+                    if (data[i].authorName != null && data[i].authorName == term) {
                         people.push(data[i]);
                         indices.push(i);
-                    } else if(data[i].grantName!= null && data[i].grantName.toLowerCase() == term) {
+                    } else if (data[i].type = "grant" && data[i].grantName != null && data[i].grantName == term) {
                         grants.push(data[i]);
                         indices.push(i);
                     }
                 }
-                if (people.length == 0) {
+                if ((people.length + grants.length) == 0) {
                     document.getElementById("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
                 } else {
                     for (j = 0; j < people.length; j++) {
