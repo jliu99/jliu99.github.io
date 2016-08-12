@@ -124,18 +124,16 @@
                 //For later: find neighbors based on ID
                 var neighbor, neighborIndex, neighborScores = [];
                 var neighborName = neighbors[index].authorName;
-                console.log(neighborName);
                 for(i = 0; i < data.length; i++){
                     if(data[i].authorName == neighborName){
                         neighbor = data[i];
-                        console.log(data[i]);
                         neighborIndex = i;
                         for(j = 0; j < neighbor.topics.length; j++){
                             neighborScores.push(neighbor.topics[j][1]["score"]);
                         }
                         console.log(neighborScores);
                         loadData(neighborScores);
-                        $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg class='svg' id='rel" + i + "'></svg><p>" + neighborName + "</p></a>");
+                        $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg class='svg' id='rel" + i + "'></svg><p style='text-transform:capitalize'>" + neighborName + "</p></a>");
                         createStagnantSignature("rel" + i);
                         break;
                     }

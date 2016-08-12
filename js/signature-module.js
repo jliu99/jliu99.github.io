@@ -55,13 +55,14 @@ function setPadBars(value) {
     padBars = value;
 }
 
-function setColor(value){
+function setColor(value) {
     color = value;
 }
 
 // Stationary Signature; for related profile displays. No labels, no animation
 
 function createStagnantSignature(selectedsvgid) {
+    console.log("creating...");
     svgID = "#" + selectedsvgid;
     var svg = d3.select(svgID);
     svgW = $(svgID).width();
@@ -89,28 +90,30 @@ function createStagnantSignature(selectedsvgid) {
         rvalues.push(radius);
     }
 
+    console.log(arraydata);
+    console.log(rValues);;
+
     for (i = 0; i < barN; i++) {
-        if (rvalues[i] > maxRadius / 2.5) {
-            var arc = d3.svg.arc()
-                .innerRadius(3)
-                .outerRadius(minRadius)
-                .startAngle(i * angle)
-                .endAngle((i + 1) * angle);
+        var arc = d3.svg.arc()
+            .innerRadius(3)
+            .outerRadius(minRadius)
+            .startAngle(i * angle)
+            .endAngle((i + 1) * angle);
 
-            var cbar = svg.append("path")
-                .attr("d", arc)
-                .attr("fill", color)
-                .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")")
-                .attr("opacity", "0");
+        var cbar = svg.append("path")
+            .attr("d", arc)
+            .attr("fill", color)
+            .attr("transform", "translate(" + svgW / 2 + ", " + svgH / 2 + ")")
+            .attr("opacity", "0");
 
-            arc.outerRadius(rvalues[i]);
+        arc.outerRadius(rvalues[i]);
 
-            cbar.transition()
-                .duration(450)
-                .delay(350 + i * 5)
-                .attr("d", arc)
-                .attr("opacity", "0.7");
-        }
+        cbar.transition()
+            .duration(450)
+            .delay(350 + i * 5)
+            .attr("d", arc)
+            .attr("opacity", "0.7");
+
     }
 }
 
