@@ -1,4 +1,4 @@
-var arraydata, topicnames, barN;
+var arraydata, topicnames, barN;;
 var svgID, svgW, svgH;
 var holeWidth = 15,
     minRadius, maxRadius;
@@ -9,6 +9,9 @@ var topResultsNumber = 10,
     onlyShowTop = false,
     showNumbers = true,
     padBars = false;
+
+//Default color
+var color = "rgb(160, 20, 20)";
 
 var scale = d3.scale.linear()
     .clamp(true)
@@ -52,6 +55,10 @@ function setPadBars(value) {
     padBars = value;
 }
 
+function setColor(value){
+    color = value;
+}
+
 // Stationary Signature; for related profile displays. No labels, no animation
 
 function createStagnantSignature(selectedsvgid) {
@@ -84,7 +91,6 @@ function createStagnantSignature(selectedsvgid) {
 
     for (i = 0; i < barN; i++) {
         if (rvalues[i] > maxRadius / 2.5) {
-            var color = "rgb(160, 20, 20)";
             var arc = d3.svg.arc()
                 .innerRadius(3)
                 .outerRadius(minRadius)
