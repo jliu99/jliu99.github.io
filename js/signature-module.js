@@ -80,18 +80,18 @@ function createStagnantSignature(selectedsvgid) {
     var maxRadius = 3.05 * n / 7
     var angle = (2 * Math.PI) / barN;
 
-    var rdvalues = [];
+    var rvalues = [];
 
     scale.domain([0, maxScore])
         .range([minRadius, maxRadius]);
 
     for (i = 0; i < barN; i++) {
         var radius = scale(arraydata[i]);
-        rdvalues.push(radius);
+        rvalues.push(radius);
     }
 
     console.log(arraydata);
-    console.log(rdValues);
+    console.log(rvalues);
 
     for (i = 0; i < barN; i++) {
         var arc = d3.svg.arc()
