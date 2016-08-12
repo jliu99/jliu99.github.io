@@ -104,7 +104,7 @@ function createStagnantSignature(selectedsvgid) {
 
         arc.outerRadius(rvalues[i]);
         
-        if (rvalues[i] < maxRadius / 5) {
+        if (rvalues[i] < maxRadius / 7) {
             cbar.attr("visibility", "hidden")
         } else {
             cbar.transition()
