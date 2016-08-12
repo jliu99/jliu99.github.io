@@ -57,7 +57,7 @@
                 <li id="works" onclick="handleTabs(d3.select(this))">Published Works</li>
             </ul>
         </section>
-        <section id="display">
+        <section class="main-display">
             <svg id="main-svg" class="svg">
             </svg>
             <div id="svg-info">
@@ -145,6 +145,7 @@
                 topicNames.push(str);
                 topicScores.push(topics[i][1]["score"]);
             }
+            
             setMax(d3.max(topicScores));
             setTopResultsNumber(10);
             loadData(topicScores);

@@ -181,7 +181,7 @@ footer .divider {
 
 #home-svg-container {
     margin-left:10%;
-    width: 67.5vh;
+    width: 65vw;
     height:67.5vh;
     display: inline-block;
 }
@@ -436,7 +436,7 @@ footer .divider {
 
 /* ---- Main Display ---- */
 
-#display {
+.main-display {
     width: 85%;
     height: 70vh;
     margin: auto;
@@ -445,13 +445,13 @@ footer .divider {
     min-height: 500px;
 }
 
-#display #main-svg {
+.main-display #main-svg {
     width: 80%;
     display: inline-block;
     overflow: hidden;
 }
 
-#display #svg-info {
+.main-display #svg-info {
     width: 17%;
     margin: auto;
     display: inline-block;

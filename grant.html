@@ -12,7 +12,6 @@
     <script type="text/javascript" src="js/d3/d3.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.min.js"></script>
     <script type="text/javascript" src="js/signature-module.js"></script>
-    <script type="text/javascript" src="js/count.js"></script>
 </head>
 
 <body>
@@ -29,22 +28,6 @@
         <section id="profile">
             <div id="info">
                 <h2 id="name"></h2>
-                <p>Institution: University of Chicago
-                    <br>Email: johndoe@uchicago.edu</p>
-            </div>
-            <div class="numbers">
-                <h2 class="count" id="a-count"></h2>
-                <p>Articles represented</p>
-            </div>
-            <div class="numbers">
-                <p>h-Index</p>
-                <a class="tooltip" href="#" title="Index number here">
-                    <div id="index-graph-container">
-                        <svg class="svg" id="index-svg">
-                            <rect x="0" y="0" height="100%" width="60%" fill="#971E1E" />
-                        </svg>
-                    </div>
-                </a>
             </div>
         </section>
         <section id="display-toggles">
@@ -54,45 +37,14 @@
                 <li id="works" onclick="handleTabs(d3.select(this))">Published Works</li>
             </ul>
         </section>
-        <section id="display">
+        <section class="main-display" style="width:100%">
             <svg id="main-svg" class="svg">
             </svg>
-            <div id="svg-info">
-                <div class="s-button-container">
-                    <button class="s-toggle selected" onclick="handleButtons($(this))">Learned</button>
-                    <button class="s-toggle" onclick="handleButtons($(this))">Traditional</button>
-                </div>
-            </div>
         </section>
         <section id="related">
             <h4>related grants</h4>
             <hr />
             <ul>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel1">
-                        </svg>
-                        <p>Jane Doe</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel2"></svg>
-                        <p>Gary Stu</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel3"></svg>
-                        <p>Mary Sue</p>
-                    </a>
-                </li>
-                <li>
-                    <a href="">
-                        <svg class="svg rel-prof" id="rel4"></svg>
-                        <p>Bob Jones</p>
-                    </a>
-                </li>
             </ul>
         </section>
     </main>
@@ -112,7 +64,53 @@
     </div>
     <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript">
-        setColor("#443780");
+        var grant, grantName;
+        var topicNames = [], topicScores = [];
+            d3.json("/data/all_data_neighbors.json", function (data) {
+                grant = data[index];
+                name = grant.grantName;
+                topics = grant.topics;
+                neighbors = grant.neighbors;
+                neighbors.sort(function (a, b) {
+                    return a.distance - b.distance;
+                });
+                document.getElementById("name").innerHTML = name;
+                
+                /*$("li.related-profile").each(function(index){
+                    //For later: find neighbors based on ID
+                    var neighbor, neighborIndex, neighborScores = [];
+                    var neighborName = neighbors[index].authorName;
+                    for(i = 0; i < data.length; i++){
+                        if(data[i].authorName == neighborName){
+                            neighbor = data[i];
+                            neighborIndex = i;
+                            for(j = 0; j < neighbor.topics.length; j++){
+                                neighborScores.push(neighbor.topics[j][1]["score"]);
+                            }
+                            loadData(neighborScores);
+                            $(this).append("<a href='http://jliu99.github.io/profile.html?id=" + neighborIndex + "'><svg class='svg' id='rel" + i + "'></svg><p style='text-transform:capitalize'>" + neighborName + "</p></a>");
+                            createStagnantSignature("rel" + i);
+                            break;
+                        }
+                    }
+                });*/
+
+                for (i = 0; i < topics.length; i++) {
+                    var n = topics[i][1]["names"];
+                    var str = n[0] + " | " + n[1] + " | " + n[2];
+                    topicNames.push(str);
+                    topicScores.push(topics[i][1]["score"]);
+                }
+
+                setTopResultsNumber(10);
+                setColor("#443780");
+                loadData(topicScores);
+                loadNames(topicNames);
+                var loadDiv = document.getElementById("loading");
+                loadDiv.style.left = "-100vw";
+                loadDiv.style.display = "none";
+                createSignature("main-svg");
+            });
     </script>
 </body>
 
