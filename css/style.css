@@ -625,7 +625,7 @@ footer .divider {
 
 .results-item h2 {
     margin-top:5px;
-    font-size: 1.6em;
+    font-size: 1.7em;
     text-transform: capitalize;
     
 }
@@ -633,7 +633,7 @@ footer .divider {
 .results-item a, .results-item a:visited {
     color:#222;
     text-decoration: none;
-    font-size:13px;
+    font-size:14px;
 }
 
 .results-svg-container {
