@@ -71,13 +71,12 @@
                 name = grant.grantName;
                 topics = grant.topics;
                 neighbors = grant.neighbors;
-                console.log(neighbors);
                 neighbors.sort(function (a, b) {
                     return a.distance - b.distance;
                 });
                 document.getElementById("name").innerHTML = name;
                 
-                /*$("li.related-profile").each(function(index){
+                $("li.related-profile").each(function(index){
                     //For later: find neighbors based on ID
                     var neighbor, neighborIndex, neighborScores = [];
                     var neighborName = neighbors[index].authorName;
@@ -94,7 +93,7 @@
                             break;
                         }
                     }
-                });*/
+                });
 
                 for (i = 0; i < topics.length; i++) {
                     var n = topics[i][1]["names"];
