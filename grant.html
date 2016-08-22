@@ -77,11 +77,13 @@
                 document.getElementById("name").innerHTML = name;
                 
                 $("li.related-profile").each(function(index){
-                    //For later: find neighbors based on ID
                     var neighbor, neighborIndex, neighborScores = [];
                     var neighborName = neighbors[index].authorName;
+                    console.log(neighborName);
                     for(i = 0; i < data.length; i++){
+                        console.log(data[i]);
                         if(data[i].authorName == neighborName){
+                            console.log("found");
                             neighbor = data[i];
                             neighborIndex = i;
                             for(j = 0; j < neighbor.topics.length; j++){
