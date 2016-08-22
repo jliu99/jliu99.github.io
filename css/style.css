@@ -180,9 +180,8 @@ footer .divider {
 }
 
 #home-svg-container {
-    margin-left:10%;
-    width: 65vw;
-    height:67.5vh;
+    width: 55vw;
+    height:65vh;
     display: inline-block;
 }
 
