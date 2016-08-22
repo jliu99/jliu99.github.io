@@ -40,7 +40,7 @@
             </svg>
         </section>
         <section id="related">
-            <h4>related grants</h4>
+            <h4>nearest researchers</h4>
             <hr />
             <ul>
             </ul>
@@ -71,6 +71,7 @@
                 name = grant.grantName;
                 topics = grant.topics;
                 neighbors = grant.neighbors;
+                console.log(neighbors);
                 neighbors.sort(function (a, b) {
                     return a.distance - b.distance;
                 });
