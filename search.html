@@ -57,12 +57,14 @@
                 indicesG = [];
 
             d3.json("/data/all_data_neighbors.json", function (data) {
+                console.log(data);
                 for (i = 0; i < data.length; i++) {
                     if (data[i].authorName != null && data[i].authorName == term) {
                         people.push(data[i]);
                         indices.push(i);
                     } else if (data[i].type = "grant" && data[i].grantName == term) {
                         grants.push(data[i]);
+                        console.log(data[i]);
                         indices.push(i);
                     }
                 }
