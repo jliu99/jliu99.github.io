@@ -70,25 +70,25 @@
         var dataid = location.search;
         var index = dataid.replace("?id=", "");
         var grant, grantName;
-        var topicNames = [], topicScores = [];
-            d3.json("/data/all_data_neighbors.json", function (data) {
-                grant = data[index];
-                name = grant.grantName;
-                topics = grant.topics;
-                neighbors = grant.neighbors;
+        var topicNames = [],
+            topicScores = [];
+        d3.json("/data/all_data_neighbors.json", function (data) {
+            grant = data[index];
+            name = grant.grantName;
+            topics = grant.topics;
+            neighbors = grant.neighbors;
+            if (neighbors != null) {
                 neighbors.sort(function (a, b) {
                     return a.distance - b.distance;
                 });
-                document.getElementById("name").innerHTML = name;
-                
-                $("li.related-profile").each(function(index){
+                $("li.related-profile").each(function (index) {
                     var neighbor, neighborIndex, neighborScores = [];
                     var neighborName = neighbors[index].authorName;
-                    for(i = 0; i < data.length; i++){
-                        if(data[i].authorName == neighborName){
+                    for (i = 0; i < data.length; i++) {
+                        if (data[i].authorName == neighborName) {
                             neighbor = data[i];
                             neighborIndex = i;
-                            for(j = 0; j < neighbor.topics.length; j++){
+                            for (j = 0; j < neighbor.topics.length; j++) {
                                 neighborScores.push(neighbor.topics[j][1]["score"]);
                             }
                             loadData(neighborScores);
@@ -98,23 +98,26 @@
                         }
                     }
                 });
+            }
+            
+            document.getElementById("name").innerHTML = name;
 
-                for (i = 0; i < topics.length; i++) {
-                    var n = topics[i][1]["names"];
-                    var str = n[0] + " | " + n[1] + " | " + n[2];
-                    topicNames.push(str);
-                    topicScores.push(topics[i][1]["score"]);
-                }
+            for (i = 0; i < topics.length; i++) {
+                var n = topics[i][1]["names"];
+                var str = n[0] + " | " + n[1] + " | " + n[2];
+                topicNames.push(str);
+                topicScores.push(topics[i][1]["score"]);
+            }
 
-                setTopResultsNumber(10);
-                setColor("#39CE88");
-                loadData(topicScores);
-                loadNames(topicNames);
-                var loadDiv = document.getElementById("loading");
-                loadDiv.style.left = "-100vw";
-                loadDiv.style.display = "none";
-                createSignature("main-svg");
-            });
+            setTopResultsNumber(10);
+            setColor("#39CE88");
+            loadData(topicScores);
+            loadNames(topicNames);
+            var loadDiv = document.getElementById("loading");
+            loadDiv.style.left = "-100vw";
+            loadDiv.style.display = "none";
+            createSignature("main-svg");
+        });
     </script>
 </body>
 
