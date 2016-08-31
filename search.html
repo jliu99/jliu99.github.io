@@ -56,8 +56,8 @@
                 indices = [],
                 indicesG = [];
 
-            d3.json("/data/all_data_neighbors.json", function (data) {
-                console.log(data);
+            d3.json("/data/all_data_neighbors.json", function (error, data) {
+                console.log(error);
                 for (i = 0; i < data.length; i++) {
                     if (data[i].authorName != null && data[i].authorName == term) {
                         people.push(data[i]);
