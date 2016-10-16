@@ -52,6 +52,7 @@
             term = term.replace("\+", " ");
             document.getElementById("term").innerHTML = '"' + term + '"';
             var people = [],
+                people2= []
                 grants = [],
                 indices = [],
                 indicesG = [];
@@ -67,11 +68,18 @@
                         console.log(data[i]);
                         indices.push(i);
                     }
+                    if(data[i].authorName != null && data[i].authorName.includes(term)){
+                        people2.push(data[i]);
+                        indices.push(i);
+                    }
                 }
                 if ((people.length + grants.length) == 0) {
                     document.getElementById("results").innerHTML = "<p>Sorry, there were no profiles that matched your search.</p>";
                 } else {
                     for (j = 0; j < people.length; j++) {
+                        $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>" + people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
+                    }
+                    for (j = 0; j < people2.length; j++) {
                         $("#results-grid").append("<div class='results-item'><div class='results-svg-container'><svg class='svg' id='result" + j + "'></svg></div><h2>" + people[j].authorName + "</h2><a href='http://jliu99.github.io/profile.html?id=" + indices[j] + "'> > View full profile </a></div>");
                     }
                     for (j = 0; j < grants.length; j++) {
