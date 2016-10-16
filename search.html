@@ -68,7 +68,7 @@
                         console.log(data[i]);
                         indices.push(i);
                     }
-                    if(data[i].authorName != null && data[i].authorName.includes(term)){
+                    else if(data[i].authorName != null && data[i].authorName.includes(term)){
                         people2.push(data[i]);
                         indices.push(i);
                     }
